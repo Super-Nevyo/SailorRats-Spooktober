@@ -99,6 +99,7 @@ screen say(who, what):
 
     window:
         id "window"
+        ypos 1.0
 
         if who is not None:
 
@@ -247,11 +248,10 @@ screen quick_menu():
             style "quick_menu"
 
             textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
+            textbutton _("Convos") action ShowMenu('history')
+            textbutton _("Fast!") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton _("Go,go") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
 
@@ -269,7 +269,7 @@ style quick_button_text is button_text
 
 style quick_menu:
     xalign 0.5
-    yalign 1.0
+    ypos 1025
 
 style quick_button:
     properties gui.button_properties("quick_button")
