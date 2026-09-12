@@ -24,7 +24,7 @@ label start:
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    e "testing testing dialogue aghsdbjnklma;sdl, narrative lalaalla im such a vampire omg eeehhhhhghhhghhg ///// no spaces i dont think?"
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
