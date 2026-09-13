@@ -12,6 +12,16 @@ image a angry = "images/characters/amarok/Amarok_Angry.png"
 image a sad = "images/characters/amarok/Amarok_Sad.png"
 image a scared = "images/characters/amarok/Amarok_Scared.png"
 
+define am = Character(" Merm-Amarok? ")
+image am neutral = "images/characters/amarok/Amarok_S1_Neutral.png"
+image am happy = "images/characters/amarok/Amarok_S1_Happy.png"
+image am angry = "images/characters/amarok/Amarok_S1_Angry.png"
+image am sad = "images/characters/amarok/Amarok_S1_Sad.png"
+image am scared = "images/characters/amarok/Amarok_S1_Scared.png"
+
+define mer = Character(" Merperson ")
+image mer = "images/characters/merman/Merman_Final.png"
+
 
 # The game starts here.
 
@@ -48,6 +58,30 @@ label start:
 
     show a scared at character_cent
     a "A?AAAAAAAHHssssggGGGGHHH!!"
+
+
+    hide a
+
+    show am neutral at character_cent
+    am "Testing neutral expression on this one - I guess i shoud try and test all of them?"
+
+    show am happy at character_left
+    am "Testing that this in fact places the character to the left"
+
+    show am angry at character_left
+    am "Imma so angy uwu >:c"
+
+    show am sad at character_right
+    am "Dont cry uwu :c"
+
+    show am scared at character_cent
+    am "A?AAAAAAAHHssssggGGGGHHH!!"
+
+
+    hide am
+
+    show mer at character_cent
+    mer "A?AAAAAAAHHssssggGGGGHHH!!"
 
     # This ends the game.
 
