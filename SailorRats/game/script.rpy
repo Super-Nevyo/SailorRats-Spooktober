@@ -3,30 +3,51 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("THELONGESTNAMEEVERWHAHAHA")
+define b = Character(" KoreanGuy Name Here ")
+
+define a = Character(" Amarok ")
+image a neutral = "images/characters/amarok/Amarok_Neutral.png"
+image a happy = "images/characters/amarok/Amarok_Happy.png"
+image a angry = "images/characters/amarok/Amarok_Angry.png"
+image a sad = "images/characters/amarok/Amarok_Sad.png"
+image a scared = "images/characters/amarok/Amarok_Scared.png"
 
 
 # The game starts here.
 
+transform character_cent:
+    zoom 0.5
+    xalign 0.5
+    yalign 1.0
+
+transform character_left:
+    zoom 0.5
+    xalign 0.0
+    yalign 1.0
+
+transform character_right:
+    zoom 0.5
+    xalign 1.0
+    yalign 1.0
+
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    scene black
 
-    scene bg room
+    show a neutral at character_cent
+    a "Testing neutral expression on this one - I guess i shoud try and test all of them?"
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    show a happy at character_left
+    a "Testing that this in fact places the character to the left"
 
-    show eileen happy
+    show a angry at character_left
+    a "Imma so angy uwu >:c"
 
-    # These display lines of dialogue.
+    show a sad at character_right
+    a "Dont cry uwu :c"
 
-    e "testing testing dialogue aghsdbjnklma;sdl, narrative lalaalla im such a vampire omg eeehhhhhghhhghhg ///// no spaces i dont think?"
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    show a scared at character_cent
+    a "A?AAAAAAAHHssssggGGGGHHH!!"
 
     # This ends the game.
 
