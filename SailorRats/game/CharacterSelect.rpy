@@ -38,7 +38,7 @@ label amarokChosen:
     $ LoveInterest = a
     $ LIName = "amarok"
     $ LIStage = "normal"
-    jump interact
+    jump startDate1
 
 screen chooseSaja():
     imagebutton:
@@ -63,7 +63,7 @@ label sajaChosen:
     $ LoveInterest = s
     $ LIName = "saja"
     $ LIStage = "normal"
-    jump interact
+    jump startDate1
 
 screen choosePuppy():
     imagebutton:
@@ -88,4 +88,4 @@ label chihuahuaChosen:
     $ LoveInterest = s
     $ LIName = "saja"
     $ LIStage = "chihuahua"
-    jump interact
+    jump startDate1
