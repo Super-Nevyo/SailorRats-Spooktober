@@ -25,7 +25,7 @@ define config.check_conflicting_properties = True
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#cc0066'
+define gui.accent_color = '#7f0f57'
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = '#888888'
@@ -35,7 +35,7 @@ define gui.idle_color = '#888888'
 define gui.idle_small_color = '#aaaaaa'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#e066a3'
+define gui.hover_color = '#7f0f57'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
@@ -57,13 +57,13 @@ define gui.interface_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "Rossanova-Light.otf"
+define gui.text_font = "fonts/Aloeveracondensed-Regular.otf"
 
 ## The font used for character names.
-define gui.name_text_font = "lovtony.ttf"
+define gui.name_text_font = "fonts/Aloeveracondensed-Bold.otf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "Rossanova-Bold.otf"
+define gui.interface_text_font = "fonts/Aloeveracondensed-Black.otf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 33
@@ -72,7 +72,7 @@ define gui.text_size = 33
 define gui.name_text_size = 45
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 33
+define gui.interface_text_size = 50
 
 ## The size of labels in the game's user interface.
 define gui.label_text_size = 36
@@ -204,13 +204,16 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ##
 ## Choice buttons are used in the in-game menus.
 
-define gui.choice_button_width = 1185
-define gui.choice_button_height = None
+define gui.choice_button_width = 1110
+define gui.choice_button_height = 150
 define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(150, 8, 150, 8)
-define gui.choice_button_text_font = gui.text_font
-define gui.choice_button_text_size = gui.text_size
+
+define gui.choice_button_text_font = gui.name_text_font
+define gui.choice_button_text_size = 40
+
 define gui.choice_button_text_xalign = 0.5
+define gui.choice_button_text_yalign = 0.5
 define gui.choice_button_text_idle_color = '#888888'
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = '#8888887f'
