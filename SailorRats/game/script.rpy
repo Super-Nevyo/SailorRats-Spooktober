@@ -38,24 +38,11 @@ transform character_right:
 label start:
 
     scene black
+    call screen chooseAmarok
+    return
 
-    menu:
-        "who do i love?"
-
-        "Amarok":
-            $ LoveInterest = a
-            $ LIName = "amarok"
-            $ LIStage = "normal"
-        
-        "Saja":
-            $ LoveInterest = s
-            $ LIName = "saja"
-            $ LIStage = "normal"
-
-    
+label interact:
     show LI happy at character_cent
     LoveInterest "I am a person"
-
     hide LI
-
     return
