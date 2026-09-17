@@ -5,6 +5,7 @@
 
 define s = Character(" Jeoseung Saja ")
 define a = Character(" Amarok ")
+define mc = Character ("  You  ")
 
 default LIName = "character"
 default LIStage = "normal"
@@ -55,6 +56,25 @@ label start:
     
     show LI happy at character_cent
     LoveInterest "I am a person"
+
+    LoveInterest "Where do you want to go on a date?"
+
+    menu:
+        "Go on a night hike":
+            pass
+
+        "A night hike? Why that?":
+            pass
+
+        "Okay let's go!":
+            pass
+
+   
+    mc "I dont know what to say omg aahahhahs"
+
+
+    return
+
 
     hide LI
 
