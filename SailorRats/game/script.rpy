@@ -6,6 +6,10 @@
 define s = Character(" Jeoseung Saja ")
 define a = Character(" Amarok ")
 define mc = Character ("  You  ")
+define l = Character (" Lily ")
+define m = Character (" Morrigan ")
+define n = Character (None, what_italic=True)
+define notif = Character (" Notifications ",what_color="#FFA500" )
 
 default LIName = "character"
 default LIStage = "normal"
@@ -39,27 +43,59 @@ transform character_right:
 label start:
 
     scene black
+
+    n "I shouldn't have been surprised."
+    n "I'd meant to message back sooner, but work was busy and life happened..."
+    n "... Now it's been over a week since I responded to my last message on the dating app I'd joined, and my inbox is full of half finished conversations with empty profiles from people who've unmatched me."
+    n "I know it's my own fault, but the disappointment still stings. {p}But I suppose I'm here now. Might as well give this another shot."
+
+    n "{cps=20}... {p}... {/cps}"
+    n "{cps=20}... {p}... {/cps}"
+
+    n "Before long I'm completely zoned out, swiping left without even really looking at the people on my phone."
+    n "I let my head fall backwards and sigh, only a little too dramatically."
+    
+    mc "Just watch, somewhere in those rejected profiles was the love of my life."
+    
+    n "I'm about to just throw in the towel completely when my phone buzzes, and a small notification banner rolls down from the top of the screen."
+    notif "Your {i}Daily Showcase{/i} Is Ready! View Your Top 4 Most Compatible Right Now!"
+
+    mc "{w=1.5}I mean.... it can't hurt, right?"
+    
+    n "I tap the notification, and am instantly shown four people all smiling at me from the screen."
+
     call screen chooseAmarok
+
 
     return
 
 label startDate1:
     show LI happy at character_cent
-    LoveInterest "I am a person"
+    notif "It's a match!"
 
-    LoveInterest "Where do you want to go on a date?"
+    n "There's a moment of panic that happens with every new match."
+    n "My stomach drops, and I feel a sudden overwhelming urge to chuck my phone across the room."
+    n "I stare at [LIName]'s profile picture."
+    
+    mc "Okay, how am I going to win them over?"
 
-    menu:
-        "Go on a night hike":
-            pass
+    menu: 
 
-        "A night hike? Why that?":
-            pass
+        "Hey.":
+            jump generic_path
 
-        "Okay let's go!":
-            pass
+        "If I could rearrange my keyboard, I'd put u and i .... oh wait.":
+            jump cheesy_path
 
-   
-    mc "I dont know what to say omg aahahhahs"
+        "Hey! What three items would someone need to have to successfully cast a summoning spell for you?":
+            jump question_path
 
+label generic_path:
+    LoveInterest "Hey. How's it going?"
+
+label cheesy_path:
+    LoveInterest "Are they already together? I didn't even notice, I was too busy getting lost in your eyes."
+
+label question_path:
+    LoveInterest "Ooh, that's a good one. I'm gonna say a flat white, a good book, and a cozy spot in front of a fire."
     return
