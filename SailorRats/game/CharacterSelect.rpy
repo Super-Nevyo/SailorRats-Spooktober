@@ -36,7 +36,7 @@ screen chooseAmarok():
 
 label amarokChosen:
     $ LoveInterest = a
-    $ LIName = "amarok"
+    $ LIName = "Amarok"
     $ LIStage = "normal"
     jump startDate1
 
@@ -61,7 +61,7 @@ screen chooseSaja():
         
 label sajaChosen:
     $ LoveInterest = s
-    $ LIName = "saja"
+    $ LIName = "Saja"
     $ LIStage = "normal"
     jump startDate1
 
