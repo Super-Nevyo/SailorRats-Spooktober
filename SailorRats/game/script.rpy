@@ -14,7 +14,7 @@ define notif = Character (" Notifications ",what_color="#FFA500" )
 default LIName = "character"
 default LIStage = "normal"
 
-define LoveInterest = Character("null")
+define li = Character("null")
 
 image LI neutral = "images/characters/[LIName]/[LIStage]/neutral.png"
 image LI happy = "images/characters/[LIName]/[LIStage]/happy.png"
@@ -91,9 +91,9 @@ label startDate1:
             n "Sending the first message is the hardest part, so I keep it simple. A little basic, sure, and yet, somehow, still effective."
             jump generic_path
 
-# COMMENTED OUT UNTIL DIALOGUE FINISHED FOR THESE PATHS =)
-        # "If I could rearrange my keyboard, I'd put u and i .... oh wait.":
-        #     jump cheesy_path
+
+        "do you actually play all those games or just collect them?":
+            jump gamer_path
 
         # "Hey! What three items would someone need to have to successfully cast a summoning spell for you?":
         #     jump question_path
@@ -101,31 +101,82 @@ label startDate1:
 label generic_path:
     mc "Hey."
 
-    LoveInterest "Hey, how's it going?"
+    li "Hey, how's it going?"
 
     mc "Not too shabby, you?"
 
-    LoveInterest "It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho"
+    li "It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho"
 
     mc "Damn, that sucks. More money though at least?"
 
-    LoveInterest "Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week."
+    li "Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week."
 
     mc "Mmmmm .... delicious brand name cardboard pasta."
 
-    LoveInterest "See, you get it! i only have the best after a hard days work XD"
+    li "See, you get it! i only have the best after a hard days work XD"
     jump genericsecondchat_path
 
-# COMMENTED OUT UNTIL DIALOGUE FINISHED FOR THESE ROUTES! =)
-# label cheesy_path:
-#     notif "{cps=30} ... {i}[LIName] is typing{/i} ... {/cps}"
-#     LoveInterest "Are they already together? I didn't even notice, I was too busy getting lost in your eyes ;)"
+label gamer_path:
+    mc "So... are you ACTUALLY gonna play those games or is it just to have them? xd"
 
-#     jump secondchat_path
+    li "wow, attacking me already 😭"
+    li "please tell me your library is worse"
+
+    mc "I mean... everyone has a bunch of games in their library, but..."
+
+    menu:
+        "of course i play everything i get!":
+            li "haha at least one of us has their life together xd."
+
+        "we are not discussing my library!! xdd":
+            li "THAT bad huh? haha xd"
+
+    li "anyway, what are you up to today?"
+
+    mc "not much, im trying to pick somenthing to play!! I'm between Silksong and Blue Prince..."
+    mc "i think its gonna be Blue Prince"
+
+    li "oh nice! that's an awesome game"
+    li "Should i leave you to it? :D"
+
+    mc "what? of course not! its a puzzle game haha you gotta help me!"
+
+    li "maybe we could play it together sometime! i dont want to distract you now haha"
+
+    mc "but... you are a good distraction (ᗒᗣᗕ)՞"
+
+    li "haha you are cute uwu"
+    li "we should definitely do that!" 
+    li "What else you do for fun?"
+
+    menu:
+        "Play ALL the games!":
+            mc "i mean... games mostly, but i sometimes like to go out on walks and see around"
+            li "haha i guess we can enable each other's purchases haha"
+            li "i usually work nights but on my days off i like going for a night walk! (big time sleeping all day lol)"
+
+        "I love horror movies!":
+            mc "omg i love movies! mostly spooky but i can never pick one lol but i like spooky stuff"
+            li "horror movies are awesome! i need snacks tho or its not really complete"
+            li "i work nights but on my days off i go for night walks! is that spooky enough? haha"
+
+        "I'm more outdoorsy!":
+            mc "i love hiking and sightseeing too! this is why i dont have time for games TwT"
+            li "oh that's fun!! i work nights but on my days off i go for night walks! the night sky is really beautiful by the mountains"
+
+    mc "oh yeah?  that sounds like fun actually!"
+    mc "I think we will get along pretty well haha"
+
+    li "yeah i think so too..."
+    li "we should hangout some time soon!! uwu"    
+
+    mc "i would really like that uwu - okay! i gotta go now to (sleep? school? work?)! ttyl!"     
+    
+    jump genericsecondchat_path
 
 # label question_path:
 #     notif "{cps=30} ... {i}[LIName] is typing{/i} ... {/cps}"
-#     LoveInterest "Ooh, that's a good one :D I'm gonna say a flat white, a good book, and a cozy spot in front of a fire."
+#     li "Ooh, that's a good one :D I'm gonna say a flat white, a good book, and a cozy spot in front of a fire."
 #     jump secondchat_path
     
 label genericsecondchat_path:
@@ -143,19 +194,19 @@ label genericsecondchat_path:
     n "I grab it to check the notification, realizing after that I may have moved a little {i}too{/i} quickly to check a dating app message sent at 3 o'clock in the morning."
 
     notif "You have a new message from [LIName]!"
-    LoveInterest "I set my bag down for two seconds when I was leaving work and a trash panda stole my leftover mac (T.T)"
+    li "I set my bag down for two seconds when I was leaving work and a trash panda stole my leftover mac (T.T)"
 
     mc "No, not the macaroni! But also it's 3am, are you super sad about the macaroni or just can't sleep?"
 
-    LoveInterest "2 things can be true, I can be super sad about my macaroni while I'm also just leaving work lol"
+    li "2 things can be true, I can be super sad about my macaroni while I'm also just leaving work lol"
 
     mc "At 3am!?!?"
 
-    LoveInterest "Yeah, I work nights. It's kinda nice being up when everyone else is asleep... It makes work pretty easy but the trade off is that I spend all day sleeping and am basically nocturnal."
+    li "Yeah, I work nights. It's kinda nice being up when everyone else is asleep... It makes work pretty easy but the trade off is that I spend all day sleeping and am basically nocturnal."
 
     mc "So what I'm hearing is our first date should be a romantic night out, so you can stay awake for it?"
 
-    LoveInterest "I mean... i'm not upset at that idea ^_^"
+    li "I mean... i'm not upset at that idea ^_^"
     jump dateone_path
 
 
@@ -181,7 +232,7 @@ label dateone_path:
 
     show LI happy at character_cent 
 
-    LoveInterest "Hey stranger."
+    li "Hey stranger."
 
     mc "Fancy meeting you here."
 
@@ -189,9 +240,9 @@ label dateone_path:
 
     show LI neutral at character_cent
 
-    LoveInterest "Okay, I know we talked about a picnic, but the radio was talking about a meteor shower that's supposed to be visible tonight."
+    li "Okay, I know we talked about a picnic, but the radio was talking about a meteor shower that's supposed to be visible tonight."
     
-    LoveInterest "And there's apparently a perfect place to see it that's like a 15 minute walk to the top of a hill nearby..."
+    li "And there's apparently a perfect place to see it that's like a 15 minute walk to the top of a hill nearby..."
 
     n "[LIName] pauses and looks at me like they're trying to gauge my reaction."
 
@@ -203,7 +254,7 @@ label dateone_path:
 
     n "[LIName] smiles, clapping their hands together in front of them."
 
-    LoveInterest "There's also supposed to be this gorgeous lake nearby, but it's not as easy to see the sky."
+    li "There's also supposed to be this gorgeous lake nearby, but it's not as easy to see the sky."
 
     n "They turn their eyes towards my car, where a cooler bag filled with sandwiches and cut up fruit is sitting on the passenger's seat."
     
@@ -211,7 +262,7 @@ label dateone_path:
 
     show LI scared at character_cent
 
-    LoveInterest "But I know you specifically asked me out here for a picnic so I don't want to ruin any plans you had, so if you had a specific place in mind, I'm cool with anything."
+    li "But I know you specifically asked me out here for a picnic so I don't want to ruin any plans you had, so if you had a specific place in mind, I'm cool with anything."
 
     menu:
         mc "Honestly, they all sound amazing. What I really think I want to do is..."
@@ -237,7 +288,7 @@ label dateone_path:
 label mer_path:
     n "[LIName] pulls up the exact directions to the lake on their phone, and we fall into step beside each other as we walk. The lights from the parking lot are drifting farther behind us, allowing the few stars we {i}can{/i} see from beneath the canopy of leaves to shine even brighter."
 
-    LoveInterest  "We might be able to still see the meteor shower after all."
+    li  "We might be able to still see the meteor shower after all."
     
     n "I gesture to the cooler bag on my shoulder."
 
@@ -247,7 +298,7 @@ label mer_path:
 
     show LI happy at character_cent 
 
-    LoveInterest "We get to have our picnic and eat it too."
+    li "We get to have our picnic and eat it too."
 
     n "They're looking at me expectantly, so I smile and nod."
 
@@ -255,7 +306,7 @@ label mer_path:
 
     n "[LIName] looks at the ground suddenly."
 
-    LoveInterest "Like cake? You can have your cake and eat it - actually, ignore that."
+    li "Like cake? You can have your cake and eat it - actually, ignore that."
 
     n "This time, my laugh is genuine."
 
@@ -269,7 +320,7 @@ label mer_path:
 
     n "When they see my smile, their face turns back fully towards me, flashing me a big, mischevious grin."
 
-    LoveInterest "Okay thank God, I was worried I'd already blown my cover as an incredibly cool, interesting individual."
+    li "Okay thank God, I was worried I'd already blown my cover as an incredibly cool, interesting individual."
 
     n "I shrug my shoulders."
 
@@ -281,7 +332,7 @@ label mer_path:
 
     show LI happy at character_cent
 
-    LoveInterest "Interesting, or anxiety inducing?"
+    li "Interesting, or anxiety inducing?"
 
     mc "I mean, two things can be true at the same time. Like how if I end up a cautionary tale on some True Crime podcast somewhere, my story will be both interesting and axiety inducing."
 
@@ -309,7 +360,7 @@ label mer_path:
 
     show LI happy at character_cent
 
-    LoveInterest "Okay so maybe the stars aren't exactly clear here, but still..."
+    li "Okay so maybe the stars aren't exactly clear here, but still..."
 
     n "They're right; we have a pretty limited view of the sky, but it's not entirely obscured."
     n "Off in the distance I can hear the sounds of some sort of critter shuffling around in the brush, and there is the distinct smell of campfire in the air."
@@ -325,13 +376,13 @@ label mer_path:
 
     show LI sad at character_cent
 
-    LoveInterest "It is a tragedy that has befallen us on this night, but we are strong. We shall prevail."
+    li "It is a tragedy that has befallen us on this night, but we are strong. We shall prevail."
 
     n "Neither of us can hold our feigned sadness for very long, and we both crack up laughing."
 
     show LI happy at character_cent
 
-    LoveInterest "But seriously, this is nice. I'm really glad we -"
+    li "But seriously, this is nice. I'm really glad we -"
 
     show LI scared at character_cent
 
@@ -340,36 +391,36 @@ label mer_path:
 
     show LI neutral at character_cent
 
-    LoveInterest "I um... {w=2}I was just gonna say that I'm uh -"
-    LoveInterest "{w=2} I'm really glad you agreed to meet up. I know this isn't exactly a conventional first date."
+    li "I um... {w=2}I was just gonna say that I'm uh -"
+    li "{w=2} I'm really glad you agreed to meet up. I know this isn't exactly a conventional first date."
 
     mc "It's not, but I'm sure there have been weirder. Besides, technically it was my idea."
 
     show LI happy at character_cent
-    LoveInterest "Okay true."
+    li "Okay true."
     
     n "[LIName] stares out at the water as I start rummaging through the picnic basket, setting plastic containers onto the blanket."
 
     show LI scared at character_cent
-    LoveInterest "Wait, before we eat, can I make a suggestion that could potentially backfire horrifically on me?"
+    li "Wait, before we eat, can I make a suggestion that could potentially backfire horrifically on me?"
 
     show LI neutral at character_cent
 
     mc "Is this the part where you show me you've brought ropes and duct tape just in case the night goes well, and definitely not for anything sinister?"
 
     show LI happy at character_cent
-    LoveInterest "First of all, those don't come out until {i}the end{/i} of the date, when I have a better idea of if they're needed for fun or to make sure my dirty secrets never get out."
+    li "First of all, those don't come out until {i}the end{/i} of the date, when I have a better idea of if they're needed for fun or to make sure my dirty secrets never get out."
 
     n "[LIName] winks at me, then stands up and offers me their hand."
 
-    LoveInterest "Secondly, I was going to throw out the idea of .... should we say {i}taking advantage{/i} of being alone here?"
+    li "Secondly, I was going to throw out the idea of .... should we say {i}taking advantage{/i} of being alone here?"
 
     show LI scared at character_cent
 
-    LoveInterest "Wait, that sounded super sexual too."
+    li "Wait, that sounded super sexual too."
 
-    LoveInterest "Swimming. I meant swimming. We could go swimming. Not skinny dipping or anything."
-    LoveInterest "And only if you want to. I mean, it sounds weird now that I've already said it and I feel kind of like an idiot or-"
+    li "Swimming. I meant swimming. We could go swimming. Not skinny dipping or anything."
+    li "And only if you want to. I mean, it sounds weird now that I've already said it and I feel kind of like an idiot or-"
 
     n "[LIName]'s eyes look frantic, like they're half expecting me to run away in horror at the verbal vomit and lack of a brain-to-mouth filter."
     n "I laugh, from both the adorable breakdown happening in front of me on on top of the wash of relief that I didn't make a complete fool of myself first."
@@ -386,7 +437,7 @@ label mer_path:
 
     show LI happy at character_cent
 
-    LoveInterest "We're actually doing this."
+    li "We're actually doing this."
 
     n "I nod as they repeat the phrase to themselves quietly while they strip."
 
@@ -394,11 +445,11 @@ label mer_path:
 
     show LI scared at character_cent
 
-    LoveInterest "I'm gonna be honest, it was one of those moments where the bravery kicked in before the logical part of my brain could rethink it. I'm almost more scared I said it in the first place."
+    li "I'm gonna be honest, it was one of those moments where the bravery kicked in before the logical part of my brain could rethink it. I'm almost more scared I said it in the first place."
 
     show LI happy at character_cent
 
-    LoveInterest "But I have always wanted to do this."
+    li "But I have always wanted to do this."
 
     n "I book it towards the water."
 
@@ -410,12 +461,12 @@ label mer_path:
     n "I can hear [LIName] splashing in close behind me, and they dive in fully to acclimate."
 
     show LI scared at character_cent
-    LoveInterest "Oh my god it's so cold!"
+    li "Oh my god it's so cold!"
 
     n "They swing their hair to get it out of their own eyes, sending the water droplets fling directly into mine."
 
     show LI happy at character_cent
-    LoveInterest "Oops. Sorry!"
+    li "Oops. Sorry!"
 
     mc "Yep, I'm sure you are."
 
@@ -426,38 +477,38 @@ label mer_path:
 
     show LI happy at character_cent
 
-    LoveInterest "You've gotta be faster than that. I won bronze in my seventh grade swimming championship."
+    li "You've gotta be faster than that. I won bronze in my seventh grade swimming championship."
 
     mc "Ooh, bronze. Not gold?"
 
     show LI sad at character_cent
 
-    LoveInterest "No, but it was a super close race."
+    li "No, but it was a super close race."
 
     n "I raise an eyebrow."
 
     show LI neutral at character_cent
 
-    LoveInterest "Besides, the two people who beat me were brothers, and I'm pretty sure they were half fish anyway. No 12 year olds should be able to swim as fast as they did."
+    li "Besides, the two people who beat me were brothers, and I'm pretty sure they were half fish anyway. No 12 year olds should be able to swim as fast as they did."
 
     mc "The only exception of course would have been you if you'd won instead?"
 
     show LI happy at character_cent
 
-    LoveInterest "Exactly. You get it!"
+    li "Exactly. You get it!"
 
     n "I tread my way towards [LIName], but they paddle backwards out of my reach."
 
-    LoveInterest "See, great swimmer. I was made to be in the -"
+    li "See, great swimmer. I was made to be in the -"
 
     show LI scared at character_cent
 
-    LoveInterest "Shit, something bit me!"
+    li "Shit, something bit me!"
 
     n "I stop moving towards them instinctively."
     n "[LIName] reaches under the water and screams."
 
-    LoveInterest "I think it's a leech!"
+    li "I think it's a leech!"
 
     mc "Don't rip it-"
 
@@ -470,7 +521,7 @@ label mer_path:
 
     n "[LIName] gags."
 
-    LoveInterest "It still feels like it's biting me, we need to get out of here."
+    li "It still feels like it's biting me, we need to get out of here."
 
     hide LI
 
@@ -497,7 +548,7 @@ label mer_path:
 
     n "If nothing else, they've stopped yowling."
 
-    LoveInterest "This is so gross."
+    li "This is so gross."
 
     n "I kneel next to them, leaning over slightly to make sure they also have no other extra new friends."
 
@@ -511,7 +562,7 @@ label mer_path:
 
     show LI sad at character_cent
 
-    LoveInterest "Technically I exploded it off of me."
+    li "Technically I exploded it off of me."
 
     mc "I'm fairly certain that's not better."
 
@@ -524,7 +575,7 @@ label mer_path:
 
     show LI scared at character_cent
 
-    LoveInterest "What's my prognosis, doc? Please tell me it didn't like, leave a piece of it's head in my leg or something."
+    li "What's my prognosis, doc? Please tell me it didn't like, leave a piece of it's head in my leg or something."
 
     n "I don't know much about leeches, but I'm pretty sure that's a thing tics can do, so it wouldn't surprise me."
     n "Especially with such an.... {w=2}unexpected ending to it's meal."
@@ -538,7 +589,7 @@ label mer_path:
     n "[LIName]'s hand closes over mine for a second, and I look up at them."
     n "They're just staring at my hand under theirs, and my bloody tee underneath them both."
 
-    LoveInterest "This was not the way this night was supposed to end."
+    li "This was not the way this night was supposed to end."
 
     n "I reach over and grab their clothes, handing them their own shirt."
     n "Realizing mine is otherwise occupied, I pull on my jacket and zip it up."
