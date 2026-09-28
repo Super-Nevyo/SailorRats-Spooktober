@@ -40,7 +40,8 @@ screen chooseAmarok():
 
 label amarokChosen:
     $ LoveInterest = a
-    $ LIName = "Amarok"
+    $ LIName = " Amarok "
+    $ LIFolder = "amarok"
     $ LIStage = "normal"
     jump startDate1
 
@@ -67,7 +68,8 @@ screen chooseSaja():
         
 label sajaChosen:
     $ LoveInterest = s
-    $ LIName = "Saja"
+    $ LIName = " Saja "
+    $ LIFolder = "saja"
     $ LIStage = "normal"
     jump startDate1
 
@@ -94,7 +96,8 @@ screen chooseMorrigan():
 
 label morriganChosen:
     $ LoveInterest = m
-    $ LIName = "Morrigan"
+    $ LIName = " Morrigan "
+    $ LIFolder = "morrigan"
     $ LIStage = "normal"
     jump startDate1
 
@@ -121,6 +124,7 @@ screen chooseLily():
 
 label lilyChosen:
     $ LoveInterest = l
-    $ LIName = "Lily"
+    $ LIName = " Lily "
+    $ LIFolder = "lily"
     $ LIStage = "normal"
     jump startDate1

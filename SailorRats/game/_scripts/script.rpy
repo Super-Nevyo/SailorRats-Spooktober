@@ -11,17 +11,18 @@ define m = Character (" Morrigan ")
 define n = Character (None)
 define notif = Character (" Notifications ",what_color="#FFA500" )
 
-default LIName = "character"
+default LIName = "Character"
+default LIFolder = "character"
 default LIStage = "normal"
 
 define li = Character("[LIName]")
 
-image LI neutral = "images/characters/[LIName]/[LIStage]/neutral.png"
-image LI happy = "images/characters/[LIName]/[LIStage]/happy.png"
-image LI angry = "images/characters/[LIName]/[LIStage]/angry.png"
-image LI sad = "images/characters/[LIName]/[LIStage]/sad.png"
-image LI scared = "images/characters/[LIName]/[LIStage]/scared.png"
-image LI blush = "images/characters/[LIName]/[LIStage]/blush.png"
+image LI neutral = "images/characters/[LIFolder]/[LIStage]/neutral.png"
+image LI happy = "images/characters/[LIFolder]/[LIStage]/happy.png"
+image LI angry = "images/characters/[LIFolder]/[LIStage]/angry.png"
+image LI sad = "images/characters/[LIFolder]/[LIStage]/sad.png"
+image LI scared = "images/characters/[LIFolder]/[LIStage]/scared.png"
+image LI blush = "images/characters/[LIFolder]/[LIStage]/blush.png"
 
 
 # The game starts here.
@@ -553,12 +554,12 @@ label wolf_path:
 
     mc "I mean, it {i}would{/i} be an absolute shame to waste it..."
 
-    n "I move slowly towards them..." {w}
+    n "I move slowly towards them..."
     
     stop music fadeout 0.5
     play sound sfx_eerie
 
-    n: "but something crashes through the trees beside us, and I instinctively pull backwards as it lunges towards us."
+    n "but something crashes through the trees beside us, and I instinctively pull backwards as it lunges towards us."
 
     show LI scared at character_cent
     li "What the -"
@@ -651,7 +652,7 @@ label wolf_path:
 
     li "Okay. Thank you."
 
-jump hospital_path
+    jump hospital_path
 
 
 label mer_path:
@@ -974,7 +975,7 @@ label mer_path:
 
     mc "Maybe we just stick to the rope and duct tape next time."
 
-jump hospital_path
+    jump hospital_path
 
 label vamp_path:
     n "[LIName] takes the lead, and we follow a path leading up the hill."
@@ -1136,7 +1137,7 @@ label vamp_path:
 
     li "I hate glitter, I CANNOT be a Cullen!"
 
-jump hospital_path
+    jump hospital_path
 
 label hospital_path:
     
