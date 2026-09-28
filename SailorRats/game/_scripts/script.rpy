@@ -21,6 +21,7 @@ image LI happy = "images/characters/[LIName]/[LIStage]/happy.png"
 image LI angry = "images/characters/[LIName]/[LIStage]/angry.png"
 image LI sad = "images/characters/[LIName]/[LIStage]/sad.png"
 image LI scared = "images/characters/[LIName]/[LIStage]/scared.png"
+image LI blush = "images/characters/[LIName]/[LIStage]/blush.png"
 
 
 # The game starts here.
@@ -42,8 +43,9 @@ transform character_right:
 
 label start:
 
+    play music haunted_bg fadein 2.0
     scene black with fade
-    pause 0.5
+    pause 0.5 
     show text "Home {p}October 19, 2026 {p}19:30" with dissolve
     pause 2.5
     hide text with dissolve
@@ -64,6 +66,8 @@ label start:
     mc "Just watch, somewhere in those rejected profiles was the love of my life."
     
     n "I'm about to just throw in the towel completely when my phone buzzes, and a small notification banner rolls down from the top of the screen."
+    play sound sfx_notification
+    
     notif "Your {i}Daily Showcase{/i} Is Ready! View Your Top 4 Most Compatible Right Now!"
 
     mc "{w=1.5}I mean.... it can't hurt, right?"
@@ -77,6 +81,7 @@ label start:
 
 label startDate1:
     show LI happy at character_cent
+    play sound sfx_match
     notif "It's a match!"
 
     n "There's a moment of panic that happens with every new match."
@@ -131,7 +136,7 @@ label gamer_path:
 
     li "Anyway, what are you up to today?"
 
-    mc "Not much, I'm trying to pick somenthing to play!! I'm between Silksong and Blue Prince..."
+    mc "Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince..."
     mc "I think its gonna be Blue Prince."
 
     li "oh nice! that's an awesome game"
@@ -188,6 +193,7 @@ label genericsecondchat_path:
     scene bednight
 
     n "I'm about to get into bed when my phone buzzes from my nightstand, the dating app's logo visible on the pop-up banner."
+    play sound sfx_phone_vibrate
     n "I grab it to check the notification, realizing after that I may have moved a little {i}too{/i} quickly to check a dating app message sent at 3 o'clock in the morning."
 
     notif "You have a new message from [LIName]!"
@@ -279,6 +285,7 @@ label dateone_path:
     hide text with dissolve
 
     scene forest
+    play music music_first_date fadein 2.0
 
     n "{nw=0.5}"
 
@@ -330,8 +337,8 @@ label dateone_path:
         "Have our picnic in the clearing.":
             jump wolf_path
 
-        # "Watch the meteor shower.":
-        #     jump vamp_path
+        "Watch the meteor shower.":
+            jump vamp_path
 
         "See the lake, how romantic!":
             jump mer_path
@@ -344,6 +351,8 @@ label wolf_path:
     mc "Me neither. And I also may have gone a bit overboard wtih the snacks... this thing is heavy!"
 
     n "As I lift the cooler up to gesture towards it, I stumble slightly on a rock in the path."
+
+    play sound sfx_fall
     
     show LI scared at character_cent with hpunch
 
@@ -377,7 +386,7 @@ label wolf_path:
 
     mc "No, not at all! What I meant was that it's probably for the best that you do hold my hand. After all, I have the snacks, so if I go down, so do they."
 
-    show LI smile at character_cent
+    show LI happy at character_cent
 
     n "[LIName] laughs, their fingers closing around mine again."
 
@@ -544,7 +553,12 @@ label wolf_path:
 
     mc "I mean, it {i}would{/i} be an absolute shame to waste it..."
 
-    n "I move slowly towards them... {w} {p} but something crashes through the trees beside us, and I instinctively pull backwards as it lunges towards us."
+    n "I move slowly towards them..." {w}
+    
+    stop music fadeout 0.5
+    play sound sfx_eerie
+
+    n: "but something crashes through the trees beside us, and I instinctively pull backwards as it lunges towards us."
 
     show LI scared at character_cent
     li "What the -"
@@ -565,6 +579,8 @@ label wolf_path:
     show LI scared at character_cent
     n "[LIName] pauses, lifting the food just out of the dog's reach."
     n "The dog growls, but doesn't move. It just keeps it's eyes locked on the carrot."
+    
+    play sound sfx_dog_growl
 
     li "What's wrong?"
 
@@ -581,6 +597,9 @@ label wolf_path:
     li "OWWW!!"
 
     n "As [LIName] pulls the carrot away to grab something else with their other hand, the dog pounces onto them, teeth closing around the carrot.... and their hand."
+    
+    play sound sfx_dog_bark
+
     n "I lean forward, but the dog is already bounding into the treeline before I even get a chance to pull it off of [LIName]."
 
     mc "Are you okay?"
@@ -632,7 +651,7 @@ label wolf_path:
 
     li "Okay. Thank you."
 
-    jump hospital_path
+jump hospital_path
 
 
 label mer_path:
@@ -689,6 +708,8 @@ label mer_path:
     show LI scared at character_cent with hpunch
 
     n "My foot catches on a tree root on the path, and I stumble sideways, grabbing onto [LIName]'s arm for stability."
+    
+    play sound sfx_fall
 
     n "Their other arm grabs onto me too, holding me up before I completely hit the ground."
 
@@ -804,11 +825,14 @@ label mer_path:
     n "I book it towards the water."
 
     mc "Then let's go!"
+    
+    play sound sfx_splash1
 
     hide LI
 
     n "It's freezing cold, so I plunge myself up to my shoulders the moment the water is deep enough."
     n "I can hear [LIName] splashing in close behind me, and they dive in fully to acclimate."
+    play sound sfx_splash2
 
     show LI scared at character_cent
     li "Oh my god it's so cold!"
@@ -824,6 +848,8 @@ label mer_path:
 
     n "I splash water back at them, but they dodge it by diving past me, heading deeper into the lake."
     n "They surface a few feet behind me and splash me the moment I turn towards them."
+
+    play sound sfx_wet
 
     show LI happy at character_cent
 
@@ -853,12 +879,14 @@ label mer_path:
 
     show LI scared at character_cent
 
+    stop music fadeout 0.5
     li "Shit, something bit me!"
 
     n "I stop moving towards them instinctively."
     n "[LIName] reaches under the water and screams."
 
     li "I think it's a leech!"
+    play sound sfx_horror
 
     mc "Don't rip it-"
 
@@ -945,6 +973,7 @@ label mer_path:
     n "Realizing mine is otherwise occupied, I pull on my jacket and zip it up."
 
     mc "Maybe we just stick to the rope and duct tape next time."
+
 jump hospital_path
 
 label vamp_path:
@@ -1064,6 +1093,9 @@ label vamp_path:
 
     show LI scared at character_cent with hpunch
 
+    stop music fadeout 0.3
+    play sound sfx_bat
+    
     n "Something big and black soars directly into [LIName]."
     
     li "What the fuck?!"
@@ -1075,6 +1107,8 @@ label vamp_path:
     n "[LIName]'s hand clasps onto their neck."
 
     li "I think it bit me!"
+    
+    play sound sfx_horror
 
     n "When [LIName] pulls their hand away to look at it, I can see the small trails of blood already trailing down the side of their neck."
 
@@ -1105,6 +1139,9 @@ label vamp_path:
 jump hospital_path
 
 label hospital_path:
+    
+    scene hospital with fade
+    play music music_hospital fadein 2.0
 
     n "here we are at the hospital!"
 

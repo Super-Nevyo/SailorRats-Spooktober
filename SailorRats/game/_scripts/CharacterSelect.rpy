@@ -93,7 +93,7 @@ screen chooseMorrigan():
         at button_left
 
 label morriganChosen:
-    $ LoveInterest = s
+    $ LoveInterest = m
     $ LIName = "Morrigan"
     $ LIStage = "normal"
     jump startDate1
@@ -120,7 +120,7 @@ screen chooseLily():
         at button_left
 
 label lilyChosen:
-    $ LoveInterest = s
+    $ LoveInterest = l
     $ LIName = "Lily"
     $ LIStage = "normal"
     jump startDate1
