@@ -14,7 +14,7 @@ define notif = Character (" Notifications ",what_color="#FFA500" )
 default LIName = "character"
 default LIStage = "normal"
 
-define li = Character("null")
+define li = Character("[LIName]")
 
 image LI neutral = "images/characters/[LIName]/[LIStage]/neutral.png"
 image LI happy = "images/characters/[LIName]/[LIStage]/happy.png"
@@ -44,13 +44,13 @@ label start:
 
     scene black with fade
     pause 0.5
-    show text "Home {p}September 19, 2026 {p}19:30" with dissolve
+    show text "Home {p}October 19, 2026 {p}19:30" with dissolve
     pause 2.5
     hide text with dissolve
 
     scene black
 
-    n "I shouldn't be scaredd."
+    n "I shouldn't be surprised."
     n "I'd meant to message back sooner, but work has been busy and life happened..."
     n "... Now it's been over a week since I responded to my last message on the dating app I'd joined, and my inbox is full of half finished conversations with empty profiles from people who've unmatched me."
     n "I know it's my own fault, but the disappointment still stings. {p}But I suppose I'm here now. Might as well give this another shot."
@@ -92,11 +92,9 @@ label startDate1:
             jump generic_path
 
 
-        "do you actually play all those games or just collect them?":
+        "Do you actually play all those games or just collect them?":
             jump gamer_path
 
-        # "Hey! What three items would someone need to have to successfully cast a summoning spell for you?":
-        #     jump question_path
 
 label generic_path:
     mc "Hey."
@@ -125,44 +123,45 @@ label gamer_path:
     mc "I mean... everyone has a bunch of games in their library, but..."
 
     menu:
-        "of course i play everything i get!":
+        "Of course I play everything I get!":
             li "haha at least one of us has their life together xd."
 
-        "we are not discussing my library!! xdd":
+        "We are not discussing my library!! xdd":
             li "THAT bad huh? haha xd"
 
-    li "anyway, what are you up to today?"
+    li "Anyway, what are you up to today?"
 
-    mc "not much, im trying to pick somenthing to play!! I'm between Silksong and Blue Prince..."
-    mc "i think its gonna be Blue Prince"
+    mc "Not much, I'm trying to pick somenthing to play!! I'm between Silksong and Blue Prince..."
+    mc "I think its gonna be Blue Prince."
 
     li "oh nice! that's an awesome game"
-    li "Should i leave you to it? :D"
+    li "Should I leave you to it? :D"
 
-    mc "what? of course not! its a puzzle game haha you gotta help me!"
+    mc "What? Of course not! It's a puzzle game haha you gotta help me!"
 
-    li "maybe we could play it together sometime! i dont want to distract you now haha"
+    li "maybe we could play it together sometime! I dont want to distract you now haha"
 
-    mc "but... you are a good distraction (ᗒᗣᗕ)՞"
+    mc "But... you are a good distraction (ᗒᗣᗕ)՞"
 
     li "haha you are cute uwu"
     li "we should definitely do that!" 
-    li "What else you do for fun?"
+    li "What else do you do for fun?"
 
     menu:
         "Play ALL the games!":
-            mc "i mean... games mostly, but i sometimes like to go out on walks and see around"
-            li "haha i guess we can enable each other's purchases haha"
-            li "i usually work nights but on my days off i like going for a night walk! (big time sleeping all day lol)"
+            mc "I mean... games mostly, but I sometimes like to go out on walks and see what's around."
+            li "haha I guess we can enable each other's purchases haha"
+            li "I usually work nights but on my days off I like going for a night walk! (big time sleeping all day lol)"
 
         "I love horror movies!":
-            mc "omg i love movies! mostly spooky but i can never pick one lol but i like spooky stuff"
-            li "horror movies are awesome! i need snacks tho or its not really complete"
-            li "i work nights but on my days off i go for night walks! is that spooky enough? haha"
+            mc "omg I love movies! Mostly spooky but I can never pick one lol"
+            mc "but I like spooky stuff"
+            li "horror movies are awesome! I need snacks tho or its not really complete"
+            li "I work nights but on my days off i go for night walks! is that spooky enough? haha"
 
         "I'm more outdoorsy!":
-            mc "i love hiking and sightseeing too! this is why i dont have time for games TwT"
-            li "oh that's fun!! i work nights but on my days off i go for night walks! the night sky is really beautiful by the mountains"
+            mc "I love hiking and sightseeing too! This is why I dont have time for games TwT"
+            li "oh that's fun!! i work nights but on my days off I go for night walks! the night sky is really beautiful by the mountains"
 
     mc "oh yeah?  that sounds like fun actually!"
     mc "I think we will get along pretty well haha"
@@ -170,20 +169,18 @@ label gamer_path:
     li "yeah i think so too..."
     li "we should hangout some time soon!! uwu"    
 
-    mc "i would really like that uwu - okay! i gotta go now to (sleep? school? work?)! ttyl!"     
-    
-    jump genericsecondchat_path
+    mc "I would really like that uwu - okay! I gotta go now, I've got work in the morning, but chat later?"
 
-# label question_path:
-#     notif "{cps=30} ... {i}[LIName] is typing{/i} ... {/cps}"
-#     li "Ooh, that's a good one :D I'm gonna say a flat white, a good book, and a cozy spot in front of a fire."
-#     jump secondchat_path
+    li "Absolutely! Night!" 
+    
+    jump gamersecondchat_path
+
     
 label genericsecondchat_path:
 
     scene black with fade
     pause 0.5
-    show text "Home {p}September 26, 2026 {p}18:00" with dissolve
+    show text "Home {p}October 26, 2026 {p}18:00" with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -209,12 +206,75 @@ label genericsecondchat_path:
     li "I mean... i'm not upset at that idea ^_^"
     jump dateone_path
 
+label gamersecondchat_path:
+    scene black with fade
+    pause 0.5
+    show text "Home {p}October 26, 2026 {p}18:00" with dissolve
+    pause 2.5
+    hide text with dissolve
+
+
+    scene bednight
+
+    n "I'm about to get into bed when my phone buzzes from my nightstand, the dating app's logo visible on the pop-up banner."
+    n "I grab it to check the notification, realizing after that I may have moved a little {i}too{/i} quickly to check a dating app message sent at 3 o'clock in the morning."
+
+    notif "You have a new message from [LIName]!"
+    
+    li "hey hey heeeeyyyy! (:"
+    li "how are you? Did you keep playing?"
+
+    mc "Of course I did! And then I got stuck..."
+    mc "This puzzle was taking me forever and then I blinked and it was 2am, like.....???"
+
+    li "oh no :c yeah I heard it's a hard game. WE could maybe play it together soon, see if we can figure it out together XD"
+    li "actually, I'm off on the 31st owo"
+    li "Should we plan something?"
+
+    mc "You have Halloween off?!? Heck yeah!"
+    mc "Why don't we go on that night walk we talked about? That would be like the perfect ending to Halloween =D"
+
+    li "oh that's right, it actually is Halloween, isn't it? I take it you like it? Do you dress up?"
+
+    menu:
+        "Are you kidding me? I love it! I'm always dressing up and planning next year's costume!":
+            li "oh that's awesome! I love it too, i usually go to parties"
+        "I think I  like it enough, but I prefer summer stuff more tbh!":
+            li "haha its been a while since i've done things in the summer. imo winter is the best - unpopular opinion I know"
+        "┐(￣～￣)┌  I guess it's okay, some people do go crazy about it tho":
+            li "I know haha, but i'm a big believer in letting people like what they like ¯\_(ツ)_/¯ Halloween can be fun!"
+
+    li "but back to our super spooky nighttime walk plans! There's some nice spots around the area, but we can choose where to go when we get there?"
+    li "and maybe snacks? It's a good idea now but it'll be even better with snacks. Maybe some popcorn!!"
+
+    mc "YAASS snacks make everything better!!"
+    mc "I can bring something else too, make it a picnic!"
+
+    menu:
+        "Maybe some hot chocolate?":
+            li "uh yeah, that'd be awesome!"
+        "Something sweet? How do we feel about cookies?":
+            li "!!!!"
+            li "Cookies would go soooooo hard!!"
+        "Or maybe you're just satisfied with being in my company? uwu":
+            li "hahah yes, yes absolutely, oh queen of England XD"
+            mc "hey now hahahaha =P"
+
+    li "amazing, I'm loving this plan already. can't wait to meet you"
+    mc "Me neither, I'm excited!"
+    mc "Don't forget to bring a jacket too, it's cold out there!"
+    li "awww look at you taking care of me already <3"
+    mc "heyyy  (ᗒᗣᗕ)՞"
+    mc "I can't have my date going hypothermic on me ... on a walk.... at night..."
+    mc "that's suspicious AF"
+    li "hahah fair"
+    li "now go, I've distracted you from your game long enough. Go forth and get those achievements, soldier!"
 
 label dateone_path:
 
     scene black with fade
     pause 0.5
-    show text "Blueberry Acres National Park {p}October 1, 2026 {p}21:00" with dissolve
+    show text "Blueberry Acres National Park {p}October 31, 2026 {p}21:00" with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -262,13 +322,13 @@ label dateone_path:
 
     show LI scared at character_cent
 
-    li "But I know you specifically asked me out here for a picnic so I don't want to ruin any plans you had, so if you had a specific place in mind, I'm cool with anything."
+    li "But I know you brought a bit of a picnic so I don't want to ruin any plans you had, so if you had a specific place in mind, I'm cool with anything."
 
     menu:
         mc "Honestly, they all sound amazing. What I really think I want to do is..."
 
-        # "Have our picnic in the clearing.":
-        #     jump wolf_path
+        "Have our picnic in the clearing.":
+            jump wolf_path
 
         # "Watch the meteor shower.":
         #     jump vamp_path
@@ -277,13 +337,303 @@ label dateone_path:
             jump mer_path
 
 
-# label wolf_path:
+label wolf_path:
+    show LI happy at character_cent
+    li "Honestly, real. And besides it's probably for the best anyway; a nice walk is good, but I don't want to get all sweaty from a long hike."
 
-#     jump hospital_path
+    mc "Me neither. And I also may have gone a bit overboard wtih the snacks... this thing is heavy!"
 
-# label vamp_path:
+    n "As I lift the cooler up to gesture towards it, I stumble slightly on a rock in the path."
+    
+    show LI scared at character_cent with hpunch
 
-#  jump hospital_path
+    n "[LIName]'s hand shoots out, catching my arm before I can fall."
+
+    li "Careful!"
+
+    mc "I can't believe I did that."
+
+    n "[LIName]'s hand doesn't leave my arm. Instead it slides down to my hand, their fingers intertwining with mine. I stare at our joined hands for a second while I try to mentally push down the heat taking over my cheeks."
+
+    show LI blush at character_cent
+
+    li "Here, just in case."
+
+    n "My brain is practically screaming at me to both acknowledge the situation and ignore it in what is mostly just a running chorus of {i}don't make it weird, don't make it weird, don't make it weird{/i}"
+
+    mc "I'm going to make this weird."
+
+    show LI scared at character_cent
+
+    mc "OH MY GOD WAIT NO. THAT'S NOT WHAT I MEANT!"
+
+    show LI blush at character_cent
+
+    n "I cannot believe I just said that."
+
+    li "I'm sorry, that was weird of me to just do without asking."
+
+    n "They try to let go of my hand, but I hold on instead."
+
+    mc "No, not at all! What I meant was that it's probably for the best that you do hold my hand. After all, I have the snacks, so if I go down, so do they."
+
+    show LI smile at character_cent
+
+    n "[LIName] laughs, their fingers closing around mine again."
+
+    li "Very fair. This is in both of our best interest. For the snacks, of course."
+    
+    mc "Absolutely, for the snacks."
+
+    hide LI
+
+    n "We walk a bit more in silence."
+    n "Our hands have started swinging between us, and every so often [LIName] looks down at them and smiles to themself."
+    n "It's kind of adorable."
+    n "The trees around us form a canopy overhead, but every once in a while I can see bits and pieces of the sky."
+    n "As I watch, a particularly large bird soars overhead."
+
+    mc "Man, being a bird would be so cool."
+
+    show LI neutral at character_cent
+
+    n "[LIName] looks up too."
+
+    li "It really would be. The freedom to go anywhere? Yes, please."
+
+    mc "Right? You could just take off and go anywhere you wanted to whenever you wanted to... I wish"
+
+    show LI happy at character_cent
+
+    li "So I'm guessing that your answer to 'What superpower would you have' is flight?"
+
+    mc "Nah, there's so many cool ones to choose. If it had to be travel related, I'd rather just teleport to be honest."
+    mc "But if my only option was flight? I'd specifically want to be a bird."
+
+    show LI neutral at character_cent
+    li "Why a bird?"
+
+    mc "Because then you can poop on people."
+
+    show LI happy at character_cent
+    li "..."
+    li "Real."
+
+    mc "What about you, though?"
+
+    show LI neutral at character_cent
+    li "What about me?"
+
+    mc "Your superpower."
+
+    show LI blush at character_cent
+
+    li "Mine would definitely be flight. As a human, though."
+
+    mc "I shall poop on the other lame humans in your honour, then."
+
+    show LI happy at character_cent
+    li "I appreciate it."
+
+    show LI neutral at character_cent
+    li "But really though... being a pilot has always been the dream. I was even going to try to take lessons and learn, but they're so expensive and the timing was never right and.... I don't know, life just always seemed to get in the way."
+
+    mc "I know what you mean. The way we live our lives these days... it makes it hard to do anything but grind to survive sometimes."
+    mc "But you've still got time! We're young! A ton of super successful people don't find their success until they're older. We've got literal decades left to figure it out."
+
+    show LI blush at character_cent
+
+    li "True. I don't know, I think my inner child is still holding out hope for that dream."
+
+    mc "And what about outer adult you?"
+
+    show LI happy at character_cent
+
+    li "They are too."
+
+    mc "Well, then it's settled. I'm officially on Team [LIName] becomes a pilot. Even if you get there one baby step at a time, it's still a step!"
+
+    show LI blush at character_cent
+
+    li "True."
+
+    show LI neutral at character_cent
+    
+    li "I guess I never thought of it like that. I've always been a more 'final big picture' type of person, I get lost in the details, especially when there's a lot of them."
+
+    show LI happy at character_cent
+
+    li "But I guess the only way to make the number of steps get smaller is to start taking them."
+
+    n "I use our still-joined hands to pull their shoulder towards mine and bump them."
+
+    mc "And I will gladly remind you of that any time you need me to."
+
+    n "We come to a slightly overgrown part of the path, and [LIName] pushes the branches out of the way, revealing the clearing."
+
+    scene clearing
+    hide LI
+
+    n "It's gorgeous, and completely private. I can hear people laughing way off in the distance, and a dog howls in response somewhere else equally far away."
+    n "But aside from a few small critters moving around in the underbrush, it seems like we are completely alone."
+    n "[LIName] sets down the blanket they brought, and I start unpacking containers of cookies, cut up fruits and veggies, a container of popcorn, some chocolates... "
+    n "[LIName]'s face lights up."
+
+    show LI happy at character_cent
+
+    li "Hey, you brought it!"
+
+    mc "I said I would, didn't I?"
+
+    n "But looking at the spread I've set out, it seems I may have forgotten a few things."
+
+    show LI neutral at character_cent
+
+    mc "Okay, so I'm realizing now that in my excitement, I may have forgotten real food."
+
+    li "That's okay. It's not a traditional picnic..."
+
+    show LI happy at character_cent
+
+    li "It's a snack-a-thon!"
+
+    show LI blush at character_cent
+
+    li "And honestly, that's even better in my opinion." 
+
+    n "We sit down opposite one another and start digging in to our unconventional feast."
+    n "My cooler bag didn't seem to get the memo that it was supposed to actually cool things, so unfortunately the chocolate I packed has melted a little bit."
+
+    show LI neutral at character_cent
+    
+    li "Pfft, it just wanted to be chocolate dip for the fruit. It knew it had a higher purpose."
+
+    n "[LIName] drags a bit of cantelope through the chocolate puddle before taking a bite."
+
+    show LI happy at character_cent
+
+    li "See? Perfection."
+
+    n "Unfortunately, [LIName] was so caught up in their snack that they didn't notice the now chocolate sauce missing half of their mouth, instead smearing onto their lip and chin."
+
+    mc "You've got a bit of -"
+    n "I gesture to my own mouth."
+    
+    show LI neutral at character_cent
+    
+    li "Here?"
+
+    n "They swipe a finger at their bottom lip and stare at their finger."
+
+    show LI scared at character_cent
+
+    li "Oh my god, that's so embarrasing."
+
+    show LI blush at character_cent
+
+    mc "It's fine, really! But there's definitely more."
+
+    show LI happy at character_cent
+
+    n "The look they give me is downright mischevious."
+
+    li "I mean, if you're so bothered by it, you could come help me clean it up?"
+
+    n "[LIName] leans forward and stares at me."
+    n "I'm pretty sure my brain has forgotten how to move."
+
+    mc "I mean, it {i}would{/i} be an absolute shame to waste it..."
+
+    n "I move slowly towards them... {w} {p} but something crashes through the trees beside us, and I instinctively pull backwards as it lunges towards us."
+
+    show LI scared at character_cent
+    li "What the -"
+    mc "Look out!"
+
+    n "The small dog stops at the edge of our blanket, wide eyes staring directly at the food in between us."
+
+    show LI happy at character_cent
+
+    li "Awww, it's just a puppy!"
+    li "You hungry little guy?"
+
+    n "[LIName] picks up a carrot from the veggies and holds it out to the dog."
+    n "I laugh, my heartbeat still racing in my chest, when I notice that the hand [LIName] is holding out just so happens to be the same one covered in chocolate."
+
+    mc "Wait!"
+
+    show LI scared at character_cent
+    n "[LIName] pauses, lifting the food just out of the dog's reach."
+    n "The dog growls, but doesn't move. It just keeps it's eyes locked on the carrot."
+
+    li "What's wrong?"
+
+    mc "Your hand is covered in chocolate. We don't want him to get sick!"
+
+    show LI happy at character_cent
+
+    n "[LIName] looks at their hand and smiles."
+
+    li "You're so right. Hang on, little guy, we'll get you somethi-"
+
+    show LI scared at character_cent with hpunch
+
+    li "OWWW!!"
+
+    n "As [LIName] pulls the carrot away to grab something else with their other hand, the dog pounces onto them, teeth closing around the carrot.... and their hand."
+    n "I lean forward, but the dog is already bounding into the treeline before I even get a chance to pull it off of [LIName]."
+
+    mc "Are you okay?"
+
+    show LI angry at character_cent
+
+    li "Fuck, that hurt!"
+    
+    n "[LIName] turns towards the trees where the dog disappeared."
+    li "You little jerk, I was going to get you something that {i}wouldn't{/i} make you sick, not taking it away completely!"
+
+    n "I look at their hand in their lap. Blood is collecting in their palm and mixing with the melted chocolate and probably a not-so-healthy dose of dog saliva."
+    n "I dig into the cooler and grab a handful of napkins. I pull their hand closer and press a napkin on each side to get the initial bleeding out of the way so I can take a better look."
+
+    show LI sad at character_cent
+    n "I pull the napkins away and check the bite - it's small but fairly deep, and it looks like one of them pulled away before the dog's teeth were out of the wound, so it's torn a little bit to one side."
+
+    show LI neutral at character_cent
+
+    li "Damn, he got me good."
+    
+    show LI scared at character_cent
+
+    li "Wait, did he have a collar? Was that a wild dog? Can chocolate in a dog bite cause an infection?"
+    li "Am I going to get rabies?!"
+
+    mc "Probably not that last one, but I think a bite from anything is enough to cause an infection, domesticated or not."
+
+    show LI sad at character_cent
+    
+    mc "Besides, this is not exactly a clean bite, and it looks pretty deep. I think you might need stitches."
+
+    show LI scared at character_cent
+    
+    li "Are you serious? I was just trying to be nice to the puppy and this is what I get in return..."
+
+    mc "You're gonna be fine, I promise."
+
+    show LI neutral at character_cent
+
+    mc "But we should really go get you to a doctor to get this cleaned up and looked at. There isn't exactly a good place to get this clean out here."
+
+    n "The napkins I've been using to dab the blood out of the way are getting pretty soaked, but I don't want to point that out. [LIName] is panicking enough as it is."
+    n "I grab new ones and press them onto each side of [LIName]'s hand, folding their fingers over their palm to hold one and pulling their other hand onto the back of their hand to hold the other."
+
+    mc "Here, just keep holding these here and apply pressure. I'll get our picnic cleaned up and then we can go, okay?"
+
+    show LI sad at character_cent
+
+    li "Okay. Thank you."
+
+    jump hospital_path
+
 
 label mer_path:
     n "[LIName] pulls up the exact directions to the lake on their phone, and we fall into step beside each other as we walk. The lights from the parking lot are drifting farther behind us, allowing the few stars we {i}can{/i} see from beneath the canopy of leaves to shine even brighter."
@@ -595,10 +945,14 @@ label mer_path:
     n "Realizing mine is otherwise occupied, I pull on my jacket and zip it up."
 
     mc "Maybe we just stick to the rope and duct tape next time."
-        # jump hospital_path
+jump hospital_path
 
-#label hospital_path:
+# label vamp_path:
 
+#  jump hospital_path
 
+label hospital_path:
+
+    n "here we are at the hospital!"
 
 return

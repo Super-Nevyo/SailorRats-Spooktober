@@ -27,12 +27,16 @@ screen chooseAmarok():
         hover "images/phone/profiles/arrow_hover.png"
         action [ToggleScreen("chooseAmarok"), ToggleScreen("chooseSaja")]
         at button_right
+        at transform:
+            xzoom -1.0
 
     imagebutton:
         idle "images/phone/profiles/arrow.png"
         hover "images/phone/profiles/arrow_hover.png"
-        action [ToggleScreen("chooseAmarok"), ToggleScreen("chooseMorrigan")]
+        action [ToggleScreen("chooseAmarok"), ToggleScreen("chooseLily")]
         at button_left
+
+
 
 label amarokChosen:
     $ LoveInterest = a
@@ -52,6 +56,8 @@ screen chooseSaja():
         hover "images/phone/profiles/arrow_hover.png"
         action [ToggleScreen("chooseSaja"), ToggleScreen("chooseMorrigan")]
         at button_right
+        at transform:
+            xzoom -1.0
 
     imagebutton:
         idle "images/phone/profiles/arrow.png"
@@ -75,8 +81,10 @@ screen chooseMorrigan():
     imagebutton:
         idle "images/phone/profiles/arrow.png"
         hover "images/phone/profiles/arrow_hover.png"
-        action [ToggleScreen("chooseMorrigan"), ToggleScreen("chooseAmarok")]
+        action [ToggleScreen("chooseMorrigan"), ToggleScreen("chooseLily")]
         at button_right
+        at transform:
+            xzoom -1.0
     
     imagebutton:
         idle "images/phone/profiles/arrow.png"
@@ -87,5 +95,32 @@ screen chooseMorrigan():
 label morriganChosen:
     $ LoveInterest = s
     $ LIName = "Morrigan"
+    $ LIStage = "normal"
+    jump startDate1
+
+screen chooseLily():
+    imagebutton:
+        idle "images/phone/profiles/lily.png"
+        hover "images/phone/profiles/lily.png"
+        action [ToggleScreen("chooseLily"), Jump("lilyChosen")]
+        at button_cent
+    
+    imagebutton:
+        idle "images/phone/profiles/arrow.png"
+        hover "images/phone/profiles/arrow_hover.png"
+        action [ToggleScreen("chooseLily"), ToggleScreen("chooseMorrigan")]
+        at button_right
+        at transform:
+            xzoom -1.0
+    
+    imagebutton:
+        idle "images/phone/profiles/arrow.png"
+        hover "images/phone/profiles/arrow_hover.png"
+        action [ToggleScreen("chooseLily"), ToggleScreen("chooseAmarok")]
+        at button_left
+
+label lilyChosen:
+    $ LoveInterest = s
+    $ LIName = "Lily"
     $ LIStage = "normal"
     jump startDate1
