@@ -947,9 +947,162 @@ label mer_path:
     mc "Maybe we just stick to the rope and duct tape next time."
 jump hospital_path
 
-# label vamp_path:
+label vamp_path:
+    n "[LIName] takes the lead, and we follow a path leading up the hill."
 
-#  jump hospital_path
+    show LI neutral at character_cent
+
+    li "I'm kind of glad we went with something outside. Don't get me wrong, dinner and movie dates are fun, but something about being in nature is just so.... exhilarating."
+
+    mc "I agree, but I think for me, it's more grounding than anything. I just feel calmer outside. I'll take any chance to out among the trees."
+
+    show LI happy at character_cent
+
+    li "Oh 100 percent. I feel like anything can be made better just by moving it outside."
+    li "The first time I went to an outdoor music festival, I was like {i}why is this not the regular version{/i}? It was so much more fun."
+    
+    mc "As long as you get the sound system right, I'd be so down for only outdoor shows!"
+    mc "The fresh air helps when the crowds get to be too much too, instead of dealing with being overwhelmed in a stadium full of screaming people and fog machines and strobe lights."
+
+    show LI neutral at character_cent 
+
+    li "Absolutely. We could all use a little more fresh air, you know?"
+    li "And for me, I think the higher I can get to get it, the better."
+    li "But then, I think I just like being up high above everything, instead of all of this."
+
+    n "[LIName] gestures to the the surrounding area."
+    n "We stop to take in the scenery, but in the dim lighting it's hard to make out much other than what's right in front of us and a few extra dark blobs."
+
+    show LI happy at character_cent
+    
+    li "I suppose that's why I like a lot of the newer RPGs. Like riding around in Red Dead 2, with those insane graphics?"
+    li "I mean, right now, with this lighting, the game might even be better. At least you can see everything."
+
+    mc "The downside though is you can't actually smell all that nature-y goodness around you when it's in pixel form."
+
+    li "This is true. Have you played it?"
+
+    menu:
+        "I got so into it the first time I played, that I spent like a week bedrotting and just running around the world.":
+            show LI happy at character_cent
+            li "Honestly, same. And that ending! Oh my god, I actually cried, it was so good."
+
+        "I haven't yet. It's in my library, but I know I'm gonna need a huge chunk of time for it.":
+            show LI sad at character_cent
+            li "You will. It's so worth it though, I highly recommend it moves to the top of your backlog."
+
+    show LI neutral at character_cent
+
+    mc "So, if you like fresh air and being outdoors and actually seeing everything, why take a job that makes you work nights?"
+
+    show LI sad at character_cent
+
+    li "The original plan was to be a pilot, but my bills didn't want to wait while I chased my dreams."
+    
+    show LI neutral at character_cent
+
+    li "This job was the best one I could get at the time, and I can't afford a paycut anywhere else. Shit's too expensive these days."
+
+    mc "I feel that."
+    mc "My dream life is less 'working' and more 'being rich enough to go have as many experiences as possible'."
+
+    show LI happy at character_cent
+
+    li "What kinds of experiences?"
+
+    mc "I've always wanted to try bungee jumping.{p} Or maybe paragliding? {p} Ooh, and swim the English Channel!"
+    mc "There's also things like backpacking across Europe, and I've always wanted to see the Svalbard Seed Vault!"
+
+    show LI neutral at character_cent
+
+    li "A seed vault?"
+
+    mc "Yeah! It's cool, they store duplicates of all of the world's seeds as a sort of backup in case we need it."
+    mc "I don't think you can even go in, but I don't know, I think it would just be neat to see, even if it's just the outside."
+
+    show LI happy at character_cent
+
+    li "Okay, that is kind of cool."
+
+    mc "Right? I guess I just want to be able to have the time and resources to do whatever makes me happy."
+    mc "Even if in that moment, it's just reading a book, you know?"
+
+    show LI sad at character_cent 
+
+    li "I totally get it. I wish it were easier to do those things we dream about, no matter how outlandish."
+    li "Instead I just feel like the only thing I'm doing lately is getting too old."
+
+    mc "Hey now, none of that! We're young!"
+    show LI happy at character_cent
+    mc "It might not happen as quickly as we'd like, but we still have time."
+
+    hide LI
+
+    n "We've reached the top of the hill, and there's bit of a bank to get to the top, as if some of the path has been eroded away."
+    n "[LIName] climbs up first, then offers me their hand to help me up."
+
+    show LI blush at character_cent
+
+    n "As I climb up next to them, neither of us let go of the other's hand."
+
+    hide LI
+
+    n "Together we set down the blanket and sit down next to one another."
+
+    mc "Oh my god, the view here is beautiful."
+
+    show LI happy at character_cent
+
+    li "Yeah, it is."
+
+    n "I turn towards [LIName], and realize that they're looking directly at me instead of the meteor shower overhead."
+
+    show LI blush at character_cent
+
+    n "I laugh, and before I've even realized I'm moving, I'm leaning forward, my face inches from theirs."
+    n "They meet my eyes, and lean in too..."
+
+    show LI scared at character_cent with hpunch
+
+    n "Something big and black soars directly into [LIName]."
+    
+    li "What the fuck?!"
+
+    n "It's gone a moment later, the bat flying away as if it didn't careen directly into the side of my date's face and ruin what could have possibly been the most romantic first kiss of my life."
+
+    show LI angry at character_cent
+
+    n "[LIName]'s hand clasps onto their neck."
+
+    li "I think it bit me!"
+
+    n "When [LIName] pulls their hand away to look at it, I can see the small trails of blood already trailing down the side of their neck."
+
+    n "[LIName] is staring at their hand and the two little streaks of blood present on it."
+
+    show LI scared at character_cent
+    
+    li "Oh my god it {i}did{/i}, it bit me!"
+
+    mc "Hey, hey it's gonna be okay."
+
+    n "I pull up the sleeve of their shirt to hold against the bite, hoping it'll staunch the blood a little bit."
+
+    mc "We've gotta get you to a hospital, you might need a rabies vaccine."
+
+    show LI sad at character_cent
+
+    li "What if it's worse?"
+
+    mc "It won't be! You're going to be okay!"
+
+    li "I was bitten by a bat!"
+
+    show LI scared at character_cent
+
+    li "I hate glitter, I CANNOT be a Cullen!"
+
+jump hospital_path
 
 label hospital_path:
 
