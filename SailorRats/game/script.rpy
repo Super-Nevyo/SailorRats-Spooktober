@@ -5,7 +5,7 @@
 
 define s = Character(" Jeoseung Saja ")
 define a = Character(" Amarok ")
-define mc = Character ("  You  ")
+define mc = Character (" You ")
 define l = Character (" Lily ")
 define m = Character (" Morrigan ")
 define n = Character (None)
@@ -16,7 +16,7 @@ default LIFolder = "character"
 default LIStage = "normal"
 default route = "none"
 
-define li = Character("[LIName]")
+define li = Character(" [LIName] ")
 
 image LI neutral = "images/characters/[LIFolder]/[LIStage]/neutral.png"
 image LI happy = "images/characters/[LIFolder]/[LIStage]/happy.png"
@@ -1164,8 +1164,24 @@ label hospital_path:
     hide LI
 
     n "In the room, I sit down in a small plastic chair beside the door while [LIName] hops up onto the bed."
-    n "The nurse steps out for a moment to pull a small metal cart into the room, already prepared to clean the wound and suture it."
+    n "The doctor is in and out in a matter of minutes, but the nurse comes back with a small metal cart and supplies to clean the wound and suture it."
+
+    if route == "vamp":
+        n "There is also a very unpleasant looking needle on the tray, right next to the slightly less imposing syringe I assume is to freeze [LIName] for the stitches."
+        show LI scared at character_cent
+        li "Um, what is that?"
+        n "They gesture towards the bigger syringe, and the nurse offers them the least comforting smile I've ever seen."
+        n "The nurse explains that [LIName] needs a rabies vaccine, and promises to be gentle."
+        show LI sad at character_cent
+        n "[LIName] does not look convinced."
+
+    n "The nurse begins working, promising [LIName] that they'll be as quick as possible."
     n "[LIName] avoids looking at the nurse and what he's doing, and instead keeps their eyes locked on me."
+
+    if route == "vamp":
+        n "As the nurse picks up the vaccine syringe, [LIName]'s eyes go wide, and they reach out for my hand."
+        show LI scared at character_cent
+        n "Their grip is crushing, but I keep their eye contact while trying to not show any reaction in my own face."
 
     mc "I'm so sorry. This is not the way I imagined this date ending."
 
@@ -1208,11 +1224,17 @@ label hospital_path:
 
     mc "I agree."
 
-    hide LI
-
-    n "The nurse finishes the stitches and covers the wound in gauze."
-    n "He explains  "
-
     show LI neutral 
 
+    n "The nurse finishes the stitches and covers the wound in gauze, then tells us we're good to go home."
+    n "He hands [LIName] some discharge papers, and I hold out my hand to help them off the bed."
+
+    show LI scared at character_cent
+    li "Oh god, my car is still at the park."
+
+    n "I shake my head before they can even suggest we go back for it."
+
+    mc "Nope, you're going home. I'll drive you. We can get your car tomorrow."
+
+  
 return
