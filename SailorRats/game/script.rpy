@@ -1236,5 +1236,67 @@ label hospital_path:
 
     mc "Nope, you're going home. I'll drive you. We can get your car tomorrow."
 
+    show LI neutral at character_cent
+
+    n "[LIName] looks like they're about to argue, but they stop themselves."
+    li "Yeah, okay. That sounds good, thank you."
+
+    jump acttwo_path
+
+label acttwo_path:
+
+    scene black with fade
+    pause 0.5
+    show text "Home {p}November 1, 2026 {p}11:35" with dissolve
+    pause 2.5
+    hide text with dissolve
+    
+    scene apartmentday
+
+    #text exchange
+    mc "How are you feeling?"
+
+    li "im okay. a bit sore but i guess that's normal after surviving a wild animal attack."
+
+    n "I roll my eyes and laugh as I read [LIName]'s message."
+    mc "I suppose so. It seems like we got you looked after soon enough though, so hopefully it heals quickly!"
+
+    n "The typing notification appears and disappears a few times."
+
+    li "yeah it does."
+
+    mc "Are you sure you're okay?"
+
+    li "ya... i did wanna ask tho, how are you feeling?"
+
+    mc "I'm okay, just worried about you."
+
+    li "awww, thanks <3"
+    li "but I guess i mean more like... are you by any chance having any weird symptoms? Stomach upset, headaches...?"
+
+    mc "No... are you? It might just be the adrenaline crash after everything, maybe? Or maybe some of the food was off?"
+    mc "Oh god if I gave you food poisoning too..."
+
+    li "No! i'm sure it's just the adrenaline like you said :D i'm just tired, i feel a bit like my muscles are protesting a lot today, and my head hurts but that makes sense after everything i guess"
+
+    mc "I think so too... but please don't ignore them if they don't get better, ok?"
+
+    li "i wont' XD i'm not letting a silly bite ruin everything tho, especially not a chance to see you again if that's cool with you <3"
+
+    mc "Awww... are you asking me out on a second date?"
+
+    li "if you're saying yes, then yes!"
+    li "but this time, maybe we do something indoors?"
+
+    n "I laugh as I read their text, and find myself nodding in agreement even though [LIName] can't see me."
+
+    mc "Yeah, that's probably for the best lol"
+
+    n "I move to switch from my messages to my notes app so that I can make a list of snacks to grab before the movie night we just planned."
+    n "Except... as I swipe my thumb across the phone screen, I notice a scabbed over cut across the back of my hand, right between my thumb and index finger."
+    n "A very uncomfortable memory flashes through my head."
+    n "[LIName] bleeding in the park. My own view of my hands trying to help check over their wound."
+    n "Their blood on my hands, directly over where the cut now sits."
+    n "I can't remember getting it, but it looks recent enough that I can't convince myself that the black hole of anxiety that has bloomed in my gut is unwarranted."
   
 return
