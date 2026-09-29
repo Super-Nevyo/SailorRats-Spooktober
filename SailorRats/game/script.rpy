@@ -45,11 +45,6 @@ transform character_right:
 
 label start:
 
-    $ Msgs = [["","hello hi its me\nmeow"], ["Thankfully.",""],["","howdy"], ["uwu",""],["","im really looking forward to our date"],["me too uwu",""],["","yay yippee yay :3"],["meow meow :3",""]]
-    $ counter = -1
-    $ end = 3
-    jump textConversation
-
     play music haunted_bg fadein 2.0
     scene black with fade
     pause 0.5 
@@ -110,30 +105,42 @@ label startDate1:
 
 
 label generic_path:
-    mc "Hey."
-
-    li "Hey, how's it going?"
-
-    mc "Not too shabby, you?"
-
-    li "It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho"
-
-    mc "Damn, that sucks. More money though at least?"
-
-    li "Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week."
-
-    mc "Mmmmm .... delicious brand name cardboard pasta."
-
-    li "See, you get it! i only have the best after a hard days work XD"
+    
+    $ Msgs = [["","Hey"], ["Hey, how's it going?",""],["","Not too shabby, you?"], ["It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho",""],["","Damn, that sucks. More money though at least"],["Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week",""],["","Mmmmm .... delicious brand name cardboard pasta"],["See, you get it! i only have the best after a hard days work XD",""]]
+    $ counter = -1
+    $ end = 3
     jump genericsecondchat_path
 
+    #mc "Hey."
+
+    #li "Hey, how's it going?"
+
+    #mc "Not too shabby, you?"
+
+    #li "It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho"
+
+    #mc "Damn, that sucks. More money though at least?"
+
+    #li "Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week."
+
+    #mc "Mmmmm .... delicious brand name cardboard pasta."
+
+    #li "See, you get it! i only have the best after a hard days work XD"
+    
+
 label gamer_path:
-    mc "So... are you ACTUALLY gonna play those games or is it just to have them? xd"
 
-    li "wow, attacking me already 😭"
-    li "please tell me your library is worse"
+    $ Msgs = [["","So... are you ACTUALLY gonna play those games or is it just to have them? xd"], ["wow, attacking me already 😭 \n please tell me your library is worse",""],["","I mean... everyone has a bunch of games in their library, but..."],
+    ["It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho",""],["","Damn, that sucks. More money though at least"],["Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week",""],["","Mmmmm .... delicious brand name cardboard pasta"],["See, you get it! i only have the best after a hard days work XD",""]]
+    $ counter = -1
+    $ end = 3
 
-    mc "I mean... everyone has a bunch of games in their library, but..."
+    #mc "So... are you ACTUALLY gonna play those games or is it just to have them? xd"
+
+    #li "wow, attacking me already 😭"
+    #li "please tell me your library is worse"
+
+    #mc "I mean... everyone has a bunch of games in their library, but..."
 
     menu:
         "Of course I play everything I get!":
@@ -142,23 +149,30 @@ label gamer_path:
         "We are not discussing my library!! xdd":
             li "THAT bad huh? haha xd"
 
-    li "Anyway, what are you up to today?"
+    $ Msgs = [["","Anyway, what are you up to today?"], ["Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince... \n I think its gonna be Blue Prince",""],
+    ["","oh nice! that's an awesome game"], ["Should I leave you to it? :D",""],["","What? Of course not! It's a puzzle game haha you gotta help me!"],
+    ["maybe we could play it together sometime! I dont want to distract you now haha",""],["","But... you are a good distraction uwu"],
+    ["haha you are cute uwu \n we should definitely do that! \n What else do you do for fun? ",""]]
+    $ counter = -1
+    $ end = 3
+    
+    #li "Anyway, what are you up to today?"
 
-    mc "Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince..."
-    mc "I think its gonna be Blue Prince."
+    #mc "Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince..."
+    #mc "I think its gonna be Blue Prince."
 
-    li "oh nice! that's an awesome game"
-    li "Should I leave you to it? :D"
+    #li "oh nice! that's an awesome game"
+    #li "Should I leave you to it? :D"
 
-    mc "What? Of course not! It's a puzzle game haha you gotta help me!"
+    #mc "What? Of course not! It's a puzzle game haha you gotta help me!"
 
-    li "maybe we could play it together sometime! I dont want to distract you now haha"
+    #li "maybe we could play it together sometime! I dont want to distract you now haha"
 
-    mc "But... you are a good distraction (ᗒᗣᗕ)՞"
+    #mc "But... you are a good distraction uwu"
 
-    li "haha you are cute uwu"
-    li "we should definitely do that!" 
-    li "What else do you do for fun?"
+    #li "haha you are cute uwu"
+    #li "we should definitely do that!" 
+    #li "What else do you do for fun?"
 
     menu:
         "Play ALL the games!":
