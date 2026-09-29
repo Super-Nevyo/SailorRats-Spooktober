@@ -14,6 +14,7 @@ define notif = Character (" Notifications ",what_color="#FFA500" )
 default LIName = "Character"
 default LIFolder = "character"
 default LIStage = "normal"
+default route = "none"
 
 define li = Character("[LIName]")
 
@@ -336,12 +337,15 @@ label dateone_path:
         mc "Honestly, they all sound amazing. What I really think I want to do is..."
 
         "Have our picnic in the clearing.":
+            $ route = "wolf"
             jump wolf_path
 
         "Watch the meteor shower.":
+            $ route = "vamp"
             jump vamp_path
 
         "See the lake, how romantic!":
+            $ route = "mer"
             jump mer_path
 
 
@@ -1140,10 +1144,75 @@ label vamp_path:
     jump hospital_path
 
 label hospital_path:
+
+    scene black with fade
+    pause 0.5
+    show text "Facey General Hospital {p}October 31, 2026 {p}23:42" with dissolve
+    pause 2.5
+    hide text with dissolve
     
     scene hospital with fade
     play music music_hospital fadein 2.0
 
-    n "here we are at the hospital!"
+    hide LI
+
+    n "After a longer wait than I'd hoped for, a nurse finally comes into the waiting room and calls [LIName]'s name."
+
+    show LI scared at character_cent
+    n "They hold out their hand for me to take so that I can follow them into the room, and I find myself rubbing small circles on the back of their hand as we walk."
+
+    hide LI
+
+    n "In the room, I sit down in a small plastic chair beside the door while [LIName] hops up onto the bed."
+    n "The nurse steps out for a moment to pull a small metal cart into the room, already prepared to clean the wound and suture it."
+    n "[LIName] avoids looking at the nurse and what he's doing, and instead keeps their eyes locked on me."
+
+    mc "I'm so sorry. This is not the way I imagined this date ending."
+
+    show LI neutral at character_cent
+
+    li "It's not your fault."
+
+    show LI happy at character_cent
+    
+    li "Besides, I'm choosing to believe this is my superhero origin story. Like Spiderman!"
+
+    if route == "wolf":
+        li "Now I just need a good hero name. How do we feel about {i}The Majestic Doggo{/i}"
+
+    elif route == "vamp":
+        li "I was thinking I could call myself {i}The Great Batsby{/i}. Thoughts?"
+
+    elif route == "mer":
+        li "What do we think my hero name should be? I thought of {i}Leecholas{/i} on the way here, maybe it was fate."
+        mc "{i}Leecholas?{/i}"
+        li "Yeah. Like Legolas, you know? The badass elf archer dude from Lord of the Rings? Except.... leech."
+
+    n "I stare at them for a moment, conflicted."
+    n "On one hand, I'm glad they're feeling better."
+    n "On the other..."
+
+    mc "Absolutely not."
+
+    show LI sad at character_cent
+
+    li "Awww come on! I thought it was genius!"
+
+    n "Even the nurse is having difficulties keeping his laugh under wraps."
+
+    mc "The name needs some work, but I love the optimism."
+
+    show LI happy at character_cent 
+    
+    li "Well, if my alternative is panicking, I figure planning my crimefighting future - plausible or not - is probably a bit better."
+
+    mc "I agree."
+
+    hide LI
+
+    n "The nurse finishes the stitches and covers the wound in gauze."
+    n "He explains  "
+
+    show LI neutral 
 
 return
