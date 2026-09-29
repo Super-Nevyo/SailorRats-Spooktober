@@ -45,6 +45,11 @@ transform character_right:
 
 label start:
 
+    $ Msgs = [["","hello hi its me\nmeow"], ["Thankfully.",""],["","howdy"], ["uwu",""],["","im really looking forward to our date"],["me too uwu",""],["","yay yippee yay :3"],["meow meow :3",""]]
+    $ counter = -1
+    $ end = 3
+    jump textConversation
+
     play music haunted_bg fadein 2.0
     scene black with fade
     pause 0.5 
@@ -53,6 +58,7 @@ label start:
     hide text with dissolve
 
     scene black
+
 
     n "I shouldn't be surprised."
     n "I'd meant to message back sooner, but work has been busy and life happened..."
