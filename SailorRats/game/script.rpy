@@ -105,11 +105,24 @@ label startDate1:
 
 
 label generic_path:
+
+    window hide
+    scene expression ("images/phone/texts/%s.png"[LIFolder])
     
-    $ Msgs = [["","Hey"], ["Hey, how's it going?",""],["","Not too shabby, you?"], ["It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho",""],["","Damn, that sucks. More money though at least"],["Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week",""],["","Mmmmm .... delicious brand name cardboard pasta"],["See, you get it! i only have the best after a hard days work XD",""]]
+    $ Msgs = [ ["", "Hey"],
+    ["Hey, how's it going?",""],
+    ["","Not too shabby, you?"],
+    ["It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho",""],
+    ["","Damn, that sucks. More money though at least"],
+    ["Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week",""],
+    ["","Mmmmm .... delicious brand name cardboard pasta"],["See, you get it! i only have the best after a hard days work XD",""]
+    
+    ]
     $ counter = -1
-    $ end = 3
-    jump genericsecondchat_path
+    $ end = len(Msgs) -4
+    $ jumpto = "genericsecondchat_path"
+
+    jump textConversation
 
     #mc "Hey."
 
@@ -130,10 +143,19 @@ label generic_path:
 
 label gamer_path:
 
-    $ Msgs = [["","So... are you ACTUALLY gonna play those games or is it just to have them? xd"], ["wow, attacking me already 😭 \n please tell me your library is worse",""],["","I mean... everyone has a bunch of games in their library, but..."],
-    ["It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho",""],["","Damn, that sucks. More money though at least"],["Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week",""],["","Mmmmm .... delicious brand name cardboard pasta"],["See, you get it! i only have the best after a hard days work XD",""]]
+    window hide
+    scene expression ("images/phone/texts/%s.png" % LIFolder)
+
+    $ Msgs = [["","So... are you ACTUALLY gonna play those games or is it just to have them? xd"],
+    ["wow, attacking me already 😭 \n please tell me your library is worse",""],
+    ["","I mean... everyone has a bunch of games in their library, but..."]
+    ]
+
     $ counter = -1
-    $ end = 3
+    $ end = len(Msgs) -4
+    $jumpto = "gamer_choice"
+
+    jump textConversation
 
     #mc "So... are you ACTUALLY gonna play those games or is it just to have them? xd"
 
@@ -142,19 +164,31 @@ label gamer_path:
 
     #mc "I mean... everyone has a bunch of games in their library, but..."
 
+label gamer_choice:
+
+    window auto
+
     menu:
         "Of course I play everything I get!":
             li "haha at least one of us has their life together xd."
 
         "We are not discussing my library!! xdd":
             li "THAT bad huh? haha xd"
+    
+    window hide
 
-    $ Msgs = [["","Anyway, what are you up to today?"], ["Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince... \n I think its gonna be Blue Prince",""],
-    ["","oh nice! that's an awesome game"], ["Should I leave you to it? :D",""],["","What? Of course not! It's a puzzle game haha you gotta help me!"],
-    ["maybe we could play it together sometime! I dont want to distract you now haha",""],["","But... you are a good distraction uwu"],
-    ["haha you are cute uwu \n we should definitely do that! \n What else do you do for fun? ",""]]
+    $ Msgs = [["","Anyway, what are you up to today?"],
+    ["Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince... \n I think its gonna be Blue Prince",""],
+    ["","oh nice! that's an awesome game"], ["Should I leave you to it? :D",""],
+    ["","What? Of course not! It's a puzzle game haha you gotta help me!"],
+    ["maybe we could play it together sometime! I dont want to distract you now haha",""],
+    ["","But... you are a good distraction uwu"],
+    ["haha you are cute uwu \n we should definitely do that! \n What else do you do for fun? ",""]
+    ]
+
     $ counter = -1
-    $ end = 3
+    $ end = len(Msgs) -4
+    $jumpto = "gamer_hobbies"
     
     #li "Anyway, what are you up to today?"
 
@@ -174,6 +208,10 @@ label gamer_path:
     #li "we should definitely do that!" 
     #li "What else do you do for fun?"
 
+label gamer_hobbies:
+
+    window auto
+
     menu:
         "Play ALL the games!":
             mc "I mean... games mostly, but I sometimes like to go out on walks and see what's around."
@@ -190,20 +228,39 @@ label gamer_path:
             mc "I love hiking and sightseeing too! This is why I dont have time for games TwT"
             li "oh that's fun!! i work nights but on my days off I go for night walks! the night sky is really beautiful by the mountains"
 
-    mc "oh yeah?  that sounds like fun actually!"
-    mc "I think we will get along pretty well haha"
+    window hide
 
-    li "yeah i think so too..."
-    li "we should hangout some time soon!! uwu"    
+    $ Msgs = [ ["","oh yeah? that sounds like fun actually!"],
+    ["","I think we will get along pretty well haha"],
+    ["yeah i think so too...",""],
+    ["we should hangout some time soon!! uwu",""],
+    ["","I would really like that uwu - okay! I gotta go now, I've got work in the morning, but chat later?"],
+    ["Absolutely! Night!",""]
 
-    mc "I would really like that uwu - okay! I gotta go now, I've got work in the morning, but chat later?"
+    ]
 
-    li "Absolutely! Night!" 
+    $ counter = -1
+    $ end = len(Msgs) - 4
+    $ jumpto = "gamersecondchat_path"
+
+    jump textConversation
+
+    #mc "oh yeah?  that sounds like fun actually!"
+    #mc "I think we will get along pretty well haha"
+
+    #li "yeah i think so too..."
+    #li "we should hangout some time soon!! uwu"    
+
+    #mc "I would really like that uwu - okay! I gotta go now, I've got work in the morning, but chat later?"
+
+    #li "Absolutely! Night!" 
     
     jump gamersecondchat_path
 
     
 label genericsecondchat_path:
+
+    window auto
 
     scene black with fade
     pause 0.5
