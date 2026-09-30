@@ -12,13 +12,13 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("SailorRats Spooktober")
+define config.name = _("MEAT CUTE")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
@@ -30,14 +30,22 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+
+{b} MEAT THE SAILOR RATS <3 {/b}
+\n
+FAERALLY ~ Narration, Story, Dialogue
+
+SUPERNEVYO ~ Programming, Interfaces
+
+MISS NIBIRU ~ Art, Game Styling
+
+{b}SOUNDS & MUSIC{/b}
+
+Music and sound effects from Pixabay
+
 """)
 
-
-## A short name for the game used for executables and directories in the built
-## distribution. This must be ASCII-only, and must not contain spaces, colons,
-## or semicolons.
-
-define build.name = "SailorRatsSpooktober"
+define build.name = "MeatCute"
 
 
 ## Sounds and music ############################################################

@@ -28,14 +28,14 @@ define config.check_conflicting_properties = True
 define gui.accent_color = '#7f0f57'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#fff3dc'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#e0d3c0'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#7f0f57'
+define gui.hover_color = '#f3a6d2'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
@@ -205,7 +205,7 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ## Choice buttons are used in the in-game menus.
 
 define gui.choice_button_width = 1110
-define gui.choice_button_height = 150
+define gui.choice_button_height = None
 define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(150, 8, 150, 8)
 
@@ -214,7 +214,7 @@ define gui.choice_button_text_size = 40
 
 define gui.choice_button_text_xalign = 0.5
 define gui.choice_button_text_yalign = 0.5
-define gui.choice_button_text_idle_color = '#888888'
+define gui.choice_button_text_idle_color = '#fff3dc'
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = '#8888887f'
 
@@ -435,11 +435,11 @@ init python:
     def small():
 
         ## Font sizes.
-        gui.text_size = 45
+        gui.text_size = 42
         gui.name_text_size = 54
-        gui.notify_text_size = 38
+        gui.notify_text_size = 50
         gui.interface_text_size = 45
-        gui.button_text_size = 45
+        gui.button_text_size = 40
         gui.label_text_size = 51
 
         ## Adjust the location of the textbox.
@@ -454,7 +454,7 @@ init python:
         gui.choice_button_width = 1860
         gui.choice_button_text_size = 45
 
-        gui.navigation_spacing = 30
+        gui.navigation_spacing = 45
         gui.pref_button_spacing = 15
 
         gui.history_height = 285

@@ -7,12 +7,12 @@ transform button_cent:
 
 transform button_right:
     zoom 1
-    xalign 0.75
+    xalign 0.85
     yalign 0.5
 
 transform button_left:
     zoom 1
-    xalign 0.25
+    xalign 0.15
     yalign 0.5
 
 screen chooseAmarok():
@@ -111,7 +111,7 @@ screen chooseLily():
     imagebutton:
         idle "images/phone/profiles/arrow.png"
         hover "images/phone/profiles/arrow_hover.png"
-        action [ToggleScreen("chooseLily"), ToggleScreen("chooseMorrigan")]
+        action [ToggleScreen("chooseLily"), ToggleScreen("chooseAmarok")]
         at button_right
         at transform:
             xzoom -1.0
@@ -119,7 +119,7 @@ screen chooseLily():
     imagebutton:
         idle "images/phone/profiles/arrow.png"
         hover "images/phone/profiles/arrow_hover.png"
-        action [ToggleScreen("chooseLily"), ToggleScreen("chooseAmarok")]
+        action [ToggleScreen("chooseLily"), ToggleScreen("chooseMorrigan")]
         at button_left
 
 label lilyChosen:

@@ -226,6 +226,7 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    yminimum 150
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
@@ -248,9 +249,9 @@ screen quick_menu():
             style "quick_menu"
 
             textbutton _("Back") action Rollback()
-            textbutton _("Convos") action ShowMenu('history')
-            textbutton _("Fast!") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Go,go") action Preference("auto-forward", "toggle")
+            textbutton _("History") action ShowMenu('history')
+            textbutton _("Skip!") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
@@ -319,7 +320,7 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        textbutton _("Credits") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -552,7 +553,7 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    use game_menu(_("Credits"), scroll="viewport"):
 
         style_prefix "about"
 
@@ -569,8 +570,16 @@ screen about():
 
 
 style about_label is gui_label
-style about_label_text is gui_label_text
-style about_text is gui_text
+style about_label_text is gui_label_text:
+    font "fonts/Aloeveracondensed-Regular.otf"
+    size 40
+    color "#fff3dc"
+    line_spacing 1
+style about_text is gui_text:
+    font "fonts/Aloeveracondensed-Regular.otf"
+    size 32
+    color "#fff3dc"
+    line_spacing 1
 
 style about_label_text:
     size gui.label_text_size
@@ -1221,9 +1230,9 @@ screen skip_indicator():
 
             text _("Skipping")
 
-            text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
+            text ">" at delayed_blink(0.0, 1.0) style "skip_triangle"
+            text ">" at delayed_blink(0.2, 1.0) style "skip_triangle"
+            text ">" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
 
 ## This transform is used to blink the arrows one after another.
@@ -1255,7 +1264,7 @@ style skip_text:
 style skip_triangle:
     ## We have to use a font that has the BLACK RIGHT-POINTING SMALL TRIANGLE
     ## glyph in it.
-    font "DejaVuSans.ttf"
+    font "fonts/Aloeveracondensed-Regular.otf"
 
 
 ## Notify screen ###############################################################

@@ -48,7 +48,7 @@ label start:
     play music haunted_bg fadein 2.0
     scene black with fade
     pause 0.5 
-    show text "Home {p}October 19, 2026 {p}19:30" with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 19, 2026{/size}\n{size=32}19:30{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -126,21 +126,6 @@ label generic_path:
 
     jump textConversation
 
-    #mc "Hey."
-
-    #li "Hey, how's it going?"
-
-    #mc "Not too shabby, you?"
-
-    #li "It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho"
-
-    #mc "Damn, that sucks. More money though at least?"
-
-    #li "Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week."
-
-    #mc "Mmmmm .... delicious brand name cardboard pasta."
-
-    #li "See, you get it! i only have the best after a hard days work XD"
     
 
 label gamer_path:
@@ -149,7 +134,7 @@ label gamer_path:
     scene expression ("images/phone/texts/%s.png" % LIFolder)
 
     $ Msgs = [["","So... are you ACTUALLY gonna play those games or is it just to have them? xd"],
-    ["wow, attacking me already 😭",""],
+    ["wow, attacking me already TwT",""],
     ["please tell me your library is worse",""],
     ["","I mean... everyone has a bunch of games in their library,"],
     ["","but..."]
@@ -162,12 +147,6 @@ label gamer_path:
 
     jump textConversation
 
-    #mc "So... are you ACTUALLY gonna play those games or is it just to have them? xd"
-
-    #li "wow, attacking me already 😭"
-    #li "please tell me your library is worse"
-
-    #mc "I mean... everyone has a bunch of games in their library, but..."
 
 label gamer_choice:
 
@@ -182,9 +161,10 @@ label gamer_choice:
     
     window hide
 
-    $ Msgs = [["","Anyway, what are you up to today?"],
-    ["Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince... \n I think its gonna be Blue Prince",""],
-    ["","oh nice! that's an awesome game"], ["Should I leave you to it? :D",""],
+    $ Msgs = [["Anyway, what are you up to today?",""],
+    ["","Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince... \n I think its gonna be Blue Prince"],
+    ["oh nice! that's an awesome game",""],
+    ["Should I leave you to it? :D",""],
     ["","What? Of course not! It's a puzzle game haha you gotta help me!"],
     ["maybe we could play it together sometime! I dont want to distract you now haha",""],
     ["","But... you are a good distraction uwu"],
@@ -271,7 +251,7 @@ label genericsecondchat_path:
 
     scene black with fade
     pause 0.5
-    show text "Home {p}October 26, 2026 {p}3:00" with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 26, 2026{/size}\n{size=32}03:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -360,20 +340,7 @@ label gamersecondchat_path:
 
     jump textConversation
     
-    #li "hey hey heeeeyyyy! (:"
-    #li "how are you? Did you keep playing?"
 
-    #mc "Of course I did! And then I got stuck..."
-    #mc "This puzzle was taking me forever and then I blinked and it was 2am, like.....???"
-
-    #li "oh no :c yeah I heard it's a hard game. WE could maybe play it together soon, see if we can figure it out together XD"
-    #li "actually, I'm off on the 31st owo"
-    #li "Should we plan something?"
-
-    #mc "You have Halloween off?!? Heck yeah!"
-    #mc "Why don't we go on that night walk we talked about? That would be like the perfect ending to Halloween =D"
-
-    #li "oh that's right, it actually is Halloween, isn't it? I take it you like it? Do you dress up?"
 
 label gamer_second_halloween_choice:
 
@@ -403,11 +370,6 @@ label gamer_second_halloween_choice:
 
     jump textConversation
 
-    #li "but back to our super spooky nighttime walk plans! There's some nice spots around the area, but we can choose where to go when we get there?"
-    #li "and maybe snacks? It's a good idea now but it'll be even better with snacks. Maybe some popcorn!!"
-
-    #mc "YAASS snacks make everything better!!"
-    #mc "I can bring something else too, make it a picnic!"
     
 
 label gamer_second_snacks_choice:
@@ -444,15 +406,6 @@ label gamer_second_snacks_choice:
 
     jump textConversation
 
-    #li "amazing, I'm loving this plan already. can't wait to meet you"
-    #mc "Me neither, I'm excited!"
-    #mc "Don't forget to bring a jacket too, it's cold out there!"
-    #li "awww look at you taking care of me already <3"
-    #mc "heyyy  (ᗒᗣᗕ)՞"
-    #mc "I can't have my date going hypothermic on me ... on a walk.... at night..."
-    #mc "that's suspicious AF"
-    #li "hahah fair"
-    #li "now go, I've distracted you from your game long enough. Go forth and get those achievements, soldier!"
 
 label dateone_path:
 
@@ -460,7 +413,7 @@ label dateone_path:
 
     scene black with fade
     pause 0.5
-    show text "Blueberry Acres National Park {p}October 31, 2026 {p}21:00" with dissolve
+    show text "{color=#fff3dc}{size=64}Blueberry Acres National Park{/size}\n\n{size=40}October 31, 2026{/size}\n{size=32}21:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -663,8 +616,10 @@ label wolf_path:
 
     n "We come to a slightly overgrown part of the path, and [LIName] pushes the branches out of the way, revealing the clearing."
 
-    scene clearing
-    hide LI
+    window hide
+    scene clearing with dissolve
+    pause 0.7
+    window auto
 
     n "It's gorgeous, and completely private. I can hear people laughing way off in the distance, and a dog howls in response somewhere else equally far away."
     n "But aside from a few small critters moving around in the underbrush, it seems like we are completely alone."
@@ -904,9 +859,11 @@ label mer_path:
 
     pause 0.5
 
-    hide LI
-
-    scene lake
+    
+    window hide
+    scene lake with dissolve
+    pause 0.7
+    window auto
 
     n "It's quiet by the lake."
 
@@ -1248,9 +1205,10 @@ label vamp_path:
     show LI happy at character_cent
     mc "It might not happen as quickly as we'd like, but we still have time."
 
-    hide LI
-
-    scene hill
+    window hide
+    scene hill with dissolve
+    pause 0.7
+    window auto
 
     n "We've reached the top of the hill, and there's bit of a bank to get to the top, as if some of the path has been eroded away."
     n "[LIName] climbs up first, then offers me their hand to help me up."
@@ -1327,7 +1285,7 @@ label hospital_path:
 
     scene black with fade
     pause 0.5
-    show text "Facey General Hospital {p}October 31, 2026 {p}23:42" with dissolve
+    show text "{color=#fff3dc}{size=64}Facey General Hospital{/size}\n\n{size=40}October 31, 2026{/size}\n{size=32}23:42{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
     
@@ -1429,10 +1387,11 @@ label acttwo_path:
 
     scene black with fade
     pause 0.5
-    show text "Home {p}November 1, 2026 {p}11:35" with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}11:35{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
     
+    window hide
     scene expression ("images/phone/texts/%s.png" % LIFolder)
 
     $ Msgs = [
@@ -1462,44 +1421,13 @@ label acttwo_path:
 
     $ counter = -1
     $ end = len(Msgs) - 4
-    $ jumpto = "acttwo_continue"
-
+    $ jumpto = "acttwo_message"
     jump textConversation
+    
 
-
-    #mc "How are you feeling?"
-
-    #li "im okay. a bit sore but i guess that's normal after surviving a wild animal attack."
-
-    #n "I roll my eyes and laugh as I read [LIName]'s message."
-    #mc "I suppose so. It seems like we got you looked after soon enough though, so hopefully it heals quickly!"
-
-    #n "The typing notification appears and disappears a few times."
-
-    #li "yeah it does."
-
-    #mc "Are you sure you're okay?"
-
-    #li "ya... i did wanna ask tho, how are you feeling?"
-
-    #mc "I'm okay, just worried about you."
-
-    #li "awww, thanks <3"
-    #li "but I guess i mean more like... are you by any chance having any weird symptoms? Stomach upset, headaches...?"
-
-    #mc "No... are you? It might just be the adrenaline crash after everything, maybe? Or maybe some of the food was off?"
-    #mc "Oh god if I gave you food poisoning too..."
-
-    #li "No! i'm sure it's just the adrenaline like you said :D i'm just tired, i feel a bit like my muscles are protesting a lot today, and my head hurts but that makes sense after everything i guess"
-
-    #mc "I think so too... but please don't ignore them if they don't get better, ok?"
-
-    #li "i wont' XD i'm not letting a silly bite ruin everything tho, especially not a chance to see you again if that's cool with you <3"
-
-    #mc "Awww... are you asking me out on a second date?"
-
-    #li "if you're saying yes, then yes!"
-    #li "but this time, maybe we do something indoors?"
+label acttwo_message:
+    window auto
+    scene apartmentday with dissolve
 
     n "I laugh as I read their text, and find myself nodding in agreement even though [LIName] can't see me."
 
@@ -1512,16 +1440,6 @@ label acttwo_path:
     n "Their blood on my hands, directly over where the cut now sits."
     n "I can't remember getting it, but it looks recent enough that I can't convince myself that the black hole of anxiety that has bloomed in my gut is unwarranted."
 
-label acttwo_continue:
-
-    window auto
-
-    scene black with fade
-    pause 0.5
-    show text "Home {p}November 1, 2026 {p}11:35" with dissolve
-    pause 2.5
-    hide text with dissolve
-
     menu:
         "I WANT THE GOOD ENDING":
             jump good_ending
@@ -1531,8 +1449,9 @@ label acttwo_continue:
 
         "I WANT THE NEUTRAL ENDING":
             jump neutral_ending
-    
-    #FOR PHONE MESSAGES TEMPLATE:
+
+
+#FOR PHONE MESSAGES TEMPLATE:
     #scene expression ("images/phone/texts/%s.png" % LIFolder)
 
     #$ Msgs = [["","MC DIALOGUE HERE"],
@@ -1544,6 +1463,20 @@ label acttwo_continue:
     #$ jumpto = "NEW SCENE"
 
     #jump textConversation
+
+
+label acttwo_continue:
+
+    window auto
+
+    scene apartmentday with fade
+    pause 0.5
+    show text "Home {p}November 1, 2026 {p}11:35" with dissolve
+    pause 2.5
+    hide text with dissolve
+    
+
+
 
 
 # ==== ENDINGS ARE OLD SCHOOL STYLE FADE IN PER LINE
