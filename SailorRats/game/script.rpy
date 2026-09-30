@@ -3,14 +3,14 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define s = Character(" Jeoseung Saja ")
-define a = Character(" Amarok ")
-define mc = Character (" You ")
-define l = Character (" Lily ")
-define m = Character (" Morrigan ")
+define s = Character("Saja")
+define a = Character("Amarok")
+define mc = Character ("You")
+define l = Character ("Lily")
+define m = Character ("Morrigan")
 define n = Character (None)
-define notif = Character (" Notifications ",what_color="#FFA500" )
-define p = Character (" Father Camden ")
+define notif = Character ("Notifications",size=45, color="#FFA500")
+define p = Character ("Father Camden")
 
 default LIName = "Character"
 default LIFolder = "character"
@@ -27,6 +27,10 @@ image LI angry = "images/characters/[LIFolder]/[LIStage]/angry.png"
 image LI sad = "images/characters/[LIFolder]/[LIStage]/sad.png"
 image LI scared = "images/characters/[LIFolder]/[LIStage]/scared.png"
 image LI blush = "images/characters/[LIFolder]/[LIStage]/blush.png"
+
+image priest neutral = "images/characters/priest/neutral.png"
+image priest angry = "images/characters/priest/angry.png"
+image priest furious = "images/characters/priest/very-angry.png"
 
 
 # The game starts here.
@@ -1586,16 +1590,16 @@ label acttwo_message:
 label datetwo_path:
 
     if route == "vamp":
-        $ LIStage == "vampire"
+        $ LIStage = "vampire"
     
     elif route == "wolf":
-        $ LIStage == "wolf"
+        $ LIStage = "wolf"
 
     elif route == "mer":
-        $ LIStage == "merm"
+        $ LIStage = "merm"
 
 
-    scene black with fade
+    scene frame with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}19:15{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -1693,7 +1697,7 @@ label datetwo_path:
         mc "Okay, fair. I get a wicked puppy companion, and you get hydrated."
         li "Exactly! Obviously those are the best parts of the characters."
         n "I grin."
-        m "I mean, obviously. What other character traits could be more important? I get a dog, you get fluids."
+        mc "I mean, obviously. What other character traits could be more important? I get a dog, you get fluids."
         show LI scared at character_cent
         li "Fluids, hey?"
         n "[LIName] raises an eyebrow at my choice of words and I can feel my skin crawling at myself."
@@ -1709,20 +1713,23 @@ label datetwo_path:
 
 
 label datetwop2_path:
-    scene black with fade
+
+    scene frame with fade
     pause 0.5
-    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}21:45{/size}{/color}" at truecenter with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}21:45{/size}{/color}" at truecenter with dissolve
     pause 2.5
+
     hide text with dissolve
-    hide LI
+    scene apartmentnight with dissolve
 
 
     n "I knew the jumpscare was coming, but I still jumped when the window smashed."
     n "As I fall back onto the couch, it dawns on me just how rigidly I was sitting before, and I melt into the cushions as I laugh at myself."
     mc "That one gets me every time."
     n "I look over to [LIName]."
+
     show LI neutral at character_cent
-    scene apartmentnight
+
     n "I'm not sure, but I think the circles under their eyes have gotten bigger."
     show LI happy at character_cent
     li "Honestly, me too. I'm more of a freeze response though, I just lock down."
@@ -1733,7 +1740,7 @@ label datetwop2_path:
     elif route == "wolf":
         n "[LIName] jumping away from me after the dog lunged at them flashes in my head, but I push the image away."
     elif route == "mer":
-        n "[LIName] jumping away from me after the bat bit them flashes in my head, but I push the image away."
+        n "[LIName] jumping away from me after we saw the leech that bit them flashes in my head, but I push the image away."
 
     show LI neutral at character_cent
     n "A small part of me wants to call them out on it, but I choose to trust them instead."
@@ -1749,9 +1756,9 @@ label datetwop2_path:
 
 label datetwop3_path:
     
-    scene black with fade
+    scene frame with fade
     pause 0.5
-    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}23:20{/size}{/color}" at truecenter with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}23:20{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
     
@@ -1772,7 +1779,7 @@ label datetwop3_path:
             li "Yeah, that's probably a good idea. Thank you."
             jump drivehome_path
         "Why don't you just stay here tonight, so you can go to bed right away?":
-            show LI scared at character_cent
+            show LI blush at character_cent
             li "Are you sure? I feel like you've already had to help me so much, I don't want to impose..."
             mc "Not an imposition at all. It'll make me feel better knowing you're safe, and I can help you with anything if you need it tonight."
             n "[LIName] opens their mouth to protest, but I hold up my hand to stop them."
@@ -1790,19 +1797,25 @@ label drivehome_path:
 
 
 label stayover_path:
+
     scene apartmentnight
     show LI neutral at character_cent
+
     mc "Why don't you take the bed? You're not feeling well, sleeping on a couch probably isn't going to help with that."
     show LI scared at character_cent
+
     li "No way. You took me to the hospital, you checked up on me, and now you're letting me stay here instead of stumbling home."
     li "I'm not also making you sleep on the couch in your own apartment for me."
     mc "I really don't mind, it's fi-"
+
     show LI angry at character_cent
     li "No."
-    show li neutral at character_cent
+
+    show LI neutral at character_cent
     li "I'll be fine on the couch. I promise."
     n "I debate if it's worth arguing, but [LIName] seems determined."
     mc "Okay."
+    
     show LI happy at character_cent
     mc "I'll go grab some pillows and blankets."
     n "I turn off the console and hand them the remote for the TV."
@@ -1817,19 +1830,22 @@ label stayover_path:
 
 label actthree_path:
 
-    scene black with fade
+    scene frame with fade
     pause 0.5 
     show text "{color=#fff3dc}{size=64}Saint Sylvie Cathedral{/size}\n\n{size=40}November 3, 2026{/size}\n{size=32}11:50{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
-    scene church
+    scene church with dissolve
+    play music music_church fadeout 1.5 fadein 2.0
 
     n "Father Camden refused to give me much information over email, and insisted I come to the church in person."
     n "It seems relatively normal at first glance - though they've chosen an... interesting orientation for the crosses on their banners."
     n "They look less like the crucifixes I've seen at other churches or in media, tilted slightly on their sides instead of straight up."
     n "There's also a slightly concerning lack of imagery of a certain religious figure, but maybe they're just trying to be more inclusive?"
     n "A voice booms from behind me and I jump."
+
+    show priest neutral at character_cent with dissolve
 
     p "My apologies, I didn't mean to frighten you."
     p "Thank you for coming to speak to me in person. I prefer to have these conversations here, where I can offer more personalized guidance."
@@ -1895,7 +1911,11 @@ label actthree_path:
     n "I hold my hands up, taking a few small steps backwards."
     n "This guy is completley out of it."
     mc "This was a mistake. I need to go."
+
+    show priest angry at character_cent
     p "NO!" with vpunch
+
+    show priest neutral at character_cent
     p "I know that this sounds impossible, I do. But you {i}must{/i} trust me."
     p "I've seen this before, more times than I care to admit."
     p "If [LIName] has already begun to display the symptoms you mentioned in your email, it's already too late."
@@ -1926,7 +1946,9 @@ label actthree_path:
     menu:
         "Maybe this really is too much for me to handle on my own.":
             mc "Okay."
-            n "Father Camden nods his head."
+            n "Father Camden nods his head and readies himself"
+            show priest angry at character_cent
+            p "Good, child"
             n "I give him my address."
             p "Why don't you go have a bit of lunch, take some time away from home to relax. Maybe go see a film?"
             p "In three hours, you can return home and everything will be taken care of, and you can move on from this stressful period."
@@ -1934,8 +1956,11 @@ label actthree_path:
         "There is no way I'm letting this guy anywhere near [LIName].":
             mc "No, this was a mistake. I'm sorry to have wasted your time."
             n "Father Camden reaches out to stop me, but I turn and start walking."
+            show priest angry at character_cent
             p "You can't save them, you're only ensuring that this kills both of you."
             p "If you refuse to save yourself, then at least lock them up and make sure no one else pays the price for your recklessness!"
+
+            hide priest with dissolve
             n "I rush out of the church to my car, and lock the doors immediately."
             mc "I'm not giving up on them. No way."
             n "But still, whatever is happening to [LIName] is far from normal."
@@ -1943,20 +1968,24 @@ label actthree_path:
     jump postchurchmessage_path
 
 label postchurchmessage_path:
+    
+    play music bg_music fadeout 1.5 fadein 2.0
+
+    window hide
     scene expression ("images/phone/texts/%s.png" % LIFolder)
 
     $ Msgs = [["","So I've been thinking..."],
-    ["thats terrifying",""]
+    ["thats terrifying",""],
     ["","HAHAHA You're so funny"],
-    ["","But seriously."]
-    ["","Since you've been staying at my place anyway, do you want to just make it official?"]
-    ["are you asking me to move in w/ you? So soon?",""]
-    ["are you sure?",""]
-    ["","It doesn't have to be permanent if you don't want to!"]
-    ["","But I'm not opposed if you do"]
-    ["","And if you don't it could just be temporary while we figure out what's going on."]
-    ["youre really sure?",""]
-    ["","Yeah, I am."]
+    ["","But seriously."],
+    ["","Since you've been staying at my place anyway, do you want to just make it official?"],
+    ["are you asking me to move in w/ you? So soon?",""],
+    ["are you sure?",""],
+    ["","It doesn't have to be permanent if you don't want to!"],
+    ["","But I'm not opposed if you do"],
+    ["","And if you don't it could just be temporary while we figure out what's going on."],
+    ["youre really sure?",""],
+    ["","Yeah, I am."],
     ["then Id love to",""]
     ]
 
@@ -1967,9 +1996,11 @@ label postchurchmessage_path:
     jump textConversation
 
 label actthreemontage_path:
-    scene black with fade
+
+    window auto
+    scene frame with fade
     pause 0.5
-    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 6, 2026{/size}\n{size=32}10:30{/size}{/color}" at truecenter with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 6, 2026{/size}\n{size=32}10:30{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -2013,9 +2044,9 @@ label actthreemontage_path:
     li "You're right, that was rude of me. Where do I even start?"
 
     hide LI
-    scene black with fade
+    scene frame with fade
     pause 0.5
-    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 12, 2026{/size}\n{size=32}8:47{/size}{/color}" at truecenter with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 12, 2026{/size}\n{size=32}8:47{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -2037,7 +2068,7 @@ label actthreemontage_path:
             show LI scared at character_cent
             li "Oh my god I completely forgot. I'm so sorry."
             mc "It's really okay. You make your breakfast, I'll have some oatmeal."
-            show li happy at character_cent
+            show LI happy at character_cent
             li "That's cool! I'm sorry I probably should have just asked you first and made what you wanted to, but I've been craving this so much lately. I'm starting to think all this stress is making me burn through protein or something, it's all I seem to want lately!"
 
     n "We settle down to eat, and [LIName] places their plate down in front of them."
@@ -2069,14 +2100,14 @@ label actthreemontage_path:
             n "I smile as wide as I possibly can."
             mc "Sure did."
             li "Well, in that case..."
-            n "[LINose] boops my nose back."
+            n "[LIName] boops my nose back."
             li "Back at you."
 
 
     hide LI
-    scene black with fade
+    scene frame with fade
     pause 0.5
-    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 29, 2026{/size}\n{size=32}22:22{/size}{/color}" at truecenter with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 29, 2026{/size}\n{size=32}22:22{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -2110,20 +2141,20 @@ label actthreemontage_path:
 
 label datethree_path:
 
-    scene black with fade
+    scene frame with fade
     pause 0.5
-    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}December 3, 2026{/size}\n{size=32}18:30{/size}{/color}" at truecenter with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}December 3, 2026{/size}\n{size=32}18:30{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
-    if route == "vamp":
+    if route = "vamp":
         $ LIStage == "svampire"
     
     elif route == "wolf":
-        $ LIStage == "swolf"
+        $ LIStage = "swolf"
 
     elif route == "mer":
-        $ LIStage == "fish"
+        $ LIStage = "fish"
 
 
     n "A lot has changed over the last few days."
@@ -2138,11 +2169,16 @@ label datethree_path:
 
     li "Okay, ready?"
     mc "Absolutely."
-    scene lastdate
+
+    scene lastdate with dissolve
+    play music music_third_date fadeout 1.5 fadein 2.0
+
     li "I know it's not exactly the same, but I wanted to get a redo of our first date."
     li "But without the possibility of wild animals this time."
     n "The grin on my face is so wide it practically hurts."
+
     show LI neutral at character_cent
+
     li "At least, not any unfamiliar wild animals."
     mc "I love it. Thank you."
     li "No, thank you."
@@ -2191,8 +2227,12 @@ label datethree_path:
     n "I lean in, and [LIName] begins to close the distance to meet me in the middle."
 
     scene black
+    stop music fadeout 0.3
     pause 0.5
+
+    play sound sfx_knock_frantic
     scene apartmentnight with hpunch
+
     n "Something bangs on the front door of the apartment."
 
     li "What the fuck?"
@@ -2200,6 +2240,8 @@ label datethree_path:
 
     n "[LIName] stays in the bedroom, but makes sure to hide themself behind the door, out of view from the hallway."
     n "I open the door to find Father Camden there, fist raised as if he was about to bang on the door again."
+
+    show priest angry at character_cent with dissolve
 
     mc "What are you doing here?"
     p "I cannot allow a monster to continue threatening this community."
@@ -2212,19 +2254,27 @@ label datethree_path:
     p "And I'm no longer content to allow that threat to remain here." with hpunch
     n "I try to push him back towards the door, but he shoves me away. I catch myself on the wall before I fall completely."
     mc "No. You need to leave. You're not welcome here."
+
+    show priest furious at character_cent
     p "I'm not leaving without that {i}thing{/i}!"
 
     n "[LIName] leaves the room, and Father Camden freezes when he sees them."
 
+    show priest furious at character_right
+    show LI neutral at character_left with dissolve
+
     p "Monster! Stay back!"
     n "He pulls out a crossbow and aims it at [LIName]."
+    
+    play music music_cinematic_battle fadein 1.0
+
     n "I throw myself in front of it, protecting them."
     mc "What the fuck do you think you're doing?!?!"
     p "Saving this town!"
 
 label finalconfrontation:   
     menu:
-        "Look, we can talk this out.":
+        "Look, we can talk this out." if talkpathopen:
             n "Father Camden laughs, but it's bitter."
             p "Talk about what? For all I know, it's already spread the infection to you as well."
             mc "There has been no spreading of any infections, I promise."
@@ -2245,6 +2295,7 @@ label finalconfrontation:
             p "Aaaaaghgh!!"
             li "They gave you an out, you should have taken it."
             n "The crossbow shoots, but [LIName] has already knocked Father Camden onto his back."
+            hide priest
             n "[LIName] draws their arm back, ready to strike, but I stop them."
             mc "Wait!"
             li "Please don't tell me you want to save him?"
@@ -2265,9 +2316,16 @@ label finalconfrontation:
             n "He pulls the trigger, but the arrow lodges safely into the wall."
             li "Damn."
             n "[LIName] lunges towards us, knocking all three of us to the floor."
+            
+            hide priest
+            hide LI
+
             p "Let me go!"
             li "No."
             n "[LIName] presses their hand over Father Camden's mouth to shut him up, then turns to me."
+
+            show LI neutral at character_right with hpunch
+
             li "You've been letting me believe I was a risk to you this whole time without telling me you were already turning?"
             mc "I genuinely didn't know. Your symptoms were so obvious."
             mc "I barely noticed any changes at all."
@@ -2283,7 +2341,9 @@ label finalconfrontation:
             n "Without breaking eye contact with me, [LIName] lifts Father Camden's head off of the floor and twists."
             n "The priest falls limp onto the floor."
             li "It was my turn to save you."
-            mc "How romantic."
+            mc "Oh, [LIName]..."
+
+            jump turn_ending
 
 
 
@@ -2294,7 +2354,7 @@ label finalconfrontation:
     #scene expression ("images/phone/texts/%s.png" % LIFolder)
 
     #$ Msgs = [["","MC DIALOGUE HERE"],
-    #["LI DIALOGUE HERE",""]
+    #["LI DIALOGUE HERE",""],
     #]
 
     #$ counter = -1
@@ -2316,12 +2376,12 @@ label walkaway_ending:
     $ quick_menu = False
 
     stop music fadeout 1.0
-    scene expression "images/environment/ending.png" with fade
-    play music music_romantic_end fadein 1.0
+    scene frame with fade
+    play music music_sad fadein 1.0
 
     show text "I haven't gone back to the apartment yet. I'm too afraid of what I'll find." as ending_line_1:
         xalign 0.5
-        yalign 0.35
+        yalign 0.25
     with dissolve
     pause
 
@@ -2333,37 +2393,47 @@ label walkaway_ending:
 
     show text "As I close the browser on my phone for the millionth time today, I notice the dating app logo tucked neatly inside of a folder on my home screen." as ending_line_3:
         xalign 0.5
+        yalign 0.75
+    with dissolve
+    pause
+
+    hide ending_line_1
+    hide ending_line_2
+    hide ending_line_3
+    with dissolve
+
+    show text "I guess I never deleted it." as ending_line_4:
+        xalign 0.5
+        yalign 0.25
+    with dissolve
+    pause
+
+    show text "I fix that mistake immediately, and breathe a sigh of relief as the app uninstalls." as ending_line_5:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "Maybe being single is for the best." as ending_line_6:
+        xalign 0.5
+        yalign 0.75
+    with dissolve
+    pause
+
+    hide ending_line_4
+    hide ending_line_5
+    hide ending_line_6
+    with dissolve
+
+    show text "At the very least, I'm never trying the app route again." as ending_line_7:
+        xalign 0.5
+        yalign 0.40
+    with dissolve
+    pause
+
+    show text ("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) as ending_line_8:
+        xalign 0.5
         yalign 0.65
-    with dissolve
-    pause
-
-    show text "I guess I never deleted it." as ending_line_2:
-        xalign 0.5
-        yalign 0.50
-    with dissolve
-    pause
-
-    show text "I fix that mistake immediately, and breathe a sigh of relief as the app uninstalls." as ending_line_2:
-        xalign 0.5
-        yalign 0.50
-    with dissolve
-    pause
-
-    show text "Maybe being single is for the best." as ending_line_2:
-        xalign 0.5
-        yalign 0.50
-    with dissolve
-    pause
-
-    show text "At the very least, I'm never trying the app route again." as ending_line_2:
-        xalign 0.5
-        yalign 0.50
-    with dissolve
-    pause
-
-    show text "The End." as ending_line_2:
-        xalign 0.5
-        yalign 0.50
     with dissolve
     pause
 
@@ -2380,18 +2450,34 @@ label fight_ending:
     $ quick_menu = False
 
     stop music fadeout 1.0
-    scene expression "images/environment/ending.png" with fade
-    play music music_sad fadein 1.0
+    scene frame with fade
+    play music music_happy_end fadein 1.0
 
-    show text "CHANGE ME MMEMEMEME CHANGE ME" at truecenter with dissolve
+    show text "We saw from a distance the police arriving after a few hours, but [LIName] were already gone..." at truecenter with dissolve
     pause
     hide text with dissolve
 
-    show text "CHANGE ME MMEMEMEME CHANGE ME" at truecenter with dissolve
+    show text "A rumour began spreading after Father Camdem died..." at truecenter with dissolve
     pause
     hide text with dissolve
 
-    show text "CHANGE ME MMEMEMEME CHANGE ME" at truecenter with dissolve
+    show text "'Creatures in Blueberry Acres Park maul and devour a local priest'" at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "[LIName] would never, but people would believe anything they are told." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "Blueberry Acres Park will be seems like the perfect place to start our new life, tho..." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "And at least, we are together..." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text ("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2407,7 +2493,7 @@ label firstbad_ending:
     $ quick_menu = False
 
     stop music fadeout 1.0
-    scene expression "images/environment/ending.png" with fade
+    scene frame with fade
     play music music_sad fadein 1.0
 
     show text "I end up wandering around the mall for the next three hours, anxiety eating away at me." at truecenter with dissolve
@@ -2468,7 +2554,7 @@ label firstbad_ending:
     pause
     hide text with dissolve
 
-    show text "The End." at truecenter with dissolve
+    show text ("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2485,12 +2571,12 @@ label turn_ending:
     $ quick_menu = False
 
     stop music fadeout 1.0
-    scene expression "images/environment/ending.png" with fade
+    scene frame with fade
     play music music_mysterious fadein 1.0
 
     show text "Neither [LIName] or I can pass as human anymore." as ending_line_1:
         xalign 0.5
-        yalign 0.35
+        yalign 0.25
     with dissolve
     pause
 
@@ -2502,55 +2588,70 @@ label turn_ending:
 
     show text "We just... leave him there." as ending_line_3:
         xalign 0.5
-        yalign 0.65
+        yalign 0.75
     with dissolve
     pause
 
-    show text "We end up back where we started." as ending_line_2:
+    hide ending_line_1
+    hide ending_line_2
+    hide ending_line_3
+    with dissolve
+
+    show text "We end up back where we started." as ending_line_4:
+        xalign 0.5
+        yalign 0.25
+    with dissolve
+    pause
+
+    show text "Blueberry Acres National Park." as ending_line_5:
         xalign 0.5
         yalign 0.50
     with dissolve
     pause
 
-    show text "Blueberry Acres National Park." as ending_line_2:
+    show text "There's a cave system underneath the park that's been the subject of urban legends for years, and it seems like the perfect place to start our new life." as ending_line_6:
+        xalign 0.5
+        yalign 0.75
+    with dissolve
+    pause
+
+    hide ending_line_4
+    hide ending_line_5
+    hide ending_line_6
+    with dissolve
+
+    show text "There's evidence of other beings here too... just like us like us." as ending_line_7:
+        xalign 0.5
+        yalign 0.25
+    with dissolve
+    pause
+
+    show text "There's weird markings on the walls, old clothes, and a very crude carving in one of the walls of a creature that looks suspiciously like we look now." as ending_line_8:
         xalign 0.5
         yalign 0.50
     with dissolve
     pause
 
-    show text "There's a cave system underneath the park that's been the subject of urban legends for years, and it seems like the perfect place to start our new life." as ending_line_2:
+    show text "Who knows. Maybe we'll find our own little community of other quote unquote {i}monsters{/i}." as ending_line_9:
         xalign 0.5
-        yalign 0.50
+        yalign 0.75
     with dissolve
     pause
 
-    show text "There's evidence of other people here too, people like us." as ending_line_2:
-        xalign 0.5
-        yalign 0.50
+    hide ending_line_7
+    hide ending_line_8
+    hide ending_line_9
     with dissolve
-    pause
-
-    show text "There's weird markings on the walls, old clothes, and a very crude carving in one of the walls of a creature that looks suspiciously like we look now." as ending_line_2:
-        xalign 0.5
-        yalign 0.50
-    with dissolve
-    pause
-
-    show text "Who knows. Maybe we'll find our own little community of other quote unquote {i}monsters{/i}." as ending_line_2:
-        xalign 0.5
-        yalign 0.50
-    with dissolve
-    pause
     
-    show text "But even if we don't, we still have each other." as ending_line_2:
+    show text "But even if we don't, we still have each other." as ending_line_10:
         xalign 0.5
-        yalign 0.50
+        yalign 0.40
     with dissolve
     pause
 
-    show text "The End." as ending_line_2:
+    show text ("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) as ending_line_11:
         xalign 0.5
-        yalign 0.50
+        yalign 0.65
     with dissolve
     pause
 
