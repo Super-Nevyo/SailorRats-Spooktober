@@ -83,6 +83,8 @@ label start:
     return
 
 label startDate1:
+
+    
     show LI happy at character_cent
     play sound sfx_match
     notif "It's a match!"
@@ -1519,6 +1521,16 @@ label acttwo_continue:
     show text "Home {p}November 1, 2026 {p}11:35" with dissolve
     pause 2.5
     hide text with dissolve
+
+    menu:
+        "I WANT THE GOOD ENDING":
+            jump good_ending
+
+        "I WANT THE BAD ENDING":
+            jump bad_ending
+
+        "I WANT THE NEUTRAL ENDING":
+            jump neutral_ending
     
     #FOR PHONE MESSAGES TEMPLATE:
     #scene expression ("images/phone/texts/%s.png" % LIFolder)
@@ -1534,5 +1546,100 @@ label acttwo_continue:
     #jump textConversation
 
 
-  
-return
+# ==== ENDINGS ARE OLD SCHOOL STYLE FADE IN PER LINE
+
+
+label good_ending:
+
+    window hide
+    $ quick_menu = False
+
+    stop music fadeout 1.0
+    scene expression "images/environment/ending.png" with fade
+    play music music_romantic_end fadein 1.0
+
+    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_1:
+        xalign 0.5
+        yalign 0.35
+    with dissolve
+    pause
+
+    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_3:
+        xalign 0.5
+        yalign 0.65
+    with dissolve
+    pause
+
+    stop music fadeout 1.0
+    scene black with fade
+
+    $ quick_menu = True
+    return
+
+
+label bad_ending:
+
+    window hide
+    $ quick_menu = False
+
+    stop music fadeout 1.0
+    scene expression "images/environment/ending.png" with fade
+    play music music_sad fadein 1.0
+
+    show text "CHANGE ME MMEMEMEME CHANGE ME" at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "CHANGE ME MMEMEMEME CHANGE ME" at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "CHANGE ME MMEMEMEME CHANGE ME" at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    stop music fadeout 1.0
+    scene black with fade
+
+    $ quick_menu = True
+    return
+
+
+label neutral_ending:
+
+    window hide
+    $ quick_menu = False
+
+    stop music fadeout 1.0
+    scene expression "images/environment/ending.png" with fade
+    play music music_mysterious fadein 1.0
+
+    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_1:
+        xalign 0.5
+        yalign 0.35
+    with dissolve
+    pause
+
+    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_3:
+        xalign 0.5
+        yalign 0.65
+    with dissolve
+    pause
+
+    stop music fadeout 1.0
+    scene black with fade
+
+    $ quick_menu = True
+    return
