@@ -3,13 +3,13 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define s = Character("Saja")
-define a = Character("Amarok")
-define mc = Character ("You")
-define l = Character ("Lily")
-define m = Character ("Morrigan")
+define s = Character(" Saja ")
+define a = Character(" Amarok ")
+define mc = Character (" You ")
+define l = Character (" Lily ")
+define m = Character (" Morrigan ")
 define n = Character (None)
-define notif = Character ("Notifications",size=45, color="#FFA500")
+define notif = Character (" Notification ", size=55, what color="#FFA500")
 define p = Character ("Father Camden")
 
 default LIName = "Character"
@@ -19,7 +19,7 @@ default route = "none"
 default mcturned = False
 default talkpathopen = True
 
-define li = Character(" [LIName] ")
+define li = Character("[LIName]")
 
 image LI neutral = "images/characters/[LIFolder]/[LIStage]/neutral.png"
 image LI happy = "images/characters/[LIFolder]/[LIStage]/happy.png"
@@ -50,6 +50,12 @@ transform character_right:
     xalign 1.0
     yalign 1.0
 
+transform background_fill:
+    size (config.screen_width, config.screen_height)
+    fit "cover"
+    xalign 0.5
+    yalign 0.5
+
 label start:
 
     play music haunted_bg fadein 2.0
@@ -59,7 +65,7 @@ label start:
     pause 2.5
     hide text with dissolve
 
-    scene bednight with dissolve
+    scene bednight at background_fill with dissolve
 
 
     n "I shouldn't be surprised."
@@ -355,7 +361,7 @@ label genericsecondchat_path:
     hide text with dissolve
 
 
-    scene bednight
+    scene bednight at background_fill with dissolve
 
     n "I'm about to get into bed when my phone buzzes from my nightstand, the dating app's logo visible on the pop-up banner."
     
@@ -399,7 +405,7 @@ label gamersecondchat_path:
     hide text with dissolve
 
 
-    scene bednight
+    scene bednight at background_fill with dissolve
 
     n "I'm about to get into bed when my phone buzzes from my nightstand, the dating app's logo visible on the pop-up banner."
 
@@ -512,7 +518,7 @@ label dateone_path:
     pause 2.5
     hide text with dissolve
 
-    scene forest
+    scene forest at background_fill with dissolve
     play music music_first_date fadeout 1.5 fadein 2.0
 
     n "{nw=0.5}"
@@ -712,7 +718,7 @@ label wolf_path:
     n "We come to a slightly overgrown part of the path, and [LIName] pushes the branches out of the way, revealing the clearing."
 
     window hide
-    scene clearing with dissolve
+    scene clearing at background_fill with dissolve
     pause 0.7
     window auto
 
@@ -958,7 +964,7 @@ label mer_path:
 
     
     window hide
-    scene lake with dissolve
+    scene lake at background_fill with dissolve
     pause 0.7
     window auto
 
@@ -1303,7 +1309,7 @@ label vamp_path:
     mc "It might not happen as quickly as we'd like, but we still have time."
 
     window hide
-    scene hill with dissolve
+    scene hill at background_fill with dissolve
     pause 0.7
     window auto
 
@@ -1386,7 +1392,7 @@ label hospital_path:
     pause 2.5
     hide text with dissolve
     
-    scene hospital with fade
+    scene hospital at background_fill with dissolve
     play music music_hospital fadein 2.0
 
     hide LI
@@ -1529,7 +1535,7 @@ label acttwo_path:
 
 label acttwo_message:
     window auto
-    scene apartmentday with dissolve
+    scene apartmentday at background_fill with dissolve
 
     n "I laugh as I read their text, and find myself nodding in agreement even though [LIName] can't see me."
 
@@ -1605,9 +1611,11 @@ label datetwo_path:
     pause 2.5
     hide text with dissolve
 
-    scene apartmentnight
+    scene apartmentnight at background_fill with dissolve
 
+    play sound sfx_knock_normal
     n "There's a knock at my apartment door, and I take one last look at myself in the mirror before I answer."
+
     show LI happy at character_cent
     n "The moment I open the door and see [LIName], I start to suspect they may have downplayed their symptoms a little bit."
     mc "Hey!"
@@ -1720,8 +1728,9 @@ label datetwop2_path:
     pause 2.5
 
     hide text with dissolve
-    scene apartmentnight with dissolve
+    scene apartmentnight at background_fill with dissolve
 
+    play sound sfx_horror fadein 0.5 fadeout 0.2
 
     n "I knew the jumpscare was coming, but I still jumped when the window smashed."
     n "As I fall back onto the couch, it dawns on me just how rigidly I was sitting before, and I melt into the cushions as I laugh at myself."
@@ -1762,7 +1771,7 @@ label datetwop3_path:
     pause 2.5
     hide text with dissolve
     
-    scene apartmentnight
+    scene apartmentnight at background_fill with dissolve
     show LI neutral at character_cent
     n "[LIName] fumbles the QTE, and we lose our second character."
     show LI scared at character_cent
@@ -1779,7 +1788,7 @@ label datetwop3_path:
             li "Yeah, that's probably a good idea. Thank you."
             jump drivehome_path
         "Why don't you just stay here tonight, so you can go to bed right away?":
-            show LI blush at character_cent
+            show LI scared at character_cent
             li "Are you sure? I feel like you've already had to help me so much, I don't want to impose..."
             mc "Not an imposition at all. It'll make me feel better knowing you're safe, and I can help you with anything if you need it tonight."
             n "[LIName] opens their mouth to protest, but I hold up my hand to stop them."
@@ -1787,7 +1796,7 @@ label datetwop3_path:
             jump stayover_path
 
 label drivehome_path:
-    scene apartmentnight
+    scene apartmentnight at background_fill with dissolve
     hide LI
     n "I turn off the console and TV and help [LIName] gather their things."
     n "I catch a glimpse of my PC as I walk towards the door, and make a mental note to check my inbox when I get back."
@@ -1798,7 +1807,7 @@ label drivehome_path:
 
 label stayover_path:
 
-    scene apartmentnight
+    scene apartmentnight at background_fill with dissolve
     show LI neutral at character_cent
 
     mc "Why don't you take the bed? You're not feeling well, sleeping on a couch probably isn't going to help with that."
@@ -1836,7 +1845,7 @@ label actthree_path:
     pause 2.5
     hide text with dissolve
 
-    scene church with dissolve
+    scene church  at background_fill with dissolve
     play music music_church fadeout 1.5 fadein 2.0
 
     n "Father Camden refused to give me much information over email, and insisted I come to the church in person."
@@ -2004,7 +2013,7 @@ label actthreemontage_path:
     pause 2.5
     hide text with dissolve
 
-    scene apartmentday
+    scene apartmentday at background_fill with dissolve
 
     n "We finish unpacking the last of [LIName]'s belongings."
     n "There was a lot of shuffling things around and packing some things up, but I think we've finally managed to find a place for everything."
@@ -2050,7 +2059,7 @@ label actthreemontage_path:
     pause 2.5
     hide text with dissolve
 
-    scene apartmentday
+    scene apartmentday at background_fill with dissolve
     show LI happy at character_cent
 
     n "I'm still getting used to seeing [LIName] every morning, but I'm finding I really like it."
@@ -2111,7 +2120,7 @@ label actthreemontage_path:
     pause 2.5
     hide text with dissolve
 
-    scene apartmentnight
+    scene apartmentnight at background_fill with dissolve
     show LI scared at character_cent
 
     li "I can't believe I slept the day away."
@@ -2147,8 +2156,8 @@ label datethree_path:
     pause 2.5
     hide text with dissolve
 
-    if route = "vamp":
-        $ LIStage == "svampire"
+    if route == "vamp":
+        $ LIStage = "svampire"
     
     elif route == "wolf":
         $ LIStage = "swolf"
@@ -2156,6 +2165,7 @@ label datethree_path:
     elif route == "mer":
         $ LIStage = "fish"
 
+    scene apartmentnight at background_fill with dissolve
 
     n "A lot has changed over the last few days."
     n "[LIName] has been... changing. Even more than before."
@@ -2170,7 +2180,7 @@ label datethree_path:
     li "Okay, ready?"
     mc "Absolutely."
 
-    scene lastdate with dissolve
+    scene lastdate at background_fill with dissolve
     play music music_third_date fadeout 1.5 fadein 2.0
 
     li "I know it's not exactly the same, but I wanted to get a redo of our first date."
@@ -2231,7 +2241,7 @@ label datethree_path:
     pause 0.5
 
     play sound sfx_knock_frantic
-    scene apartmentnight with hpunch
+    scene apartmentnight at background_fill with hpunch
 
     n "Something bangs on the front door of the apartment."
 
@@ -2252,6 +2262,8 @@ label datethree_path:
     mc "You mean you've been stalking me."
     p "No. I've been monitoring a threat."
     p "And I'm no longer content to allow that threat to remain here." with hpunch
+    
+    play sound sfx_impact
     n "I try to push him back towards the door, but he shoves me away. I catch myself on the wall before I fall completely."
     mc "No. You need to leave. You're not welcome here."
 
@@ -2294,7 +2306,10 @@ label finalconfrontation:
             n "[LIName] moves faster than I've ever seen them, an they're at Father Camden's side in a blink."
             p "Aaaaaghgh!!"
             li "They gave you an out, you should have taken it."
+
+            play sound sfx_fall
             n "The crossbow shoots, but [LIName] has already knocked Father Camden onto his back."
+
             hide priest
             n "[LIName] draws their arm back, ready to strike, but I stop them."
             mc "Wait!"
@@ -2305,6 +2320,8 @@ label finalconfrontation:
             n "[LIName] looks down at Father Camden, then lowers their arm."
             li "You know what, you're right."
             li "We're not the monsters you think we are. The only monster here is you."
+
+            play sound sfx_thud
             n "[LIName] grabs Father Camden's head and slams it down into the floor, knocking him unconcious."
             li "I hope that wasn't too hard. He should wake up from that, right?"
             n "I look at the priest passed out cold. He's still visibly breathing at least."
@@ -2315,6 +2332,8 @@ label finalconfrontation:
             n "My hands clamp around Father Camden's arm, wrenching it - and the crossbow - towards the wall."
             n "He pulls the trigger, but the arrow lodges safely into the wall."
             li "Damn."
+
+            play sound sfx_fall
             n "[LIName] lunges towards us, knocking all three of us to the floor."
             
             hide priest
@@ -2431,7 +2450,7 @@ label walkaway_ending:
     with dissolve
     pause
 
-    show text ("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) as ending_line_8:
+    show text Text("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) as ending_line_8:
         xalign 0.5
         yalign 0.65
     with dissolve
@@ -2457,7 +2476,7 @@ label fight_ending:
     pause
     hide text with dissolve
 
-    show text "A rumour began spreading after Father Camdem died..." at truecenter with dissolve
+    show text "We heard Father Camden died that night, and a rumour began spreading after that..." at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2469,7 +2488,7 @@ label fight_ending:
     pause
     hide text with dissolve
 
-    show text "Blueberry Acres Park will be seems like the perfect place to start our new life, tho..." at truecenter with dissolve
+    show text "Blueberry Acres Park seems like the perfect place to start our new life, tho..." at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2477,7 +2496,7 @@ label fight_ending:
     pause
     hide text with dissolve
 
-    show text ("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) at truecenter with dissolve
+    show text Text("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2536,8 +2555,6 @@ label firstbad_ending:
     pause
     hide text with dissolve
 
-    pause
-
     show text "My apartment is clean when I arrive." at truecenter with dissolve
     pause
     hide text with dissolve
@@ -2554,7 +2571,7 @@ label firstbad_ending:
     pause
     hide text with dissolve
 
-    show text ("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) at truecenter with dissolve
+    show text Text("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2620,7 +2637,7 @@ label turn_ending:
     hide ending_line_6
     with dissolve
 
-    show text "There's evidence of other beings here too... just like us like us." as ending_line_7:
+    show text "There's evidence of other beings here too... just like us..." as ending_line_7:
         xalign 0.5
         yalign 0.25
     with dissolve
@@ -2649,7 +2666,7 @@ label turn_ending:
     with dissolve
     pause
 
-    show text ("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) as ending_line_11:
+    show text Text("THE END", size=50, color="#fff3dc", xmaximum=1100, text_align=0.5) as ending_line_11:
         xalign 0.5
         yalign 0.65
     with dissolve
