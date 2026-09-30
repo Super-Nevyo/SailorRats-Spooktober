@@ -286,12 +286,12 @@ label dragon_choice:
 
     $ counter = -1
     $ end = len(Msgs) -4
-    $jumpto = "dragon_hobbies"
+    $jumpto = "dragon_char"
 
     jump textConversation
     
 
-label dragon_hobbies:
+label dragon_char:
 
     window auto
 
@@ -408,15 +408,18 @@ label gamersecondchat_path:
 
     $ Msgs = [
     ["hey hey heeeeyyyy! (:",""],
-    ["how are you? Did you keep playing?",""],
+    ["how are you? Did you ended up playing?",""],
     ["","Of course I did! And then I got stuck..."],
     ["","This puzzle was taking me forever and then I blinked and it was 2am, like.....???"],
-    ["oh no :c yeah I heard it's a hard game. WE could maybe play it together soon, see if we can figure it out together XD",""],
+    ["oh no :c well, we should probably play it together soon!",""],
     ["actually, I'm off on the 31st owo",""],
     ["Should we plan something?",""],
     ["","You have Halloween off?!? Heck yeah!"],
-    ["","Why don't we go on that night walk we talked about? That would be like the perfect ending to Halloween =D"],
-    ["oh that's right, it actually is Halloween, isn't it? I take it you like it? Do you dress up?",""]
+    ["","It would probably be super spooky outside..."],
+    ["","Would you be up for a night-halloweeny-hike? :D"],
+    ["oh that's right, it actually is Halloween, isn't it? I take it you like it? Do you dress up?",""],
+    ["That is an awesome idea, actually.",""],
+    ["Do you like halloween that much? haha",""]
     ]
 
     $ counter = -1
@@ -433,8 +436,8 @@ label gamer_second_halloween_choice:
 
     menu:
         "Are you kidding me? I love it! I'm always dressing up and planning next year's costume!":
-            li "oh that's awesome! I love it too, i usually go to parties"
-        "I think I  like it enough, but I prefer summer stuff more tbh!":
+            li "oh that's awesome! I love it too, i usually go to parties or music festivals :D"
+        "I think I like it enough, but I prefer summer stuff more tbh!":
             li "haha its been a while since i've done things in the summer. imo winter is the best - unpopular opinion I know"
         "Meh, I guess it's okay, some people do go crazy about it tho":
             li "I know haha, but i'm a big believer in letting people like what they like idk Halloween can be fun!"
