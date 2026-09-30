@@ -46,13 +46,13 @@ transform character_right:
 label start:
 
     play music haunted_bg fadein 2.0
-    scene black with fade
+    scene ending with fade
     pause 0.5 
     show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 19, 2026{/size}\n{size=32}19:30{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
-    scene black
+    scene bednight with dissolve
 
 
     n "I shouldn't be surprised."
@@ -97,7 +97,7 @@ label startDate1:
 
     menu: 
 
-        "Hey.":
+        "Heeey!":
             n "Sending the first message is the hardest part, so I keep it simple. A little basic, sure, and yet, somehow, still effective."
             jump generic_path
 
@@ -114,10 +114,15 @@ label generic_path:
     $ Msgs = [ ["", "Hey"],
     ["Hey, how's it going?",""],
     ["","Not too shabby, you?"],
-    ["It's going okay. I picked up a coworkers shift so I'm working a double tonight which sucks tho",""],
+    ["It's going okay.",""],
+    ["I picked up a coworkers shift",""],
+    ["so I'm working a double tonight which sucks tho",""],
     ["","Damn, that sucks. More money though at least"],
-    ["Thankfully. The only thing getting me thru is thinking of how I might be able to treat myself to a brand name mac and cheese box next week",""],
-    ["","Mmmmm .... delicious brand name cardboard pasta"],["See, you get it! i only have the best after a hard days work XD",""]
+    ["Thankfully!",""],
+    ["The only thing getting me thru is thinking",""],
+    ["of how I might be able to treat myself to a brand name mac and cheese box next week",""],
+    ["","Mmmmm .... delicious brand name cardboard pasta"],
+    ["See, you get it! i only have the best after a hard days work XD",""]
     
     ]
     $ counter = -1
@@ -249,7 +254,7 @@ label genericsecondchat_path:
 
     window auto
 
-    scene black with fade
+    scene ending with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 26, 2026{/size}\n{size=32}03:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -259,6 +264,7 @@ label genericsecondchat_path:
     scene bednight
 
     n "I'm about to get into bed when my phone buzzes from my nightstand, the dating app's logo visible on the pop-up banner."
+    
     play sound sfx_phone_vibrate
 
     n "I grab it to check the notification, realizing after that I may have moved a little {i}too{/i} quickly to check a dating app message sent at 3 o'clock in the morning."
@@ -273,9 +279,12 @@ label genericsecondchat_path:
     ["","No, not the macaroni! But also it's 3am, are you super sad about the macaroni or just can't sleep?"],
     ["2 things can be true, I can be super sad about my macaroni while I'm also just leaving work lol",""],
     ["","At 3am!?!?"],
-    ["Yeah, I work nights. It's kinda nice being up when everyone else is asleep... It makes work pretty easy but the trade off is that I spend all day sleeping and am basically nocturnal.",""],
+    ["Yeah, I work nights. It's kinda nice being up when everyone else is asleep...",""],
+    ["It makes work pretty smooth, for sure",""],
+    ["but the trade off is that I spend all day sleeping and am basically nocturnal xd",""],
     ["","So what I'm hearing is our first date should be a romantic night out, so you can stay awake for it?"],
-    ["I mean... i'm not upset at that idea ^_^",""]
+    ["That would actually be awesome if that's cool with you ^_^",""],
+    ["","Of course! That would be super fun!"]
     ]
 
     $ counter = -1
@@ -303,9 +312,9 @@ label gamersecondchat_path:
 
     window auto
 
-    scene black with fade
+    scene ending with fade
     pause 0.5
-    show text "Home {p}October 26, 2026 {p}3:00" with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 26, 2026{/size}\n{size=32}03:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -313,6 +322,9 @@ label gamersecondchat_path:
     scene bednight
 
     n "I'm about to get into bed when my phone buzzes from my nightstand, the dating app's logo visible on the pop-up banner."
+
+    play sound sfx_phone_vibrate
+
     n "I grab it to check the notification, realizing after that I may have moved a little {i}too{/i} quickly to check a dating app message sent at 3 o'clock in the morning."
 
     notif "You have a new message from [LIName]!"
@@ -411,14 +423,14 @@ label dateone_path:
 
     window auto
 
-    scene black with fade
+    scene ending with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Blueberry Acres National Park{/size}\n\n{size=40}October 31, 2026{/size}\n{size=32}21:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
     scene forest
-    play music music_first_date fadein 2.0
+    play music music_first_date fadeout 1.5 fadein 2.0
 
     n "{nw=0.5}"
 
@@ -1283,7 +1295,7 @@ label vamp_path:
 
 label hospital_path:
 
-    scene black with fade
+    scene ending with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Facey General Hospital{/size}\n\n{size=40}October 31, 2026{/size}\n{size=32}23:42{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -1383,9 +1395,10 @@ label hospital_path:
 
 label acttwo_path:
 
+    stop music fadeout 2.0
     window auto
 
-    scene black with fade
+    scene ending with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}11:35{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -1397,8 +1410,9 @@ label acttwo_path:
     $ Msgs = [
     ["","How are you feeling?"],
     ["im okay. a bit sore but i guess that's normal after surviving a wild animal attack.",""],
-    ["","I suppose so. It seems like we got you looked after soon enough though, so hopefully it heals quickly!"],
-    ["yeah it does.",""],
+    ["","I suppose so. It seems like we got you looked after soon enough though!"],
+    ["","It will heal quickly, you'll see!"],
+    ["yeah... I suppose",""],
     ["","Are you sure you're okay?"],
     ["ya... i did wanna ask tho, how are you feeling?",""],
     ["","I'm okay, just worried about you."],
@@ -1406,7 +1420,8 @@ label acttwo_path:
     ["but I guess i mean more like...",""],
     ["are you by any chance having any weird symptoms?",""],
     ["Stomach upset, headaches...?",""],
-    ["","No... are you? It might just be the adrenaline crash after everything, maybe? Or maybe some of the food was off?"],
+    ["","No... are you? It might just be the adrenaline crash after everything, maybe?"],
+    ["","Or maybe some of the food was off?"],
     ["","Oh god if I gave you food poisoning too..."],
     ["No! i'm sure it's just the adrenaline like you said :D",""],
     ["i'm just tired, i feel a bit like my muscles are protesting a lot today",""],
@@ -1471,7 +1486,7 @@ label acttwo_continue:
 
     scene apartmentday with fade
     pause 0.5
-    show text "Home {p}November 1, 2026 {p}11:35" with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}03:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
     

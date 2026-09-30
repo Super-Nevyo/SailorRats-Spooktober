@@ -4,6 +4,13 @@
 
 init offset = -1
 
+init 1:
+    style navigation_button:
+        hover_sound ("<volume 0.25>" + sfx_bubble)
+    
+    style choice_button:
+        hover_sound ("<volume 0.25>" + sfx_bubble)
+
 
 ################################################################################
 ## Styles
