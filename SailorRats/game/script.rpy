@@ -9,7 +9,7 @@ define mc = Character (" You ")
 define l = Character (" Lily ")
 define m = Character (" Morrigan ")
 define n = Character (None)
-define notif = Character (" Notification ", size=55, what color="#FFA500")
+define notif = Character (" Notification ", what_size=55, what_color="#FFA500")
 define p = Character ("Father Camden")
 
 default LIName = "Character"
@@ -2330,6 +2330,7 @@ label finalconfrontation:
         "About that..." if mcturned:
             n "I'm moving before my brain even registers the decision."
             n "My hands clamp around Father Camden's arm, wrenching it - and the crossbow - towards the wall."
+            play sound sfx_impact
             n "He pulls the trigger, but the arrow lodges safely into the wall."
             li "Damn."
 
