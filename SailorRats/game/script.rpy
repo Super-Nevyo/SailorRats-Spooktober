@@ -10,11 +10,14 @@ define l = Character (" Lily ")
 define m = Character (" Morrigan ")
 define n = Character (None)
 define notif = Character (" Notifications ",what_color="#FFA500" )
+define p = Character (" Father Camden ")
 
 default LIName = "Character"
 default LIFolder = "character"
 default LIStage = "normal"
 default route = "none"
+default mcturned = False
+default talkpathopen = True
 
 define li = Character(" [LIName] ")
 
@@ -789,6 +792,8 @@ label wolf_path:
 
     li "Okay. Thank you."
 
+    $ memory_state = ""
+
     jump hospital_path
 
 
@@ -1439,16 +1444,757 @@ label acttwo_message:
     n "[LIName] bleeding in the park. My own view of my hands trying to help check over their wound."
     n "Their blood on my hands, directly over where the cut now sits."
     n "I can't remember getting it, but it looks recent enough that I can't convince myself that the black hole of anxiety that has bloomed in my gut is unwarranted."
+    n "My stomach turns."
+    n "Wasn't that one of the things [LIName] mentioned?"
+    mc "Okay, calm down. You're just freaking yourself out."
+    n "I turn on my computer and throw in as many keywords as I can think of."
+
+    if route == "vamp":
+        n "bat + bite + infection"
+        n "can blood from someone who was bit by a bat make me sick too?"
+        n "are the bats in blueberry acres national park dangerous?"
+
+    elif route == "wolf":
+        n "wild dog + bite + infection"
+        n "can blood from someone who was bit by a wild dog make me sick too?"
+        n "are there wild dogs in blueberry acres national park?"
+
+    elif route == "mer":
+        n "leech + bite + infection"
+        n "can blood from someone who was bitten by a leech make me sick too?"
+        n "can leeches in blueberry acres national park lake cause contagious infection through bodily fluid transmission?"
+
+    n "The last one brings up the least amount of results, but a very specific one stands out at the top of the list."
+    n "It's an article from the local news from about a year ago:"
+    n "{i}Saint Sylvie Cathedral Priest Claims Cryptids Living In Blueberry Acres National Park{/i}"
+   
+    if route == "vamp":
+        n "I am fairly certain it was just a normal bat, but curiosity gets the better of me."
+
+    elif route == "wolf":
+        n "I am fairly certain it was just a normal dog, but curiosity gets the better of me."
+
+    elif route == "mer":
+        n "I am fairly certain it was just a normal leech, but curiosity gets the better of me."
+
+    n "I click the link and read through the article."
+    n "Father Mitchell Camden of Saint Sylvie Cathedral claims a cryptid creature is loose in Blueberry Acres National Park, causing inhuman transformations in individuals who come into contact with it."
+    n "Father Camden states the infection is transmitted by bite, and the first signs are often gastrointestinal distress and temporal pain."
+
+    n "The article ends with a link to the cathedral's website."
+    mc "I mean, I've come this far already. Might as well."
+    n "I click the link, but the page it brings me to feels like a normal webpage for a church."
+    n "As I scroll through though, I do notice that it seems despite his outlandish claims, Father Camden is still the priest there, and the email link on their contact page seems like it's his personal email."
+    n "While I don't believe that [LIName] is about to turn into a creature of some kind, I am kind of intrigued about this mysterious priest."
+    n "Was he bitten? Did the infection cause some sort of paranoia?"
+    n "Before I can talk myself out of it, I type a quick email asking to talk about an animal bite that happened in Blueberry Acres and press send."
+    jump datetwo_path
+
+label datetwo_path:
+
+    if route == "vamp":
+        $ LIStage == "vampire"
+    
+    elif route == "wolf":
+        $ LIStage == "wolf"
+
+    elif route == "mer":
+        $ LIStage == "merm"
+
+
+    scene black with fade
+    pause 0.5
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}19:15{/size}{/color}" at truecenter with dissolve
+    pause 2.5
+    hide text with dissolve
+
+    scene apartmentnight
+
+    n "There's a knock at my apartment door, and I take one last look at myself in the mirror before I answer."
+    show LI happy at character_cent
+    n "The moment I open the door and see [LIName], I start to suspect they may have downplayed their symptoms a little bit."
+    mc "Hey!"
+    show LI neutral at character_cent
+    n "I try to smile, but when their own smile falls, I know I'm doing an awful job."
+    mc "I'm sorry, I am happy to see you. I just.... are you sure you're okay?"
+    
+    show LI happy at character_cent
+    li "And hello to you too. You look great by the way."
+
+    mc "I'm sorry, you're right, that was awful. I just worry about you is all."
+    mc "Please, come in. Did you find the place okay?"
+    
+    show LI neutral at character_cent
+
+    li "Yeah... "
+
+    if route == "vamp":
+        li "I got here okay, but I don't know if my stitches opened or something... I don't think they did, but I could smell blood the whole walk over, it was weird."
+        n "The bite on [LIName]'s neck is still covered by a piece of gauze, but there's nothing other than that that looks concerning."
+        mc "It looks okay to me. Does it feel like it's opened?"
+        li "Not at all."
+        show LI happy at character_cent
+        li "It's probably nothing, I'm sure it's fine."
+        mc "As long as you're sure."
+    
+    elif route == "wolf":
+        li "I did, yeah. But I guess I should ask... you're not allergic to dogs, are you?"
+        mc "No?"
+        show LI happy at character_cent
+        li "Okay perfect. I think someone in my apartment building must have thrown a dog bed or something into the washing machine."
+        show LI sad at character_cent
+        li "I did laundry this morning and now everything smells like wet dog."
+        n "I take an exaggerated {i}sniff{/i} of the air around them and shrug."
+        mc "If it makes you feel any better, I can't smell it!"
+
+    elif route == "mer":
+        show LI happy at character_cent
+        li "I did! It started raining when I left, and I was kind of bummed because I didn't have an umbrella and I didn't want to show up looking like a wet rat. But then I started feeling kind of amazing?"
+        li "I actually think maybe I needed the rain, some sort of refreshing cleanse from nature itself after all the bad energy of the last little bit."
+        mc "I'm glad! Let's hope the bad vibes are officially gone, because I definitely think that was enough."
+
+    show LI neutral at character_cent
+
+    n "[LIName] sits down on the couch and I bring over some drinks and snacks."
+    mc "What are we in the mood for?"
+    n "I turn on the TV and pass them a controller, turning on the console wtih the other."
+
+    n "They watch the screen as I scroll through the games I have installed."
+
+    show LI happy at character_cent
+
+    li "Should we go spooky? Two player Until Dawn could be fun!"
+    n "I grin as I click on the game."
+    mc "Absolutely!"
+    
+    hide LI
+
+    n "I turn on movie night mode in the game."
+    n "My name comes up first for character selection, and I immediately add Mike to my lineup."
+
+    if route == "wolf":
+        mc "I hope you're okay with me taking him, I cannot trust the wolf to -"
+        show LI scared at character_cent
+        n "My stomach clenches as I realize what I said."
+        mc "I mean, I just really like playing Mike."
+        show LI neutral at character_cent
+        li "It's fine. I guess I just have a bit of trauma around that word."
+        mc "I'm sorry. I really wasn't thinking."
+        n "I wait a beat, trying to figure out how to fill in this little hole I seem to have dug for myself."
+        li "Really, it's okay."
+        show LI happy at character_cent
+        li "But if you get to be Mike, I'm taking Sam."
+        li "You get to meet the wolf, but I get to take a really sick, relaxing bath."
+    elif route == "vamp":
+        mc "I hope you're okay with me taking him, I need my little wolf friend."
+        show LI happy at character_cent
+        li "That's fine. But if you get to be Mike, I get to be Sam."
+        li "You get the wolf - who is without question the best character in the game, let's be real - but {i}I{/i} get to take a bath."
+    elif route == "mer":
+        mc "I hope you're okay with me taking him, Wolfie is my favourite part of the game and I can't not be Mike when he's there."
+        show LI happy at character_cent
+        li "That's fine. But if you get to be Mike, I get to be Sam."
+        li "You get the wolf - who is without question the best character in the game, let's be real - but {i}I{/i} get to take a bath, since water is apparently my new bestie and apparently the solution to all of my problems."
+  
+        n "I can't help the laugh that bursts out of me."
+        mc "Okay, fair. I get a wicked puppy companion, and you get hydrated."
+        li "Exactly! Obviously those are the best parts of the characters."
+        n "I grin."
+        m "I mean, obviously. What other character traits could be more important? I get a dog, you get fluids."
+        show LI scared at character_cent
+        li "Fluids, hey?"
+        n "[LIName] raises an eyebrow at my choice of words and I can feel my skin crawling at myself."
+        mc "Oh my god not like that. Water! H2O! Not having dry, flaky, ashy skin!"
+        show LI happy at character_cent
+        li "Yep, mm-hmm. Suuuuurreeeee that's what you meant."
+        mc "Okay we need to just start playing before I embarrass myself any more."
+        li "Oh, don't worry. There'll be plenty of time for that, the night is young."
+        n "I groan. They're right, and I know it."
+        mc "In that case, let's get this horror show going so I can get as many of my embarrassments out of the way as fast as possible."
+        li "Deal."
+        jump datetwop2_path
+
+
+label datetwop2_path:
+    scene black with fade
+    pause 0.5
+    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}21:45{/size}{/color}" at truecenter with dissolve
+    pause 2.5
+    hide text with dissolve
+    hide LI
+
+
+    n "I knew the jumpscare was coming, but I still jumped when the window smashed."
+    n "As I fall back onto the couch, it dawns on me just how rigidly I was sitting before, and I melt into the cushions as I laugh at myself."
+    mc "That one gets me every time."
+    n "I look over to [LIName]."
+    show LI neutral at character_cent
+    scene apartmentnight
+    n "I'm not sure, but I think the circles under their eyes have gotten bigger."
+    show LI happy at character_cent
+    li "Honestly, me too. I'm more of a freeze response though, I just lock down."
+    n "I want to believe [LIName]."
+    n "My memories from the park flash in my head."
+    if route == "vamp":
+        n "[LIName] jumping away from me after the bat bit them flashes in my head, but I push the image away."
+    elif route == "wolf":
+        n "[LIName] jumping away from me after the dog lunged at them flashes in my head, but I push the image away."
+    elif route == "mer":
+        n "[LIName] jumping away from me after the bat bit them flashes in my head, but I push the image away."
+
+    show LI neutral at character_cent
+    n "A small part of me wants to call them out on it, but I choose to trust them instead."
+    n "[LIName] knows themself better than I do. If they say they're okay, I'll believe them."
+
+    show LI scared at character_cent
+    li "I know I'm gorgeous but you really gotta look at the screen, lives depend on it!"
+    mc "Oh shit!"
+
+    n "I throw myself into the chase sequence, doing my best to hit the QTEs."
+    n "But at the same time, I try to make sure I keep [LIName] in my peripheral vision, just to be sure they don't pass out on me."
+    jump datetwop3_path
+
+label datetwop3_path:
+    
+    scene black with fade
+    pause 0.5
+    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}23:20{/size}{/color}" at truecenter with dissolve
+    pause 2.5
+    hide text with dissolve
+    
+    scene apartmentnight
+    show LI neutral at character_cent
+    n "[LIName] fumbles the QTE, and we lose our second character."
+    show LI scared at character_cent
+    li "Fuck, I'm sorry. I don't know what's wrong, I feel like I'm losing the ability to push buttons."
+    mc "I think that's our sign to call it a night."
+    n "[LIName] is looking even worse now, and I can't in good conscience let them walk home alone at midnight in their current state."
 
     menu:
-        "I WANT THE GOOD ENDING":
-            jump good_ending
+        "Why don't I drive you home?":
+            show LI neutral at character_cent
+            n "They look like they're about to argue, before thinking better of it."
+            n "[LIName] nods their head."
+            show LI happy at character_cent
+            li "Yeah, that's probably a good idea. Thank you."
+            jump drivehome_path
+        "Why don't you just stay here tonight, so you can go to bed right away?":
+            show LI scared at character_cent
+            li "Are you sure? I feel like you've already had to help me so much, I don't want to impose..."
+            mc "Not an imposition at all. It'll make me feel better knowing you're safe, and I can help you with anything if you need it tonight."
+            n "[LIName] opens their mouth to protest, but I hold up my hand to stop them."
+            mc "I mean it. I don't mind."
+            jump stayover_path
 
-        "I WANT THE BAD ENDING":
-            jump bad_ending
+label drivehome_path:
+    scene apartmentnight
+    hide LI
+    n "I turn off the console and TV and help [LIName] gather their things."
+    n "I catch a glimpse of my PC as I walk towards the door, and make a mental note to check my inbox when I get back."
+    n "Looking at [LIName] as we walk out the door makes one thing glaringly obvious:"
+    n "This is more than just a normal bite."
+    jump actthree_path
 
-        "I WANT THE NEUTRAL ENDING":
-            jump neutral_ending
+
+label stayover_path:
+    scene apartmentnight
+    show LI neutral at character_cent
+    mc "Why don't you take the bed? You're not feeling well, sleeping on a couch probably isn't going to help with that."
+    show LI scared at character_cent
+    li "No way. You took me to the hospital, you checked up on me, and now you're letting me stay here instead of stumbling home."
+    li "I'm not also making you sleep on the couch in your own apartment for me."
+    mc "I really don't mind, it's fi-"
+    show LI angry at character_cent
+    li "No."
+    show li neutral at character_cent
+    li "I'll be fine on the couch. I promise."
+    n "I debate if it's worth arguing, but [LIName] seems determined."
+    mc "Okay."
+    show LI happy at character_cent
+    mc "I'll go grab some pillows and blankets."
+    n "I turn off the console and hand them the remote for the TV."
+    mc "You get comfy. I'm grabbing you a glass of water and maybe some ibuprofin too."
+    n "Before they can protest, I add"
+    mc "Not because I'm taking care of you. Because I don't want you rifling through my medicine cabinet later tongiht and finding all of my dirty secrets."
+    n "They laugh."
+    li "Okay, fair."
+    n "As I pull out a spare blanket from the closet, I catch a glimpse of my PC."
+    n "I make a mental note to check my inbox for any replies."
+    n "This is definitely more than just a normal bite."
+
+label actthree_path:
+
+    scene black with fade
+    pause 0.5 
+    show text "{color=#fff3dc}{size=64}Saint Sylvie Cathedral{/size}\n\n{size=40}November 3, 2026{/size}\n{size=32}11:50{/size}{/color}" at truecenter with dissolve
+    pause 2.5
+    hide text with dissolve
+
+    scene church
+
+    n "Father Camden refused to give me much information over email, and insisted I come to the church in person."
+    n "It seems relatively normal at first glance - though they've chosen an... interesting orientation for the crosses on their banners."
+    n "They look less like the crucifixes I've seen at other churches or in media, tilted slightly on their sides instead of straight up."
+    n "There's also a slightly concerning lack of imagery of a certain religious figure, but maybe they're just trying to be more inclusive?"
+    n "A voice booms from behind me and I jump."
+
+    p "My apologies, I didn't mean to frighten you."
+    p "Thank you for coming to speak to me in person. I prefer to have these conversations here, where I can offer more personalized guidance."
+    n "The way he's examining my face makes me feel like there's more to the story, but I don't press... for now, at least."
+    mc "Thank you for meeting with me. Do you have these conversations a lot?"
+    p "More than I would care to, unfortunately."
+    n "He leads me down the aisles, towards the pulpit."
+    p "I was unfortunate enough to encounter the creature years ago in the park, and have devoted all I can to ensuring the .... {i}influence{/i} doesn't spread."
+    mc "I'm sorry, I don't understand. Influence?"
+    n "He looks me up and down again."
+    n "My skin crawls, and I get the unnerving sensation of being underneath a microscope."
+    p "I will explain, but like I mentioned, I prefer to give more personalized guidance on these matters."
+    p "Your email only mentioned the contact and the symptoms, but you didn't mention if you were the one attacked?"
+    mc "No, not me. My-"
+    n "I hesitate."
+
+    menu:
+        "My friend.":
+            p "And your friend... have you known them long?"
+            mc "Not really, but that doesn't mean I don't care about them."
+            p "In that case, I'm sorry for what I must tell you next."
+        "My partner.":
+            p "In that case, I'm sorry for what I must tell you next."
+        "My .... casual trauma acquaintance? It's a long story.":
+            p "Well then, that might make what I'm about to say a little easier to digest."
+
+    mc "What do you mean? It's just an animal bite, right?"
+    n "He stares at me, and for a moment I wonder if he has blinked at all in the time since I've arrived."
+    p "Not quite. I assume they have since seen a doctor, either for the initial bite or the symptoms following?"
+    mc "Yeah, I took them to the hospital that night."
+
+    if route == "vamp":
+        mc "They got a few stitches and a rabies vaccine, and the hospital said they'd be okay."
+    else:
+        mc "They got cleaned up and a few stitches. But the hospital said they were going to be okay."
+
+    p "They would. Modern medicine is not particularly equipped to deal with this particular type of infection. Truthfully they're not even aware of it's existence."
+    mc "What do you mean? What kind of infection?"
+    p "Perhaps infection isn't quite the correct term. An infection can typically be cured with the correct treatment."
+    p "This ... {i}affliction{/i} cannot."
+    n "My stomach drops. My entire body feels like it's gone numb, except for a stinging pins and needles sensation in my hands and feet."
+    mc "No, it's just an infection. They're going to be fine."
+    p "I'm very sorry, but no. They're not."
+
+    if route == "vamp":
+        mc "Is it rabies? They got a rabies vaccine, they're already covered for that."
+    else:
+        mc "No, the hospital would have known if it was serious. They said [LIName] didn't need a rabies vaccine or anything like that."
+
+    mc "The hospital said [LIName] is going to be okay."
+    p "The hospital was wrong."
+    mc "Then what the fuck is it?"
+    n "Father Camden takes a deep breath and places a hand on my shoulder."
+    n "I think he meant it to be comforting, but goosebumps break out over my skin as if it's trying to crawl away from his touch."
+    p "They will continue to deteriorate until the transformation is complete."
+    n "I take a step back, pulling my shoulder out of his grip."
+    mc "Can you please just explain what the fuck is going on?"
+    n "He walks away, towards the stand at the front of the room."
+    n "He looks like he's about to give me a sermon, and I feel my hands starting to shake in frustration."
+    mc "Please, I just need to know."
+    p "The creature that bit [LIName] was not an ordinary animal."
+    p "And now, [LIName] is not an ordinary human."
+    n "I hold my hands up, taking a few small steps backwards."
+    n "This guy is completley out of it."
+    mc "This was a mistake. I need to go."
+    p "NO!" with vpunch
+    p "I know that this sounds impossible, I do. But you {i}must{/i} trust me."
+    p "I've seen this before, more times than I care to admit."
+    p "If [LIName] has already begun to display the symptoms you mentioned in your email, it's already too late."
+    p "The transformation has already begun."
+    mc "No, they're just having a stress resposne to a traumatic event. It's normal."
+    p "No, not this time."
+    p "A normal human would be healing physically by now."
+    p "Therein lies the issue. [LIName] will never be {i}normal{/i} again."
+    mc "You're crazy, dude."
+    p "I understand why you think that but I need you to listen to me. Staying near them is dangerous."
+    mc "I can't just leave them!"
+    p "You have to. Not just for your own sake, but the entire town."
+    p "Letting them roam free is putting everyone in danger."
+    n "He looks pointedly at me."
+    p "Including [LIName]."
+    mc "I can't..... I'm not just going to abandon them. They need me."
+    p "No. You cannot help them."
+    mc "But I-"
+    p "No. I've watched this before. People who have been bitten by the creatures in Blueberry Acres..."
+    p "It always ends the same."
+    p "People die."
+    p "Good people, like yourself, who just want to help those they love."
+    n "His voice softens slightly."
+    p "Do you think [LIName] wants to hurt you? I know you want to stay to help, but how will they react when they become the cause of your destruction?"
+    mc "What.... what am I supposed to do then?"
+    p "Let {i}me{/i} help them instead. Just let me know where they are, and I will take them somewhere safe. I'll make sure they cannot harm anyone, including themselves."
+
+    menu:
+        "Maybe this really is too much for me to handle on my own.":
+            mc "Okay."
+            n "Father Camden nods his head."
+            n "I give him my address."
+            p "Why don't you go have a bit of lunch, take some time away from home to relax. Maybe go see a film?"
+            p "In three hours, you can return home and everything will be taken care of, and you can move on from this stressful period."
+            jump firstbad_ending
+        "There is no way I'm letting this guy anywhere near [LIName].":
+            mc "No, this was a mistake. I'm sorry to have wasted your time."
+            n "Father Camden reaches out to stop me, but I turn and start walking."
+            p "You can't save them, you're only ensuring that this kills both of you."
+            p "If you refuse to save yourself, then at least lock them up and make sure no one else pays the price for your recklessness!"
+            n "I rush out of the church to my car, and lock the doors immediately."
+            mc "I'm not giving up on them. No way."
+            n "But still, whatever is happening to [LIName] is far from normal."
+            n "Maybe keeping them close isn't a bad idea, if only so I can make sure that they don't get sicker while they're home alone."
+    jump postchurchmessage_path
+
+label postchurchmessage_path:
+    scene expression ("images/phone/texts/%s.png" % LIFolder)
+
+    $ Msgs = [["","So I've been thinking..."],
+    ["thats terrifying",""]
+    ["","HAHAHA You're so funny"],
+    ["","But seriously."]
+    ["","Since you've been staying at my place anyway, do you want to just make it official?"]
+    ["are you asking me to move in w/ you? So soon?",""]
+    ["are you sure?",""]
+    ["","It doesn't have to be permanent if you don't want to!"]
+    ["","But I'm not opposed if you do"]
+    ["","And if you don't it could just be temporary while we figure out what's going on."]
+    ["youre really sure?",""]
+    ["","Yeah, I am."]
+    ["then Id love to",""]
+    ]
+
+    $ counter = -1
+    $ end = len(Msgs) - 4
+    $ jumpto = "actthreemontage_path"
+
+    jump textConversation
+
+label actthreemontage_path:
+    scene black with fade
+    pause 0.5
+    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 6, 2026{/size}\n{size=32}10:30{/size}{/color}" at truecenter with dissolve
+    pause 2.5
+    hide text with dissolve
+
+    scene apartmentday
+
+    n "We finish unpacking the last of [LIName]'s belongings."
+    n "There was a lot of shuffling things around and packing some things up, but I think we've finally managed to find a place for everything."
+    n "[LIName] flops down onto the couch, laying their head back on the cushions."
+    show LI happy at character_cent
+    li "Pop quiz time!"
+    mc "Um, no one said anything about a quiz."
+    li "Yeah, that's kinda the point of a pop quiz. You don't know it's coming."
+    mc "Okay... I can't really argue with that one. Shoot."
+    li "You could have just walked away after I got bit, so there is {i}clearly{/i} some sort of intense appeal to me that I'm tragically unaware of."
+    li "So care to enlighten me? What makes me worth sticking around for?"
+
+    menu:
+        "You're funny.":
+            show LI scared at character_cent
+            n "[LIName] sighs dramatically."
+            li "{i}Funny{/i} they say. And yet I've never seen them at my stand-up shows."
+            mc "You do stand-up? Since when?"
+            show LI happy at character_cent
+            li "No.... but it would be fun to try. Maybe we should give it a shot."
+        "Have you seen you? You're gorgeous and agreed to go out with me, why would I let you go?":
+            show LI scared at character_cent
+            li "Am I now?"
+            show LI happy at character_cent
+            li "Dang, apparently I gotta work on my self-confidence."
+            mc "I mean, I'm totally down to help remind you!"
+        "I don't know what it is exactly, but I feel drawn to you.":
+            show LI happy at character_cent
+            li "I feel it too."
+
+    li "But regardless, I'm really glad you did stay."
+    mc "I'm glad I did, too."
+    n "[LIName] smiles at me before closing their eyes, apparently content to bask in the moment."
+    mc "Hold on a second, what about me?"
+    li "What do you mean?"
+    mc "What do you like about me? I mean, if we're giving out compliments, I want some too!"
+    li "You're right, that was rude of me. Where do I even start?"
+
+    hide LI
+    scene black with fade
+    pause 0.5
+    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 12, 2026{/size}\n{size=32}8:47{/size}{/color}" at truecenter with dissolve
+    pause 2.5
+    hide text with dissolve
+
+    scene apartmentday
+    show LI happy at character_cent
+
+    n "I'm still getting used to seeing [LIName] every morning, but I'm finding I really like it."
+    n "They're in the kitchen when I leave the bedroom, pushing eggs around in a pan."
+    li "Morning! Are you okay with scrambled eggs and bacon for breakfast?"
+
+    menu:
+        "Of course! It's a classic for a reason, right?":
+            li "Absolutely it is. I'm just gonna finish these up. Could you grab the bacon?"
+            mc "Sure thing!"
+        "Eggs yes, but I'll pass on the bacon.":
+            mc "I'll make some toast instead to go with mine, do you want some too?"
+            li "No thank you. I think I'm not getting enough protein or something, I've been craving this so badly lately."
+        "I'm gonna pass, but thank you. I don't eat meat, remember?":
+            show LI scared at character_cent
+            li "Oh my god I completely forgot. I'm so sorry."
+            mc "It's really okay. You make your breakfast, I'll have some oatmeal."
+            show li happy at character_cent
+            li "That's cool! I'm sorry I probably should have just asked you first and made what you wanted to, but I've been craving this so much lately. I'm starting to think all this stress is making me burn through protein or something, it's all I seem to want lately!"
+
+    n "We settle down to eat, and [LIName] places their plate down in front of them."
+    n "They dig in, bringing three strips of bacon to their mouth at once."
+    show LI scared at character_cent
+    mc "Careful, you wouldn't want to taste your food or anything."
+    show LI neutral at character_cent
+    li "You're right, this is gross."
+    n "[LIName] makes a point of slowing down, carefully picking one piece of bacon and taking a slow bite."
+    mc "It's fine, I'm teasing."
+    show LI happy at character_cent
+    mc "Besides, you're kinda cute with your cheeks all puffed out like that. Like a rabid little hamster."
+    show LI scared at character_cent
+    n "They puff out their cheeks and scrunch their nose in what I assume is their best hamster impression."
+    show LI happy at character_cent
+    li "But like, a cute rabid hamster, right?"
+    mc "The cutest."
+
+    menu:
+        "Kiss them":
+            li "Oh... oh wow."
+            li "Note to self: embrace the hamster life."
+            li "It seems to have perks."
+            n "I shake my head and laugh."
+            mc "Don't ruin the moment!"
+            $ mcturned = True
+        "Boop their nose":
+            li "... Did you just...?"
+            n "I smile as wide as I possibly can."
+            mc "Sure did."
+            li "Well, in that case..."
+            n "[LINose] boops my nose back."
+            li "Back at you."
+
+
+    hide LI
+    scene black with fade
+    pause 0.5
+    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}November 29, 2026{/size}\n{size=32}22:22{/size}{/color}" at truecenter with dissolve
+    pause 2.5
+    hide text with dissolve
+
+    scene apartmentnight
+    show LI scared at character_cent
+
+    li "I can't believe I slept the day away."
+    mc "It's okay. Clearly you needed it, you were struggling to even keep your eyes open."
+    show LI neutral at character_cent
+    li "Still, I feel bad."
+    mc "Really, it's okay."
+    mc "Oh, and dinner's in the fridge. I made a sort of veggie taco skillet thing."
+    show LI sad at character_cent
+    li "Thank you, but I think I'm okay for right now."
+    mc "Are you sure? You haven't really been eating, that might be why you're so tired."
+    li "I've been eating!"
+    mc "Okay, technically correct. Maybe I should have said you haven't really been eating {i}properly{/i}."
+    show LI scared at character_cent
+    li "Hey, I'm still eating three meals a day, just not necessarily at the traditional times."
+    mc "Yes, and when was the last time you ate a vegetable?"
+    show LI neutral at character_cent
+    n "[LIName] stares blankly at me."
+    li "Good point."
+    li "But I don't know, I just haven't been feeling it lately. Maybe I should go get some bloodowork done or something. All I want is like a giant rare steak."
+    mc "What about a compromise? Maybe we get some steakhouse takeout tomorrow -"
+    show LI happy at character_cent
+    li "Oh my god yes-"
+    mc "- As long as you also eat a veggie as a side. Corn. Peas. Just something. You need some fibre with all of that protein."
+    li "Deal!"
+    jump datethree_path
+
+label datethree_path:
+
+    scene black with fade
+    pause 0.5
+    show text "{color=#fff3dc}{size=64}{/size}\n\n{size=40}December 3, 2026{/size}\n{size=32}18:30{/size}{/color}" at truecenter with dissolve
+    pause 2.5
+    hide text with dissolve
+
+    if route == "vamp":
+        $ LIStage == "svampire"
+    
+    elif route == "wolf":
+        $ LIStage == "swolf"
+
+    elif route == "mer":
+        $ LIStage == "fish"
+
+
+    n "A lot has changed over the last few days."
+    n "[LIName] has been... changing. Even more than before."
+    n "I can no longer deny that there may have been some truth to what Father Camden said about this being incurable."
+    n "But the danger part?"
+    n "That's where I know he was wrong."
+    n "[LIName] is still the same person I went on that first date with."
+    n "They're still sweet and caring, and they still worry too much about me taking care of them."
+    n "As they lead me into the bedroom, ready to show me the surprise they've been working on all afternoon, I feel completely..."
+    n "Safe."
+
+    li "Okay, ready?"
+    mc "Absolutely."
+    scene lastdate
+    li "I know it's not exactly the same, but I wanted to get a redo of our first date."
+    li "But without the possibility of wild animals this time."
+    n "The grin on my face is so wide it practically hurts."
+    show LI neutral at character_cent
+    li "At least, not any unfamiliar wild animals."
+    mc "I love it. Thank you."
+    li "No, thank you."
+    li "You've done a lot more than so many people would have. You could have walked away and let me figure this out on my own, it wasn't your problem to fix."
+    li "But you didn't. You stayed."
+
+    menu:
+        "And I'd do it again.":
+            li "I don't know what I did to deserve you, but I'm glad I found you."
+        "Let's see how this food tastes before I decide how sappy to get.":
+            li "Given my recent penchant for raw meat, that seems reasonable."
+
+    n "[LIName] has the food separated - raw meats for them, and a mini charcuterie spread for me."
+    n "We eat underneath the glow-in-the-dark stars they've placed all over the walls and ceilings, sitting side by side by side on the bed."
+
+    if route == "vamp":
+        show LI sad at character_cent
+        li "I wish I could kiss you right now."
+        mc "I wouldn't be opposed to it, you know."
+        li "I know. But I'm worried about these fangs."
+        li "What if they cut you? I'm scared you'd turn into this too."
+        if mcturned:
+                mc "We've kissed before while you were infected, it might already be too late for that anyway."
+        show LI neutral at character_cent
+    
+    else:
+        li "I wish I could kiss you right now."
+        mc "I wouldn't be opposed to it, you know."
+        li "Looking like this?"
+        mc "You're still you."
+        li "I know. But I'd be worried... "
+        li "We don't know if this is transmittable. I got bit and turned, what if we kiss and my saliva gets into your mouth and then you turn too?"
+        if mcturned:
+                mc "We've kissed before while you were infected, it might already be too late for that anyway."
+
+    menu:
+        "Would me being the same really be the worst thing?":
+            li "I... I don't know."
+        "Then we'll just have to find some sort of workaround.":
+            li "That would be amazing, thank you."
+            mc "Give me one second."
+            n "I run to the kitchen and quickly grab a sheet of plastic wrap."
+            n "I hold flop down beside [LIName] again and hold it in between us."
+          
+
+    n "I lean in, and [LIName] begins to close the distance to meet me in the middle."
+
+    scene black
+    pause 0.5
+    scene apartmentnight with hpunch
+    n "Something bangs on the front door of the apartment."
+
+    li "What the fuck?"
+    mc "You stay here, I'll go see who it is."
+
+    n "[LIName] stays in the bedroom, but makes sure to hide themself behind the door, out of view from the hallway."
+    n "I open the door to find Father Camden there, fist raised as if he was about to bang on the door again."
+
+    mc "What are you doing here?"
+    p "I cannot allow a monster to continue threatening this community."
+    p "I was hoping you would come to your senses, but if you refuse to act, then you leave me no choice."
+    n "I try to close the door on him, but he shoves his way into the apartment."
+    mc "How did you even find me?"
+    p "I've been keeping an eye on the situation since you came to my church."
+    mc "You mean you've been stalking me."
+    p "No. I've been monitoring a threat."
+    p "And I'm no longer content to allow that threat to remain here." with hpunch
+    n "I try to push him back towards the door, but he shoves me away. I catch myself on the wall before I fall completely."
+    mc "No. You need to leave. You're not welcome here."
+    p "I'm not leaving without that {i}thing{/i}!"
+
+    n "[LIName] leaves the room, and Father Camden freezes when he sees them."
+
+    p "Monster! Stay back!"
+    n "He pulls out a crossbow and aims it at [LIName]."
+    n "I throw myself in front of it, protecting them."
+    mc "What the fuck do you think you're doing?!?!"
+    p "Saving this town!"
+
+label finalconfrontation:   
+    menu:
+        "Look, we can talk this out.":
+            n "Father Camden laughs, but it's bitter."
+            p "Talk about what? For all I know, it's already spread the infection to you as well."
+            mc "There has been no spreading of any infections, I promise."
+            li "Really, there hasn't been anything."
+            p "It doesn't matter. Even if it hasn't happened yet, I'm not letting the risk get any worse. This ends now."
+            $ talkpathopen = False
+            jump finalconfrontation
+        "I can't do this, I'm done.":
+            li "What?!"
+            mc "I'm so sorry. This is just... it's too much."
+            mc "Having a cryptid partner is one thing. I was trying to make it work, I really was."
+            mc "But being stalked by a crossbow-wielding priest on top of that?"
+            mc "I'm sorry. I just want a normal life back."
+            jump walkaway_ending
+        "Maybe the real threat is you. [LIName], you with me?":
+            li "Absolutely."
+            n "[LIName] moves faster than I've ever seen them, an they're at Father Camden's side in a blink."
+            p "Aaaaaghgh!!"
+            li "They gave you an out, you should have taken it."
+            n "The crossbow shoots, but [LIName] has already knocked Father Camden onto his back."
+            n "[LIName] draws their arm back, ready to strike, but I stop them."
+            mc "Wait!"
+            li "Please don't tell me you want to save him?"
+            mc "No, not at all."
+            p "Thank you-"
+            mc "No death is too easy. He told me he's done this before. He should pay for all of the lives he's taken."
+            n "[LIName] looks down at Father Camden, then lowers their arm."
+            li "You know what, you're right."
+            li "We're not the monsters you think we are. The only monster here is you."
+            n "[LIName] grabs Father Camden's head and slams it down into the floor, knocking him unconcious."
+            li "I hope that wasn't too hard. He should wake up from that, right?"
+            n "I look at the priest passed out cold. He's still visibly breathing at least."
+            mc "I hope so."
+            jump fight_ending
+        "About that..." if mcturned:
+            n "I'm moving before my brain even registers the decision."
+            n "My hands clamp around Father Camden's arm, wrenching it - and the crossbow - towards the wall."
+            n "He pulls the trigger, but the arrow lodges safely into the wall."
+            li "Damn."
+            n "[LIName] lunges towards us, knocking all three of us to the floor."
+            p "Let me go!"
+            li "No."
+            n "[LIName] presses their hand over Father Camden's mouth to shut him up, then turns to me."
+            li "You've been letting me believe I was a risk to you this whole time without telling me you were already turning?"
+            mc "I genuinely didn't know. Your symptoms were so obvious."
+            mc "I barely noticed any changes at all."
+            li "You did spend a lot of time worrying about me, maybe you just overlooked them?"
+            mc "Or it just affected us differently."
+            mc "Either way, we can figure it out later. We've got more pressing issues to deal with right now!"
+            n "We both look back towards the man struggling underneath us."
+            li "Right. What's the plan?"
+            mc "He told me he's done this before. I don't know how many times, but we can't just let him go."
+            mc "He'll just come after us, or he'll find someone else to torment and kill."
+            mc "I don't think we have a choice."
+            n "[LIName] nods."
+            n "Without breaking eye contact with me, [LIName] lifts Father Camden's head off of the floor and twists."
+            n "The priest falls limp onto the floor."
+            li "It was my turn to save you."
+            mc "How romantic."
+
+
+
+
 
 
 #FOR PHONE MESSAGES TEMPLATE:
@@ -1463,17 +2209,6 @@ label acttwo_message:
     #$ jumpto = "NEW SCENE"
 
     #jump textConversation
-
-
-label acttwo_continue:
-
-    window auto
-
-    scene apartmentday with fade
-    pause 0.5
-    show text "Home {p}November 1, 2026 {p}11:35" with dissolve
-    pause 2.5
-    hide text with dissolve
     
 
 
@@ -1482,7 +2217,7 @@ label acttwo_continue:
 # ==== ENDINGS ARE OLD SCHOOL STYLE FADE IN PER LINE
 
 
-label good_ending:
+label walkaway_ending:
 
     window hide
     $ quick_menu = False
@@ -1491,21 +2226,51 @@ label good_ending:
     scene expression "images/environment/ending.png" with fade
     play music music_romantic_end fadein 1.0
 
-    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_1:
+    show text "I haven't gone back to the apartment yet. I'm too afraid of what I'll find." as ending_line_1:
         xalign 0.5
         yalign 0.35
     with dissolve
     pause
 
-    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_2:
+    show text "No cops have come looking for me at the hotel though, and I haven't seen anything about a disturbance of any kind at the apartment complex." as ending_line_2:
         xalign 0.5
         yalign 0.50
     with dissolve
     pause
 
-    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_3:
+    show text "As I close the browser on my phone for the millionth time today, I notice the dating app logo tucked neatly inside of a folder on my home screen." as ending_line_3:
         xalign 0.5
         yalign 0.65
+    with dissolve
+    pause
+
+    show text "I guess I never deleted it." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "I fix that mistake immediately, and breathe a sigh of relief as the app uninstalls." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "Maybe being single is for the best." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "At the very least, I'm never trying the app route again." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "The End." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
     with dissolve
     pause
 
@@ -1516,7 +2281,7 @@ label good_ending:
     return
 
 
-label bad_ending:
+label fight_ending:
 
     window hide
     $ quick_menu = False
@@ -1543,8 +2308,85 @@ label bad_ending:
     $ quick_menu = True
     return
 
+label firstbad_ending:
 
-label neutral_ending:
+    window hide
+    $ quick_menu = False
+
+    stop music fadeout 1.0
+    scene expression "images/environment/ending.png" with fade
+    play music music_sad fadein 1.0
+
+    show text "I end up wandering around the mall for the next three hours, anxiety eating away at me." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "I tell myself it's almost over. That [LIName] will be taken care of, and they will be able to get the help that they need." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "The help that I couldn't give them." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "But.... that's not true, is it?" at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "It can't be cured." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "Father Camden is going to make sure they can't hurt anyone." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "I try to tell myself that he's going to hurt them first, but I know that's not entirely true either." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "{i}I{/i} hurt them first." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "It was {i}my{/i} suggestion that put them in that creature's path in the first place." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "And then I sold them out." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    pause
+
+    show text "My apartment is clean when I arrive." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "Too clean." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "There's no sign that anyone was here at all." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "Well, aside from the small business card sitting on my coffee table, a picture of the same cross from the church on it." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    show text "The End." at truecenter with dissolve
+    pause
+    hide text with dissolve
+
+    stop music fadeout 1.0
+    scene black with fade
+
+    $ quick_menu = True
+    return
+
+
+label turn_ending:
 
     window hide
     $ quick_menu = False
@@ -1553,21 +2395,69 @@ label neutral_ending:
     scene expression "images/environment/ending.png" with fade
     play music music_mysterious fadein 1.0
 
-    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_1:
+    show text "Neither [LIName] or I can pass as human anymore." as ending_line_1:
         xalign 0.5
         yalign 0.35
     with dissolve
     pause
 
-    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_2:
+    show text "Worrying about the body in the apartment is the least of our concerns now that the physical aspects of my transformation have started." as ending_line_2:
         xalign 0.5
         yalign 0.50
     with dissolve
     pause
 
-    show text "CHANGEM ME CHANGE ME CHANGE ME" as ending_line_3:
+    show text "We just... leave him there." as ending_line_3:
         xalign 0.5
         yalign 0.65
+    with dissolve
+    pause
+
+    show text "We end up back where we started." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "Blueberry Acres National Park." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "There's a cave system underneath the park that's been the subject of urban legends for years, and it seems like the perfect place to start our new life." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "There's evidence of other people here too, people like us." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "There's weird markings on the walls, old clothes, and a very crude carving in one of the walls of a creature that looks suspiciously like we look now." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "Who knows. Maybe we'll find our own little community of other quote unquote {i}monsters{/i}." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+    
+    show text "But even if we don't, we still have each other." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
+    with dissolve
+    pause
+
+    show text "The End." as ending_line_2:
+        xalign 0.5
+        yalign 0.50
     with dissolve
     pause
 
