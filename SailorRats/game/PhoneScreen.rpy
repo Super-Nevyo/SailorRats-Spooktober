@@ -144,6 +144,7 @@ screen showTextLI(msg, msgs):
             imagebutton:
                 idle "images/phone/profiles/arrow.png"
                 hover "images/phone/profiles/arrow_hover.png"
+                at Transform(zoom=0.5)
                 action [ToggleScreen("showTextLI"),Jump("textConversation")]
 
 

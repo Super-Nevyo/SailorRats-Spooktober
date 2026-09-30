@@ -46,7 +46,7 @@ transform character_right:
 label start:
 
     play music haunted_bg fadein 2.0
-    scene ending with fade
+    scene frame with fade
     pause 0.5 
     show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 19, 2026{/size}\n{size=32}19:30{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -254,7 +254,7 @@ label genericsecondchat_path:
 
     window auto
 
-    scene ending with fade
+    scene frame with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 26, 2026{/size}\n{size=32}03:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -312,7 +312,7 @@ label gamersecondchat_path:
 
     window auto
 
-    scene ending with fade
+    scene frame with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 26, 2026{/size}\n{size=32}03:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -423,7 +423,7 @@ label dateone_path:
 
     window auto
 
-    scene ending with fade
+    scene frame with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Blueberry Acres National Park{/size}\n\n{size=40}October 31, 2026{/size}\n{size=32}21:00{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -1295,7 +1295,7 @@ label vamp_path:
 
 label hospital_path:
 
-    scene ending with fade
+    scene frame with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Facey General Hospital{/size}\n\n{size=40}October 31, 2026{/size}\n{size=32}23:42{/size}{/color}" at truecenter with dissolve
     pause 2.5
@@ -1398,11 +1398,13 @@ label acttwo_path:
     stop music fadeout 2.0
     window auto
 
-    scene ending with fade
+    scene frame with fade
     pause 0.5
     show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}November 1, 2026{/size}\n{size=32}11:35{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
+
+    play music bg_music fadein 2.0
     
     window hide
     scene expression ("images/phone/texts/%s.png" % LIFolder)
