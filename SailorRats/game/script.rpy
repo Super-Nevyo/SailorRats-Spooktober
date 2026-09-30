@@ -9,8 +9,8 @@ define mc = Character (" You ")
 define l = Character (" Lily ")
 define m = Character (" Morrigan ")
 define n = Character (None)
-define notif = Character (" Notification ", what_size=55, what_color="#FFA500")
-define p = Character ("Father Camden")
+define notif = Character (" Notification ", what_size=50, what_color="#f481e8")
+define p = Character (" Father Camden ")
 
 default LIName = "Character"
 default LIFolder = "character"
@@ -96,7 +96,6 @@ label start:
     return
 
 label startDate1:
-
     
     show LI happy at character_cent
     play sound sfx_match
@@ -2405,13 +2404,13 @@ label walkaway_ending:
     with dissolve
     pause
 
-    show text "No cops have come looking for me at the hotel though, and I haven't seen anything about a disturbance of any kind at the apartment complex." as ending_line_2:
+    show text "No cops have come looking for me at the hotel though,\nand I haven't seen anything about a disturbance of any kind at the apartment complex." as ending_line_2:
         xalign 0.5
         yalign 0.50
     with dissolve
     pause
 
-    show text "As I close the browser on my phone for the millionth time today, I notice the dating app logo tucked neatly inside of a folder on my home screen." as ending_line_3:
+    show text "As I close the browser on my phone for the millionth time today,\nI notice the dating app logo tucked neatly inside of a folder on my home screen." as ending_line_3:
         xalign 0.5
         yalign 0.75
     with dissolve
@@ -2473,11 +2472,11 @@ label fight_ending:
     scene frame with fade
     play music music_happy_end fadein 1.0
 
-    show text "We saw from a distance the police arriving after a few hours, but [LIName] were already gone..." at truecenter with dissolve
+    show text "We saw from a distance the police arriving after a few hours,\nbut [LIName] and I were already gone..." at truecenter with dissolve
     pause
     hide text with dissolve
 
-    show text "We heard Father Camden died that night, and a rumour began spreading after that..." at truecenter with dissolve
+    show text "We heard Father Camden died that night,\nand a rumour began spreading after that..." at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2493,7 +2492,7 @@ label fight_ending:
     pause
     hide text with dissolve
 
-    show text "And at least, we are together..." at truecenter with dissolve
+    show text "And at least,\nwe are together..." at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2516,11 +2515,11 @@ label firstbad_ending:
     scene frame with fade
     play music music_sad fadein 1.0
 
-    show text "I end up wandering around the mall for the next three hours, anxiety eating away at me." at truecenter with dissolve
+    show text "I end up wandering around the mall for the next three hours,\nanxiety eating away at me." at truecenter with dissolve
     pause
     hide text with dissolve
 
-    show text "I tell myself it's almost over. That [LIName] will be taken care of, and they will be able to get the help that they need." at truecenter with dissolve
+    show text "I tell myself it's almost over.\nThat [LIName] will be taken care of,\nand they will be able to get the help that they need." at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2568,7 +2567,7 @@ label firstbad_ending:
     pause
     hide text with dissolve
 
-    show text "Well, aside from the small business card sitting on my coffee table, a picture of the same cross from the church on it." at truecenter with dissolve
+    show text "Well, aside from the small business card sitting on my coffee table,\na picture of the same cross from the church on it." at truecenter with dissolve
     pause
     hide text with dissolve
 
@@ -2598,7 +2597,7 @@ label turn_ending:
     with dissolve
     pause
 
-    show text "Worrying about the body in the apartment is the least of our concerns now that the physical aspects of my transformation have started." as ending_line_2:
+    show text "Worrying about the body in the apartment is the least of our concerns\nnow that the physical aspects of my transformation have started." as ending_line_2:
         xalign 0.5
         yalign 0.50
     with dissolve
@@ -2627,7 +2626,7 @@ label turn_ending:
     with dissolve
     pause
 
-    show text "There's a cave system underneath the park that's been the subject of urban legends for years, and it seems like the perfect place to start our new life." as ending_line_6:
+    show text "There's a cave system underneath the park that's been the subject of urban legends for years,\nand it seems like the perfect place to start our new life." as ending_line_6:
         xalign 0.5
         yalign 0.75
     with dissolve
@@ -2644,7 +2643,7 @@ label turn_ending:
     with dissolve
     pause
 
-    show text "There's weird markings on the walls, old clothes, and a very crude carving in one of the walls of a creature that looks suspiciously like we look now." as ending_line_8:
+    show text "There's weird markings on the walls, old clothes,\nand a very crude carving in one of the walls of a creature\nthat looks suspiciously like we look now." as ending_line_8:
         xalign 0.5
         yalign 0.50
     with dissolve
