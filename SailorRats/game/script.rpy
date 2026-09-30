@@ -107,7 +107,7 @@ label startDate1:
 label generic_path:
 
     window hide
-    scene expression ("images/phone/texts/%s.png"[LIFolder])
+    scene expression ("images/phone/texts/%s.png" % LIFolder)
     
     $ Msgs = [ ["", "Hey"],
     ["Hey, how's it going?",""],
@@ -147,8 +147,11 @@ label gamer_path:
     scene expression ("images/phone/texts/%s.png" % LIFolder)
 
     $ Msgs = [["","So... are you ACTUALLY gonna play those games or is it just to have them? xd"],
-    ["wow, attacking me already 😭 \n please tell me your library is worse",""],
-    ["","I mean... everyone has a bunch of games in their library, but..."]
+    ["wow, attacking me already 😭",""],
+    ["please tell me your library is worse",""],
+    ["","I mean... everyone has a bunch of games in their library,"],
+    ["","but..."]
+
     ]
 
     $ counter = -1
@@ -189,6 +192,8 @@ label gamer_choice:
     $ counter = -1
     $ end = len(Msgs) -4
     $jumpto = "gamer_hobbies"
+
+    jump textConversation
     
     #li "Anyway, what are you up to today?"
 
@@ -264,7 +269,7 @@ label genericsecondchat_path:
 
     scene black with fade
     pause 0.5
-    show text "Home {p}October 26, 2026 {p}18:00" with dissolve
+    show text "Home {p}October 26, 2026 {p}3:00" with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -273,28 +278,52 @@ label genericsecondchat_path:
 
     n "I'm about to get into bed when my phone buzzes from my nightstand, the dating app's logo visible on the pop-up banner."
     play sound sfx_phone_vibrate
+
     n "I grab it to check the notification, realizing after that I may have moved a little {i}too{/i} quickly to check a dating app message sent at 3 o'clock in the morning."
 
     notif "You have a new message from [LIName]!"
-    li "I set my bag down for two seconds when I was leaving work and a trash panda stole my leftover mac (T.T)"
 
-    mc "No, not the macaroni! But also it's 3am, are you super sad about the macaroni or just can't sleep?"
+    window hide
+    scene expression ("images/phone/texts/%s.png" % LIFolder)
 
-    li "2 things can be true, I can be super sad about my macaroni while I'm also just leaving work lol"
+    $ Msgs = [
+    ["I set my bag down for two seconds when I was leaving work and a trash panda stole my leftover mac (T.T)",""],
+    ["","No, not the macaroni! But also it's 3am, are you super sad about the macaroni or just can't sleep?"],
+    ["2 things can be true, I can be super sad about my macaroni while I'm also just leaving work lol",""],
+    ["","At 3am!?!?"],
+    ["Yeah, I work nights. It's kinda nice being up when everyone else is asleep... It makes work pretty easy but the trade off is that I spend all day sleeping and am basically nocturnal.",""],
+    ["","So what I'm hearing is our first date should be a romantic night out, so you can stay awake for it?"],
+    ["I mean... i'm not upset at that idea ^_^",""]
+    ]
 
-    mc "At 3am!?!?"
+    $ counter = -1
+    $ end = len(Msgs) - 4
+    $ jumpto = "dateone_path"
 
-    li "Yeah, I work nights. It's kinda nice being up when everyone else is asleep... It makes work pretty easy but the trade off is that I spend all day sleeping and am basically nocturnal."
+    jump textConversation
 
-    mc "So what I'm hearing is our first date should be a romantic night out, so you can stay awake for it?"
+    #li "I set my bag down for two seconds when I was leaving work and a trash panda stole my leftover mac (T.T)"
 
-    li "I mean... i'm not upset at that idea ^_^"
-    jump dateone_path
+    #mc "No, not the macaroni! But also it's 3am, are you super sad about the macaroni or just can't sleep?"
+
+    #li "2 things can be true, I can be super sad about my macaroni while I'm also just leaving work lol"
+
+    #mc "At 3am!?!?"
+
+    #li "Yeah, I work nights. It's kinda nice being up when everyone else is asleep... It makes work pretty easy but the trade off is that I spend all day sleeping and am basically nocturnal."
+
+    #mc "So what I'm hearing is our first date should be a romantic night out, so you can stay awake for it?"
+
+    #li "I mean... i'm not upset at that idea ^_^"
+    #jump dateone_path
 
 label gamersecondchat_path:
+
+    window auto
+
     scene black with fade
     pause 0.5
-    show text "Home {p}October 26, 2026 {p}18:00" with dissolve
+    show text "Home {p}October 26, 2026 {p}3:00" with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -305,35 +334,83 @@ label gamersecondchat_path:
     n "I grab it to check the notification, realizing after that I may have moved a little {i}too{/i} quickly to check a dating app message sent at 3 o'clock in the morning."
 
     notif "You have a new message from [LIName]!"
+
+    window hide
+
+    scene expression ("images/phone/texts/%s.png" % LIFolder)
+
+    $ Msgs = [
+    ["hey hey heeeeyyyy! (:",""],
+    ["how are you? Did you keep playing?",""],
+    ["","Of course I did! And then I got stuck..."],
+    ["","This puzzle was taking me forever and then I blinked and it was 2am, like.....???"],
+    ["oh no :c yeah I heard it's a hard game. WE could maybe play it together soon, see if we can figure it out together XD",""],
+    ["actually, I'm off on the 31st owo",""],
+    ["Should we plan something?",""],
+    ["","You have Halloween off?!? Heck yeah!"],
+    ["","Why don't we go on that night walk we talked about? That would be like the perfect ending to Halloween =D"],
+    ["oh that's right, it actually is Halloween, isn't it? I take it you like it? Do you dress up?",""]
+    ]
+
+    $ counter = -1
+    $ end = len(Msgs) - 4
+    $ jumpto = "gamer_second_halloween_choice"
+
+    jump textConversation
     
-    li "hey hey heeeeyyyy! (:"
-    li "how are you? Did you keep playing?"
+    #li "hey hey heeeeyyyy! (:"
+    #li "how are you? Did you keep playing?"
 
-    mc "Of course I did! And then I got stuck..."
-    mc "This puzzle was taking me forever and then I blinked and it was 2am, like.....???"
+    #mc "Of course I did! And then I got stuck..."
+    #mc "This puzzle was taking me forever and then I blinked and it was 2am, like.....???"
 
-    li "oh no :c yeah I heard it's a hard game. WE could maybe play it together soon, see if we can figure it out together XD"
-    li "actually, I'm off on the 31st owo"
-    li "Should we plan something?"
+    #li "oh no :c yeah I heard it's a hard game. WE could maybe play it together soon, see if we can figure it out together XD"
+    #li "actually, I'm off on the 31st owo"
+    #li "Should we plan something?"
 
-    mc "You have Halloween off?!? Heck yeah!"
-    mc "Why don't we go on that night walk we talked about? That would be like the perfect ending to Halloween =D"
+    #mc "You have Halloween off?!? Heck yeah!"
+    #mc "Why don't we go on that night walk we talked about? That would be like the perfect ending to Halloween =D"
 
-    li "oh that's right, it actually is Halloween, isn't it? I take it you like it? Do you dress up?"
+    #li "oh that's right, it actually is Halloween, isn't it? I take it you like it? Do you dress up?"
+
+label gamer_second_halloween_choice:
+
+    window auto
 
     menu:
         "Are you kidding me? I love it! I'm always dressing up and planning next year's costume!":
             li "oh that's awesome! I love it too, i usually go to parties"
         "I think I  like it enough, but I prefer summer stuff more tbh!":
             li "haha its been a while since i've done things in the summer. imo winter is the best - unpopular opinion I know"
-        "┐(￣～￣)┌  I guess it's okay, some people do go crazy about it tho":
-            li "I know haha, but i'm a big believer in letting people like what they like ¯\_(ツ)_/¯ Halloween can be fun!"
+        "Meh, I guess it's okay, some people do go crazy about it tho":
+            li "I know haha, but i'm a big believer in letting people like what they like idk Halloween can be fun!"
 
-    li "but back to our super spooky nighttime walk plans! There's some nice spots around the area, but we can choose where to go when we get there?"
-    li "and maybe snacks? It's a good idea now but it'll be even better with snacks. Maybe some popcorn!!"
+    window hide
+    
+    $ Msgs = [
+    ["but back to our super spooky nighttime walk plans!",""],
+    ["There's some nice spots around the area, but we can choose where to go when we get there?",""],
+    ["and maybe snacks? It's a good idea now but it'll be even better with snacks. Maybe some popcorn!!",""],
+    ["","YAASS snacks make everything better!!"],
+    ["","I can bring something else too, make it a picnic!"]
+    ]
 
-    mc "YAASS snacks make everything better!!"
-    mc "I can bring something else too, make it a picnic!"
+    $ counter = -1
+    $ end = len(Msgs) - 4
+    $ jumpto = "gamer_second_snacks_choice"
+
+    jump textConversation
+
+    #li "but back to our super spooky nighttime walk plans! There's some nice spots around the area, but we can choose where to go when we get there?"
+    #li "and maybe snacks? It's a good idea now but it'll be even better with snacks. Maybe some popcorn!!"
+
+    #mc "YAASS snacks make everything better!!"
+    #mc "I can bring something else too, make it a picnic!"
+    
+
+label gamer_second_snacks_choice:
+
+    window auto
 
     menu:
         "Maybe some hot chocolate?":
@@ -344,18 +421,40 @@ label gamersecondchat_path:
         "Or maybe you're just satisfied with being in my company? uwu":
             li "hahah yes, yes absolutely, oh queen of England XD"
             mc "hey now hahahaha =P"
+    
+    window hide
 
-    li "amazing, I'm loving this plan already. can't wait to meet you"
-    mc "Me neither, I'm excited!"
-    mc "Don't forget to bring a jacket too, it's cold out there!"
-    li "awww look at you taking care of me already <3"
-    mc "heyyy  (ᗒᗣᗕ)՞"
-    mc "I can't have my date going hypothermic on me ... on a walk.... at night..."
-    mc "that's suspicious AF"
-    li "hahah fair"
-    li "now go, I've distracted you from your game long enough. Go forth and get those achievements, soldier!"
+    $ Msgs = [
+    ["amazing, I'm loving this plan already. can't wait to meet you",""],
+    ["","Me neither, I'm excited!"],
+    ["","Don't forget to bring a jacket too, it's cold out there!"],
+    ["awww look at you taking care of me already <3",""],
+    ["","heyyy!! :< "],
+    ["","I can't have my date going hypothermic on me ... on a walk.... at night..."],
+    ["","that's suspicious AF"],
+    ["hahah fair",""],
+    ["now go, I've distracted you from your game long enough. Go forth and get those achievements, soldier!",""]
+    ]
+
+    $ counter = -1
+    $ end = len(Msgs) - 4
+    $ jumpto = "dateone_path"
+
+    jump textConversation
+
+    #li "amazing, I'm loving this plan already. can't wait to meet you"
+    #mc "Me neither, I'm excited!"
+    #mc "Don't forget to bring a jacket too, it's cold out there!"
+    #li "awww look at you taking care of me already <3"
+    #mc "heyyy  (ᗒᗣᗕ)՞"
+    #mc "I can't have my date going hypothermic on me ... on a walk.... at night..."
+    #mc "that's suspicious AF"
+    #li "hahah fair"
+    #li "now go, I've distracted you from your game long enough. Go forth and get those achievements, soldier!"
 
 label dateone_path:
+
+    window auto
 
     scene black with fade
     pause 0.5
@@ -1149,6 +1248,8 @@ label vamp_path:
 
     hide LI
 
+    scene hill
+
     n "We've reached the top of the hill, and there's bit of a bank to get to the top, as if some of the path has been eroded away."
     n "[LIName] climbs up first, then offers me their hand to help me up."
 
@@ -1322,48 +1423,81 @@ label hospital_path:
 
 label acttwo_path:
 
+    window auto
+
     scene black with fade
     pause 0.5
     show text "Home {p}November 1, 2026 {p}11:35" with dissolve
     pause 2.5
     hide text with dissolve
     
-    scene apartmentday
+    scene expression ("images/phone/texts/%s.png" % LIFolder)
 
-    #text exchange
-    mc "How are you feeling?"
+    $ Msgs = [
+    ["","How are you feeling?"],
+    ["im okay. a bit sore but i guess that's normal after surviving a wild animal attack.",""],
+    ["","I suppose so. It seems like we got you looked after soon enough though, so hopefully it heals quickly!"],
+    ["yeah it does.",""],
+    ["","Are you sure you're okay?"],
+    ["ya... i did wanna ask tho, how are you feeling?",""],
+    ["","I'm okay, just worried about you."],
+    ["awww, thanks <3",""],
+    ["but I guess i mean more like...",""],
+    ["are you by any chance having any weird symptoms?",""],
+    ["Stomach upset, headaches...?",""],
+    ["","No... are you? It might just be the adrenaline crash after everything, maybe? Or maybe some of the food was off?"],
+    ["","Oh god if I gave you food poisoning too..."],
+    ["No! i'm sure it's just the adrenaline like you said :D",""],
+    ["i'm just tired, i feel a bit like my muscles are protesting a lot today",""],
+    ["And my head hurts but that makes sense after everything i guess",""],
+    ["","I think so too... but please don't ignore them if they don't get better, ok?"],
+    ["i wont' XD i'm not letting a silly bite ruin everything tho",""],
+    ["especially not a chance to see you again <3",""],
+    ["","Awww... are you asking me out on a second date?"],
+    ["if you're saying yes, then yes!",""],
+    ["but this time, maybe we do something indoors?",""]
+    ]
 
-    li "im okay. a bit sore but i guess that's normal after surviving a wild animal attack."
+    $ counter = -1
+    $ end = len(Msgs) - 4
+    $ jumpto = "acttwo_continue"
 
-    n "I roll my eyes and laugh as I read [LIName]'s message."
-    mc "I suppose so. It seems like we got you looked after soon enough though, so hopefully it heals quickly!"
+    jump textConversation
 
-    n "The typing notification appears and disappears a few times."
 
-    li "yeah it does."
+    #mc "How are you feeling?"
 
-    mc "Are you sure you're okay?"
+    #li "im okay. a bit sore but i guess that's normal after surviving a wild animal attack."
 
-    li "ya... i did wanna ask tho, how are you feeling?"
+    #n "I roll my eyes and laugh as I read [LIName]'s message."
+    #mc "I suppose so. It seems like we got you looked after soon enough though, so hopefully it heals quickly!"
 
-    mc "I'm okay, just worried about you."
+    #n "The typing notification appears and disappears a few times."
 
-    li "awww, thanks <3"
-    li "but I guess i mean more like... are you by any chance having any weird symptoms? Stomach upset, headaches...?"
+    #li "yeah it does."
 
-    mc "No... are you? It might just be the adrenaline crash after everything, maybe? Or maybe some of the food was off?"
-    mc "Oh god if I gave you food poisoning too..."
+    #mc "Are you sure you're okay?"
 
-    li "No! i'm sure it's just the adrenaline like you said :D i'm just tired, i feel a bit like my muscles are protesting a lot today, and my head hurts but that makes sense after everything i guess"
+    #li "ya... i did wanna ask tho, how are you feeling?"
 
-    mc "I think so too... but please don't ignore them if they don't get better, ok?"
+    #mc "I'm okay, just worried about you."
 
-    li "i wont' XD i'm not letting a silly bite ruin everything tho, especially not a chance to see you again if that's cool with you <3"
+    #li "awww, thanks <3"
+    #li "but I guess i mean more like... are you by any chance having any weird symptoms? Stomach upset, headaches...?"
 
-    mc "Awww... are you asking me out on a second date?"
+    #mc "No... are you? It might just be the adrenaline crash after everything, maybe? Or maybe some of the food was off?"
+    #mc "Oh god if I gave you food poisoning too..."
 
-    li "if you're saying yes, then yes!"
-    li "but this time, maybe we do something indoors?"
+    #li "No! i'm sure it's just the adrenaline like you said :D i'm just tired, i feel a bit like my muscles are protesting a lot today, and my head hurts but that makes sense after everything i guess"
+
+    #mc "I think so too... but please don't ignore them if they don't get better, ok?"
+
+    #li "i wont' XD i'm not letting a silly bite ruin everything tho, especially not a chance to see you again if that's cool with you <3"
+
+    #mc "Awww... are you asking me out on a second date?"
+
+    #li "if you're saying yes, then yes!"
+    #li "but this time, maybe we do something indoors?"
 
     n "I laugh as I read their text, and find myself nodding in agreement even though [LIName] can't see me."
 
@@ -1375,5 +1509,30 @@ label acttwo_path:
     n "[LIName] bleeding in the park. My own view of my hands trying to help check over their wound."
     n "Their blood on my hands, directly over where the cut now sits."
     n "I can't remember getting it, but it looks recent enough that I can't convince myself that the black hole of anxiety that has bloomed in my gut is unwarranted."
+
+label acttwo_continue:
+
+    window auto
+
+    scene black with fade
+    pause 0.5
+    show text "Home {p}November 1, 2026 {p}11:35" with dissolve
+    pause 2.5
+    hide text with dissolve
+    
+    #FOR PHONE MESSAGES TEMPLATE:
+    #scene expression ("images/phone/texts/%s.png" % LIFolder)
+
+    #$ Msgs = [["","MC DIALOGUE HERE"],
+    #["LI DIALOGUE HERE",""]
+    #]
+
+    #$ counter = -1
+    #$ end = len(Msgs) - 4
+    #$ jumpto = "NEW SCENE"
+
+    #jump textConversation
+
+
   
 return
