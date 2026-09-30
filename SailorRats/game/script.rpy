@@ -48,7 +48,7 @@ label start:
     play music haunted_bg fadein 2.0
     scene frame with fade
     pause 0.5 
-    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 19, 2026{/size}\n{size=32}19:30{/size}{/color}" at truecenter with dissolve
+    show text "{color=#fff3dc}{size=64}Home{/size}\n\n{size=40}October 22, 2026{/size}\n{size=32}18:30{/size}{/color}" at truecenter with dissolve
     pause 2.5
     hide text with dissolve
 
@@ -104,6 +104,9 @@ label startDate1:
 
         "Do you actually play all those games or just collect them?":
             jump gamer_path
+
+        "SUPER important question, before anything: If you were a dragon, what would you hoard?":
+            jump dragon_path
 
 
 label generic_path:
@@ -182,23 +185,6 @@ label gamer_choice:
 
     jump textConversation
     
-    #li "Anyway, what are you up to today?"
-
-    #mc "Not much, I'm trying to pick something to play!! I'm between Silksong and Blue Prince..."
-    #mc "I think its gonna be Blue Prince."
-
-    #li "oh nice! that's an awesome game"
-    #li "Should I leave you to it? :D"
-
-    #mc "What? Of course not! It's a puzzle game haha you gotta help me!"
-
-    #li "maybe we could play it together sometime! I dont want to distract you now haha"
-
-    #mc "But... you are a good distraction uwu"
-
-    #li "haha you are cute uwu"
-    #li "we should definitely do that!" 
-    #li "What else do you do for fun?"
 
 label gamer_hobbies:
 
@@ -237,18 +223,119 @@ label gamer_hobbies:
 
     jump textConversation
 
-    #mc "oh yeah?  that sounds like fun actually!"
-    #mc "I think we will get along pretty well haha"
+#####
 
-    #li "yeah i think so too..."
-    #li "we should hangout some time soon!! uwu"    
+label dragon_path:
 
-    #mc "I would really like that uwu - okay! I gotta go now, I've got work in the morning, but chat later?"
+    window hide
+    scene expression ("images/phone/texts/%s.png" % LIFolder)
 
-    #li "Absolutely! Night!" 
+    $ Msgs = [["","Your answer could maybe save the world"],
+    ["wow, no hello?",""],
+    ["no how's it going? xd",""],
+    ["Straight right to assesing my dragonsona??? who hurt you...",""],
+    ["","Hahaha, this is CRUCIAL information!! :3"],
+    ["Okay, okay give me a second...",""],
+    ["Oof! maybe dice! an insane amount of dice",""],
+    ["Shiny ones, weird liquid filled ones, there's even ones that have candy inside!",""],
+    ["What about you? What would you hoard?",""]
+    ]
+
+    $ counter = -1
+    $ end = len(Msgs) -4
+    $jumpto = "dragon_choice"
+
+    jump textConversation
+
+
+label dragon_choice:
+
+    window auto
+
+    menu:
+        "GAMES AND GAME STUFF! Like the master sword or a minecraft lamp...":
+            mc "And of course, all the games that come with loving things like that lmao"
+            mc "I want my whole apartment full of game vibes <3"
+            li "Oh damn, that actually sounds amazing! I'd love to have the new OoT collector's edition T.T"
+
+        "Tiny thingys I find emotionally significant for no reason at all :3":
+            mc "I really love collecting things like records, comics, statues... sometimes shoes xd"
+            li "Aww that is actually adorable :3"
+            li "Kinda like a crow-dragon haha xd"
+        
+        "What else!? Gold of course!":
+            mc "Why complicate perfection? Dragons already like it for a reason xd"
+            mc "Think about my investments and shared portfolio!! haha"
+            li "I suppose with the way things are, having a safe investment is the best way to dragon XD"
     
-    jump gamersecondchat_path
+    window hide
 
+    $ Msgs = [["Okay but if we're talking dragons now I have to ask...",""],
+    ["Do you play DnD?",""],
+    ["","A little, but I prefer other kinds of TTRPGs!"],
+    ["","I think Vampire The Mascarade is really cool!"],
+    ["","But character creation is my nemesis, lmao xd I take forever..."],
+    ["REAL!! Who would have thought that would be the final boss haha",""],
+    ["this is also why I can't play Baldur's Gate!!",""],
+    ["I go and create a new character, take forever doing that and then",""],
+    ["play the game for like an hour before creating another xD",""],
+    ["","Hahaha oh if only we didn't have free will xDD"],
+    ["What about you? Do you actually play after making the character?",""]
+
+    ]
+
+    $ counter = -1
+    $ end = len(Msgs) -4
+    $jumpto = "dragon_hobbies"
+
+    jump textConversation
+    
+
+label dragon_hobbies:
+
+    window auto
+
+    menu:
+        "I don't ever play the games, I just create characters!":
+            mc "Sims, BG3, Monster Hunter... I live in the character creator mode haha"
+            li "ikr!!?? Cyberpunk too has a very cool one!!"
+            li "sad they decided to make it ONLY a FPS hahah"
+
+        "I like having different stories and just a few characters":
+            mc "I like to see the different parts of what the game can be..."
+            mc "but I do spend more time in the game but with different characters"
+            li "That's fair! Baldur's Gate is huge so I totally get it"
+
+        "I can just do one character and play the game forever":
+            mc "And I guess once I have over 400 hrs I don't wanna create a new one haha"
+            li "yeah no that's totally fair xd"
+
+    window hide
+
+    $ Msgs = [
+    
+    ["so what are you actually playing right now?",""],
+    ["","I'm trying to choose what to start next... a puzzle game maybe?"],
+    ["oooohhh... do you like chill puzzles? Or like wrecking brain puzzles? xd",""],
+    ["","Mmmm... I'm gonna say the second!"],
+    ["","But I'm insanely bad at them, ngl xd I need so much help and hints haha"],
+    ["Nothing like a game insulting you for hours to feel alive haha",""],
+    ["Puzzles are generally better with someone else anyway!",""],
+    ["","So are you saying you are gonna help me? owo"],
+    ["Totally! Maybe we can play together sometime c:",""],
+    ["I have to get ready for work now tho... talk later?",""],
+    ["","Absolutely! Good luck at work :3"]
+
+    ]
+
+    $ counter = -1
+    $ end = len(Msgs) - 4
+    $ jumpto = "gamersecondchat_path"
+
+    jump textConversation
+
+
+########
     
 label genericsecondchat_path:
 
@@ -293,20 +380,6 @@ label genericsecondchat_path:
 
     jump textConversation
 
-    #li "I set my bag down for two seconds when I was leaving work and a trash panda stole my leftover mac (T.T)"
-
-    #mc "No, not the macaroni! But also it's 3am, are you super sad about the macaroni or just can't sleep?"
-
-    #li "2 things can be true, I can be super sad about my macaroni while I'm also just leaving work lol"
-
-    #mc "At 3am!?!?"
-
-    #li "Yeah, I work nights. It's kinda nice being up when everyone else is asleep... It makes work pretty easy but the trade off is that I spend all day sleeping and am basically nocturnal."
-
-    #mc "So what I'm hearing is our first date should be a romantic night out, so you can stay awake for it?"
-
-    #li "I mean... i'm not upset at that idea ^_^"
-    #jump dateone_path
 
 label gamersecondchat_path:
 
